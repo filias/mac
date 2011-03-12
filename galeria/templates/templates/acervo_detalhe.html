@@ -1,0 +1,63 @@
+{% extends "artistas/templates/artistas.html" %}
+{% load i18n %}
+
+{% block sections %}
+	{% if obra %}
+		<div class="section">
+                <h1><a href="/mac">MAC</a> - <a href="/mac/acervo">{% trans "acervo" %}</a> - {{ obra.autor.nome }} - {{ obra.titulo }}</h1>
+                
+                <table >
+                    <tr>
+                        <td  valign="top">
+                            <a href="/site-media/{{ obra.foto.image }}" target="blank"><img src="/site-media/{{ obra.foto.thumbnail}}" border=0/></a>
+                        </td>
+                    
+                        <td  valign="top">
+                            <p><b>{{ obra.titulo }} ({{ obra.ano }})</b></p>
+                            
+                            <p><b>Tipo: </b>{{ obra.tipo }}</p>
+                                
+                            {% if obra.descricao %}
+                                <!--<i>Obra em {{ obra.estado }}</i>-->
+                                <p><b>Descrição: </b>{{ obra.descricao }}</p>
+                            {% endif %}
+                            
+                            {% if obra.altura %}
+                                <p><b>Dimensões: </b>
+                                {{ obra.altura }} cm x {{ obra.largura }} cm
+                                {% if obra.profundidade %}
+                                    x {{ obra.profundidade }} cm
+                                {% endif %}
+                                </p>
+                            {% endif %}
+                            
+                            {% if materiais %}
+                                <p><b>Materiais: </b>
+                                {% for material in materiais %}
+                                    {% if forloop.last %}
+                                        {{ material }}
+                                    {% else %}
+                                        {{ material }}, 
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            
+                            {% if tecnicas %}
+                                <p><b>Técnicas: </b>
+                                {% for tecnica in tecnicas %}
+                                    {% if forloop.last %}
+                                        {{ tecnica }}
+                                    {% else %}
+                                        {{ tecnica }}, 
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+    </div>
+	{% endif %}
+
+{% endblock %}
+
+

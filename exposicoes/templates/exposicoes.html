@@ -1,0 +1,22 @@
+{% extends "templates/base.html" %}
+#{% load i18n %}
+
+
+{% block sections %}
+	<div class="section">
+           
+           <h1><a href="/exposicoes/actuais">{% trans "exposições" %}</a> {% block subsection %}{% endblock %}</h1>
+		    
+	{% if exposicoes %}
+		{% for exposicao in exposicoes %}
+		    <h4><a href="/exposicoes/{{ exposicao.id }}">{{ exposicao.titulo }} | {{ exposicao.data_inicio|date:"j F" }} - {{ exposicao.data_fim|date:"j F Y" }}</a></h4>
+            <p></p>
+        {% endfor %}
+    </div>
+        
+	{% else %}
+		    <p>Não há exposições.</p>
+	    </div>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+    <div class="section">
+
+        <h1><a href="/exposicoes/actuais">{% trans "exposições" %}</a>  - {% trans "passadas" %}</h1>
+
+    {% if anos %}
+        
+        <table>
+        {% for linha in anos %}
+            <tr>
+            {% for ano in linha %}
+                <td style="padding:0 40px 0 0;" valign="bottom">
+                <h4><a href="/exposicoes/passadas/{{ ano }}">{{ ano }}</a></h4>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        </table>
+	
+    {% else %}
+        <p>Não há exposições passadas.</p>
+    {% endif %}
+    </div>
+
+{% endblock %}
+

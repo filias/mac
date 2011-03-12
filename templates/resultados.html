@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+	
+	<div class="section">
+
+        <h1>{% trans "resultados" %}</h1>
+
+            <div id="cse-search-results" style="width:100%;"></div>
+                <script type="text/javascript">
+                  var googleSearchIframeName = "cse-search-results";
+                  var googleSearchFormName = "cse-search-box";
+                  var googleSearchFrameWidth = 400;
+                  var googleSearchDomain = "www.google.com";
+                  var googleSearchPath = "/cse";
+                </script>
+                <script type="text/javascript" src="http://www.google.com/afsonline/show_afs_search.js"></script>
+                
+                <style>
+                 #cse-search-results iframe{
+                    width:100% !important;
+                 }
+                </style>
+    </div>
+	
+{% endblock %}
+

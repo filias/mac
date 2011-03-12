@@ -1,0 +1,47 @@
+{% extends "artistas/templates/artistas.html" %}
+{% load i18n %}
+
+{% block sections %}
+	{% if artista %}
+		<div class="section">
+                <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "obra" %}</h1>
+                
+                {% if obras %}
+                
+             <div class="obras">
+           
+                {% for obra in obras %}
+               
+                    {% if obra.foto %}
+					
+					<div class="obra">
+						<div class="obra-holder">
+{% comment %}
+                            <a class="lightbox" href="/artistas/{{ artista.id }}/obras/{{ obra.id }}" title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}">
+                                <img src="/site-media/{{ obra.foto.thumbnail}}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}" 
+					title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
+                            </a>
+{% endcomment %}
+
+			<a class="lightbox" href="/site-media/{{ obra.foto.thumbnail }}" title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}">
+                                <img src="/site-media/{{ obra.foto.thumbnail }}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"
+                                        title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
+                            </a>
+
+                    	</div>
+					</div>
+					
+                    {% endif %}
+                   
+                        
+                {% endfor %}
+            </div>
+            
+            {% endif %}
+            
+        </div>
+	{% endif %}
+
+{% endblock %}
+
+

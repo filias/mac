@@ -1,0 +1,491 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-10 21:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: artistas/models.py:36
+msgid "Artista"
+msgstr "Artist"
+
+#: artistas/models.py:37 exposicoes/templates/exposicoes_detalhe.html:69
+msgid "Artistas"
+msgstr "Artists"
+
+#: artistas/models.py:59 artistas/templates/artistas_detalhe.html:21
+msgid "Obra"
+msgstr "Work"
+
+#: artistas/models.py:60 exposicoes/templates/exposicoes_detalhe.html:41
+msgid "Obras"
+msgstr "Works"
+
+#: artistas/templates/artistas.html:7
+#: artistas/templates/artistas_acervo.html:7
+#: artistas/templates/artistas_ceramica.html:4
+#: artistas/templates/artistas_critica.html:7
+#: artistas/templates/artistas_desenho.html:4
+#: artistas/templates/artistas_detalhe.html:7
+#: artistas/templates/artistas_escultura.html:4
+#: artistas/templates/artistas_exposicoes.html:7
+#: artistas/templates/artistas_fotografia.html:4
+#: artistas/templates/artistas_imprensa.html:7
+#: artistas/templates/artistas_joalharia.html:4
+#: artistas/templates/artistas_medalhistica.html:4
+#: artistas/templates/artistas_obras.html:7
+#: artistas/templates/artistas_pintura.html:4
+#: artistas/templates/obra_detalhe.html:8 templates/base.html:177
+#: templates/mapa.html:59
+msgid "artistas"
+msgstr "artists"
+
+#: artistas/templates/artistas.html:33
+msgid "Artista em exposição"
+msgstr "In exhibition"
+
+#: artistas/templates/artistas.html:39
+msgid "Não há artistas"
+msgstr "No artists"
+
+#: artistas/templates/artistas_acervo.html:7
+msgid "Acervo"
+msgstr "Collection"
+
+#: artistas/templates/artistas_ceramica.html:4 templates/base.html:179
+#: templates/mapa.html:61
+msgid "cerâmica"
+msgstr "ceramics"
+
+#: artistas/templates/artistas_desenho.html:4 templates/base.html:180
+#: templates/mapa.html:62
+msgid "desenho"
+msgstr "drawing"
+
+#: artistas/templates/artistas_detalhe.html:17
+msgid "Curriculum"
+msgstr ""
+
+#: artistas/templates/artistas_detalhe.html:25
+msgid "Crítica"
+msgstr "Critics"
+
+#: artistas/templates/artistas_detalhe.html:29
+#: publicacoes/templates/publicacoes.html:42
+msgid "Imprensa"
+msgstr "Press"
+
+#: artistas/templates/artistas_detalhe.html:33
+msgid "Expo MAC"
+msgstr "MAC Exhibitions"
+
+#: artistas/templates/artistas_detalhe.html:37
+msgid "Acervo MAC"
+msgstr "MAC Collection"
+
+#: artistas/templates/artistas_escultura.html:4 templates/base.html:181
+#: templates/mapa.html:63
+msgid "escultura"
+msgstr "sculpture"
+
+#: artistas/templates/artistas_exposicoes.html:7
+#: exposicoes/templates/exposicoes.html:8
+#: exposicoes/templates/exposicoes_detalhe.html:10
+#: exposicoes/templates/exposicoes_obras.html:8
+#: exposicoes/templates/exposicoes_passadas.html:7
+#: exposicoes/templates/obra_detalhe.html:8 templates/base.html:168
+#: templates/mapa.html:47
+msgid "exposições"
+msgstr "exhibitions"
+
+#: artistas/templates/artistas_fotografia.html:4 templates/base.html:182
+#: templates/mapa.html:64
+msgid "fotografia"
+msgstr "photography"
+
+#: artistas/templates/artistas_imprensa.html:7
+#: publicacoes/templates/publicacoes_imprensa.html:4 templates/base.html:196
+#: templates/mapa.html:81
+msgid "imprensa"
+msgstr "press"
+
+#: artistas/templates/artistas_joalharia.html:4 templates/base.html:183
+#: templates/mapa.html:65
+msgid "joalharia"
+msgstr "jewelery"
+
+#: artistas/templates/artistas_medalhistica.html:4 templates/base.html:184
+#: templates/mapa.html:66
+msgid "medalhística"
+msgstr "medals"
+
+#: artistas/templates/artistas_obras.html:7
+#: artistas/templates/obra_detalhe.html:8
+msgid "obra"
+msgstr "work"
+
+#: artistas/templates/artistas_pintura.html:4 templates/base.html:185
+#: templates/mapa.html:67
+msgid "pintura"
+msgstr "painting"
+
+#: artistas/templates/obra_detalhe.html:23
+#: exposicoes/templates/obra_detalhe.html:37
+#: galeria/templates/acervo_detalhe.html:22 galeria/templates/trofeu.html:23
+msgid "Descrição"
+msgstr "Description"
+
+#: artistas/templates/obra_detalhe.html:27
+#: exposicoes/templates/obra_detalhe.html:41
+#: galeria/templates/acervo_detalhe.html:26 galeria/templates/trofeu.html:27
+msgid "Dimensões"
+msgstr "Dimensions"
+
+#: artistas/templates/obra_detalhe.html:36
+#: exposicoes/templates/obra_detalhe.html:50
+#: galeria/templates/acervo_detalhe.html:35 galeria/templates/trofeu.html:36
+#: geral/models.py:47
+msgid "Materiais"
+msgstr "Materials"
+
+#: artistas/templates/obra_detalhe.html:47
+#: exposicoes/templates/obra_detalhe.html:61
+#: galeria/templates/acervo_detalhe.html:46 galeria/templates/trofeu.html:47
+msgid "Técnicas"
+msgstr "Techniques"
+
+#: contactos/templates/contacte_nos.html:7
+#: contactos/templates/contactos.html:8
+#: contactos/templates/contactos_sucesso.html:6 templates/base.html:204
+#: templates/mapa.html:87
+msgid "contactos"
+msgstr "contact"
+
+#: contactos/templates/contacte_nos.html:7
+#: exposicoes/templates/exposicoes_detalhe.html:108
+#: galeria/templates/galeria_acervo.html:27
+msgid "contacte-nos"
+msgstr "contact us"
+
+#: contactos/templates/contacte_nos.html:11
+msgid "Assunto"
+msgstr "Subject"
+
+#: contactos/templates/contacte_nos.html:16
+msgid "Mensagem"
+msgstr "Message"
+
+#: contactos/templates/contacte_nos.html:22
+msgid "O seu email"
+msgstr "Your email"
+
+#: contactos/templates/contactos.html:16
+msgid "Morada"
+msgstr "Address"
+
+#: contactos/templates/contactos.html:17 galeria/templates/galeria.html:15
+msgid "Mapa"
+msgstr "Map"
+
+#: contactos/templates/contactos.html:18 galeria/templates/galeria.html:34
+msgid "Telefone"
+msgstr "Phone"
+
+#: contactos/templates/contactos.html:19
+msgid "Email"
+msgstr ""
+
+#: contactos/templates/contactos.html:20
+msgid "Horário"
+msgstr "Opening Time"
+
+#: contactos/templates/contactos_sucesso.html:6
+msgid "obrigado"
+msgstr "thank you"
+
+#: contactos/templates/contactos_sucesso.html:8
+msgid "Muito obrigado pelo seu contacto"
+msgstr "Thank you very much for your message"
+
+#: exposicoes/models.py:49
+#, fuzzy
+msgid "Exposicao"
+msgstr "Exhibition"
+
+#: exposicoes/models.py:50
+#, fuzzy
+msgid "Exposicoes"
+msgstr "Exhibitions"
+
+#: exposicoes/templates/exposicoes_actuais.html:4 templates/base.html:171
+#: templates/mapa.html:50
+msgid "actuais"
+msgstr "current"
+
+#: exposicoes/templates/exposicoes_detalhe.html:45
+msgid "Press Release"
+msgstr ""
+
+#: exposicoes/templates/exposicoes_detalhe.html:49
+#: galeria/templates/premios_detalhe.html:20
+msgid "Convite"
+msgstr "Invitation"
+
+#: exposicoes/templates/exposicoes_detalhe.html:53
+#: galeria/templates/premios_detalhe.html:24
+msgid "Catálogo"
+msgstr "Catalog"
+
+#: exposicoes/templates/exposicoes_detalhe.html:64
+msgid "Galerias"
+msgstr "Galleries"
+
+#: exposicoes/templates/exposicoes_detalhe.html:108
+#: galeria/templates/galeria_acervo.html:27
+msgid "Informações de PVP (preço de venda ao público)"
+msgstr "For price informations"
+
+#: exposicoes/templates/exposicoes_futuras.html:4 templates/base.html:172
+#: templates/mapa.html:51
+msgid "futuras"
+msgstr "future"
+
+#: exposicoes/templates/exposicoes_passadas.html:7
+#: exposicoes/templates/exposicoes_passadas_ano.html:4 templates/base.html:170
+#: templates/mapa.html:49
+msgid "passadas"
+msgstr "past"
+
+#: exposicoes/templates/obra_detalhe.html:19
+msgid "obras"
+msgstr "works"
+
+#: galeria/templates/acervo_detalhe.html:7
+#: galeria/templates/galeria_acervo.html:8
+#: galeria/templates/galeria_acervo_artista.html:8 templates/base.html:163
+#: templates/mapa.html:38
+msgid "acervo"
+msgstr "collection"
+
+#: galeria/templates/acervo_detalhe.html:18
+msgid "Tipo"
+msgstr ""
+
+#: galeria/templates/galeria.html:7 templates/base.html:158
+#: templates/mapa.html:32
+msgid "galerias"
+msgstr "galleries"
+
+#: galeria/templates/galeria_agenda.html:8 templates/base.html:159
+#: templates/mapa.html:34
+msgid "agenda"
+msgstr ""
+
+#: galeria/templates/galeria_curriculum.html:8
+#: galeria/templates/galeria_curriculum_anos.html:8 templates/base.html:160
+#: templates/mapa.html:35
+msgid "curriculum"
+msgstr ""
+
+#: galeria/templates/galeria_equipa.html:8 templates/base.html:161
+#: templates/mapa.html:36
+msgid "estrutura"
+msgstr "departments"
+
+#: galeria/templates/galeria_historia.html:8 templates/base.html:157
+#: templates/mapa.html:31
+msgid "história"
+msgstr "history"
+
+#: galeria/templates/galeria_missao.html:8 templates/base.html:156
+#: templates/mapa.html:30
+msgid "missão"
+msgstr "mission"
+
+#: galeria/templates/galeria_premios.html:8 galeria/templates/premiados.html:8
+#: galeria/templates/premios_detalhe.html:8 galeria/templates/trofeu.html:7
+#: templates/base.html:162 templates/mapa.html:37
+msgid "prémios MAC"
+msgstr "MAC awards"
+
+#: galeria/templates/galeria_visita.html:7
+msgid "visita virtual"
+msgstr "virtual visit"
+
+#: galeria/templates/premiados.html:9
+msgid "premiados"
+msgstr "awardees"
+
+#: galeria/templates/premiados.html:33
+msgid "Premiado"
+msgstr "Awardee"
+
+#: galeria/templates/premios_detalhe.html:28
+msgid "Premiados"
+msgstr "Awardees"
+
+#: geral/models.py:35
+#, fuzzy
+msgid "Tecnica"
+msgstr "Techniques"
+
+#: geral/models.py:36
+#, fuzzy
+msgid "Tecnicas"
+msgstr "Techniques"
+
+#: geral/models.py:46
+#, fuzzy
+msgid "Material"
+msgstr "Materials"
+
+#: publicacoes/models.py:34
+msgid "Publicacao"
+msgstr ""
+
+#: publicacoes/models.py:35
+#, fuzzy
+msgid "Publicacoes"
+msgstr "publications"
+
+#: publicacoes/templates/publicacoes.html:8
+#: publicacoes/templates/publicacoes_base.html:8
+#: publicacoes/templates/publicacoes_catalogos.html:4
+#: publicacoes/templates/publicacoes_criticas.html:4
+#: publicacoes/templates/publicacoes_detalhe.html:7
+#: publicacoes/templates/publicacoes_imprensa.html:4
+#: publicacoes/templates/publicacoes_monografias.html:4
+#: publicacoes/templates/publicacoes_newsletters.html:4
+#: templates/base.html:191 templates/mapa.html:77
+msgid "publicações"
+msgstr "publications"
+
+#: publicacoes/templates/publicacoes.html:14
+msgid "Catálogos"
+msgstr "Catalogs"
+
+#: publicacoes/templates/publicacoes.html:27
+msgid "Críticas"
+msgstr "Critics"
+
+#: publicacoes/templates/publicacoes.html:55
+msgid "Monografias"
+msgstr "Monography"
+
+#: publicacoes/templates/publicacoes.html:67
+msgid "Newsletters"
+msgstr ""
+
+#: publicacoes/templates/publicacoes_base.html:32
+msgid "Não há publicações"
+msgstr "There are no publications"
+
+#: publicacoes/templates/publicacoes_catalogos.html:4 templates/base.html:194
+#: templates/mapa.html:79
+msgid "catálogos"
+msgstr "catalogs"
+
+#: publicacoes/templates/publicacoes_criticas.html:4 templates/base.html:195
+#: templates/mapa.html:80
+msgid "crítica"
+msgstr "critics"
+
+#: publicacoes/templates/publicacoes_detalhe.html:10
+msgid "Autor"
+msgstr "Author"
+
+#: publicacoes/templates/publicacoes_detalhe.html:14
+msgid "Data"
+msgstr "Date"
+
+#: publicacoes/templates/publicacoes_detalhe.html:20
+msgid "Download"
+msgstr ""
+
+#: publicacoes/templates/publicacoes_monografias.html:4
+#: templates/base.html:197 templates/mapa.html:82
+msgid "monografias"
+msgstr "monographies"
+
+#: publicacoes/templates/publicacoes_newsletters.html:4
+#: templates/base.html:198
+msgid "newsletters"
+msgstr ""
+
+#: templates/arte.html:8
+msgid "arte e decoração"
+msgstr "art and deco"
+
+#: templates/base.html:154
+msgid "MAC"
+msgstr ""
+
+#: templates/base.html:193 templates/mapa.html:83
+msgid "newsletter"
+msgstr ""
+
+#: templates/base.html:208 templates/mapa.html:90
+msgid "links"
+msgstr ""
+
+#: templates/base.html:212
+msgid "Mapa do site"
+msgstr "Sitemap"
+
+#: templates/base.html:223
+msgid "Pesquisar"
+msgstr "Search"
+
+#: templates/index.html:8
+msgid "Destaques"
+msgstr "News"
+
+#: templates/mapa.html:21
+msgid "mapa do site"
+msgstr "sitemap"
+
+#: templates/resultados.html:8
+msgid "resultados"
+msgstr "results"
+
+#: templates/servicos.html:7
+msgid "serviços"
+msgstr "services"
+
+#~ msgid "troféus"
+#~ msgstr "trophies"
+
+#~ msgid "Cc para si"
+#~ msgstr "Cc to you"
+
+#~ msgid "programa"
+#~ msgstr "program"
+
+#~ msgid "fotos"
+#~ msgstr "photos"
+
+#~ msgid "todas"
+#~ msgstr "all"
+
+#~ msgid "projecto"
+#~ msgstr "project"
+
+#~ msgid "objectivos"
+#~ msgstr "goals"
+
+#~ msgid "curadoria/comissariado"
+#~ msgstr "curatorship"
+
+#~ msgid "mesas redondas"
+#~ msgstr "round table"

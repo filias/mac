@@ -1,0 +1,121 @@
+{% extends "exposicoes/templates/exposicoes.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+    {% if exposicao %}
+
+        <div class="section">
+            
+            <h1><a href="/exposicoes/actuais">{% trans "exposições" %}</a> - 
+                {% if exposicao.artistas.all|length_is:"1" %}
+                    {% for artista in exposicao.artistas.all %}
+                        {% if forloop.first %}
+                            <a href="/artistas/{{ artista.id }}">{{ artista }}</a> 
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <a href="/mac/galerias">MAC</a> 
+                {% endif %}
+                - "{{ exposicao.titulo }}"</h1>
+                
+            <table class="section-table">
+                    <tr>
+                        <td valign="top" class="section-left">
+                        
+                        {%  if exposicao.obras.all %}
+                            {% for obra in exposicao.obras.all %}
+                                {% if forloop.first %}
+				    {% if obra.foto %}
+                                    	<a href="/exposicoes/{{ exposicao.id }}/obras" target="blank">
+                                        	<img src="/site-media/{{ obra.foto.thumbnail}}" border=0/>
+                                    	</a>
+				    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            <img src="/site-media/fotos/mac1_01.jpg" width="140" border=0/>
+                        {% endif %}
+                        
+                        {% if obras %}
+                            <h4><a href="/exposicoes/{{ exposicao.id }}/obras">{% trans "Obras" %}</a></h4>
+                        {% endif %}
+
+                        {% if exposicao.press_release %}
+                            <h4><a href="/site-media/{{ exposicao.press_release }}">{% trans "Press Release" %}</a></h4>
+                        {% endif %}
+
+                        {% if exposicao.convite %}
+                            <h4><a href="/site-media/{{ exposicao.convite }}">{% trans "Convite" %}</a></h4>
+                        {% endif %}
+
+                        {% if exposicao.catalogo_id %}
+                            <h4><a href="/site-media/{{ exposicao.catalogo.ficheiro }}">{% trans "Catálogo" %}</a></h4>
+                        {% endif %}
+                        
+                        </td>
+                        
+                        <td valign="top" class="section-right">
+
+                            <p><i>{{ exposicao.data_inicio|date:"j F" }} - {{ exposicao.data_fim|date:"j F Y" }}</i></p>
+
+                            {% if galerias %}
+                              {% for galeria in galerias %}
+                                  <p><b>{% trans "Galerias" %}: </b><a href="/mac/galerias">{{ galeria }}</a></p>
+                              {% endfor %}
+                            {% endif %}
+
+                            {% if artistas %}
+                                <p><b>{% trans "Artistas" %}: </b>
+                                {% for artista in artistas %}
+                                    {% if forloop.last %}
+                                        <a href="/artistas/{{ artista.id }}">{{ artista }}</a>
+                                    {% else %}
+                                        <a href="/artistas/{{ artista.id }}">{{ artista }}, </a>
+                                    {% endif %}
+                                {% endfor %}
+                                </p>
+                            {% endif %}
+
+			    {% ifequal LANGUAGE_CODE 'en' %}
+			        <p>{{ exposicao.descricao_en }}</p>
+			    {% else %}
+                                <p>{{ exposicao.descricao }}</p>
+			    {% endifequal %}
+                    
+                            {% if fotos %}
+                                <div class="obras">
+                                {% for foto in fotos %}
+                                    <div class="obra" style="border:none; margin:10px 10px 0 0;">
+                                        <div class="obra-holder">
+                                            <a href="/site-media/{{ foto.image }}">
+                                                <img src="/site-media/{{ foto.thumbnail }}" target="blank"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                    
+                    {% if actual %}
+                        <tr>
+                            <td colspan="2" valign="bottom" height="40px">
+                                <p></p>
+				{% ifequal LANGUAGE_CODE 'en' %}
+			          <p>{% trans "Informações de PVP (preço de venda ao público)" %} <a href="/contactos">{% trans "contacte-nos" %}</a></p>
+			        {% else %}
+                                  <p>Informações de PVP (preço de venda ao público) <a href="/contactos">contacte-nos</a></p>
+			        {% endifequal %}
+                                
+                            </td>
+                        </tr>
+                    {% endif %}
+                
+                </table>
+        </div>
+    {% endif %}
+
+{% endblock %}

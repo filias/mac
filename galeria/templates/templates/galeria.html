@@ -1,0 +1,46 @@
+{% extends "templates/index.html" %}
+{% load i18n %}
+
+{% block sections %}
+    <div class="section">
+    
+        <h1><a href="/mac">MAC</a> - {% trans "galerias" %} </h1>
+	
+        {% if galerias %}
+	<table style="border:solid 1px white;border-collapse:collapse;">
+            <tr>
+            {% for galeria in galerias %}
+		<td style="border:dotted 0.5px #ccc;padding:0 10px">
+
+		<h2>MAC - {{ galeria.rua }} <span style="font-weight:normal;"><a href="{{galeria.mapa}}" target="blank">- {% trans "Mapa" %}</a></span></h2>
+
+
+                <div class="obras">
+                    {% for foto in galeria.fotos.all %}
+                        <div class="obra" style="border:none; margin:6px 6px 0 0;">
+                            <div class="obra-holder">
+                                <a href="/site-media/{{ foto.image }}">
+                                    <img src="/site-media/{{ foto.thumbnail }}" border="0" alt="{{ galeria.nome }}" title="{{ galeria.nome }}"/>
+                                </a>
+                            </div>
+                        </div>
+                {% endfor %}
+                
+                </div>
+            
+                <div style="clear:both;">
+                </div>
+                
+                  <p><b>{% trans "Telefone" %}:</b> {{ galeria.telefone }}</p></a>                
+                </td>
+            {% endfor %}
+	  </tr>
+	</table>
+            
+        {% else %}
+            <p>Não há galerias.</p>
+        {% endif %}
+        </div>
+
+{% endblock %}
+

@@ -1,0 +1,37 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+{% load tags %}
+
+{% block sections %}
+
+    <div class="section">
+        <h1>{% block subsection %}{% trans "publicações" %} {% endblock %}</h1>
+    
+    {% block abc %}
+    {% endblock %}  
+        
+    {% if publicacoes %}
+	{% for publicacao in publicacoes %}
+
+                <h4><a href="/site-media/{{ publicacao.ficheiro }}">
+	                {{ publicacao.artista.nome }} - 
+
+        	        {% ifequal publicacao.tipo 'Critica'%}{{ publicacao.titulo }}
+                	{% else %}"{{ publicacao.titulo }}" 
+			{% endifequal %}
+			{% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
+			{% if publicacao.data %} | {{ publicacao.data }}{% endif %}
+
+                </a></h4>
+
+                <p></p>
+
+        {% endfor %}
+
+    {% else %}
+        {% trans 'Não há publicações' %}
+    {% endif %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+    <div class="section">
+    
+        <h1>Links</h1>
+        
+        {% if links_list %}
+            <table>
+            {% for link in links_list %}
+                <tr>
+                    <td valign="top"><br /><a href={{ link.url }} ><h4>{{ link.nome }}</h4></a>
+                        <a href={{ link.url }} ><p>{{ link.url }}</p></a></td>
+                </tr>
+            {% endfor %}
+            </table>
+    </div>
+
+	{% else %}
+		    <p>Não há links.</p>
+	    </div>
+	{% endif %}
+{% endblock %}
+

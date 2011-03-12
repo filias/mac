@@ -1,0 +1,37 @@
+{% extends "galeria/templates/galeria.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+	<div class="section">
+
+        <h1><a href="/mac">MAC</a> - {% trans "prémios MAC" %}</h1>
+
+	<table>
+	  <tr>
+        
+	        {% if aniversarios %}
+		  <td valign="top" width="60">
+		    <p></p>
+	            {% for aniversario in aniversarios %}
+        	        <h4><a href="/mac/premios/{{ aniversario.id }}"><b>{{ aniversario.data|date:"Y" }}</a></h4>
+	            {% endfor %}
+		  </td>
+        	{% endif%}
+
+		 {% if texto %}
+		  <td valign="top">
+		    {% get_current_language as LANGUAGE_CODE %}
+        		{% ifequal LANGUAGE_CODE 'en' %}
+		            <p>{{ texto.texto_en }}</p>
+		        {% else %}
+	            	    <p>{{ texto.texto }}</p>
+			{% endifequal %}
+		  </td>
+	        {% endif%}
+	  </tr>
+	</table>
+        
+    </div>
+{% endblock %}
+

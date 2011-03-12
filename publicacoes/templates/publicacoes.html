@@ -1,0 +1,83 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+{% load tags %}
+
+{% block sections %}
+
+    <div class="section">
+        <h1>{% block subsection %}{% trans "publicações" %} {% endblock %}</h1>
+        
+        <table id="publicacoes">
+            <tr>
+                {% if catalogos %}
+                    <td>
+                        <h4><a href="/publicacoes/catalogos/AG">{% trans "Catálogos" %}</a></h4>
+                            {% comment %}
+                            {% for publicacao in catalogos %}
+                                <p><a href="/site-media/{{ publicacao.ficheiro }}">{{ publicacao.titulo }} 
+                                {% if publicacao.data %} | {{ publicacao.data }} {% endif %}</a></p>
+                            {% endfor %}
+                            {% endcomment %}
+                    </td>
+                {% endif %}
+            </tr>
+            <tr>
+                {% if criticas %}
+                    <td>
+                        <h4><a href="/publicacoes/critica/AG">{% trans "Críticas" %}</a></h4>
+                            {% comment %}
+                            {% for publicacao in criticas %}
+                                <p><a href="/site-media/{{ publicacao.ficheiro }}">{{ publicacao.titulo }}
+                                {% if publicacao.data %} | {{ publicacao.data }} {% endif %}</a></p>
+                            {% endfor %}
+                            {% endcomment %}
+                    </td>
+                {% endif %}
+	     </tr>
+
+	     <tr>
+                
+		 {% if imprensa %}
+                    <td>
+                        <h4><a href="/publicacoes/imprensa/AG">{% trans "Imprensa" %}</a></h4>
+                            {% comment %}
+                            {% for publicacao in imprensa %}
+                                <p><a href="/site-media/{{ publicacao.ficheiro }}">"{{ publicacao.titulo }}"
+                                {% if publicacao.editor %} in {{ publicacao.editor }} {% endif %}
+				{% if publicacao.data %} | {{ publicacao.data }} {% endif %}</a></p>
+                            {% endfor %}
+                            {% endcomment %}
+                    </td>
+                {% endif %}
+
+                {% if monografias %}
+                    <td>
+                        <h4><a href="/publicacoes/monografias/AG">{% trans "Monografias" %}</a></h4>
+                            {% comment %}
+                            {% for publicacao in monografias %}
+                                <p><a href="/site-media/{{ publicacao.ficheiro }}">{{ publicacao.titulo }}
+                                {% if publicacao.data %} | {{ publicacao.data }} {% endif %}</a></p>
+                            {% endfor %}
+                            {% endcomment %}
+                    </td>
+                {% endif %}
+                
+                {% if newsletters %}
+                    <td>
+                        <h4><a href="/publicacoes/newsletters/AG">{% trans "Newsletters" %}</a></h4>
+                            {% comment %}
+                            {% for publicacao in newsletters %}
+                                <p><a href="/site-media/{{ publicacao.ficheiro }}">{{ publicacao.titulo }}
+                                {% if publicacao.data %} | {{ publicacao.data }} {% endif %}</a></p>
+                            {% endfor %}
+                            {% endcomment %}
+                    </td>
+                {% endif %}
+                
+                </tr>
+            </table>
+        
+    </div>
+
+{% endblock %}
+

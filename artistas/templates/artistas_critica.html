@@ -1,0 +1,20 @@
+{% extends "artistas/templates/artistas.html" %}
+{% load i18n %}
+
+{% block sections %}
+	{% if artista %}
+		<div class="section">
+                <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - Crítica</h1>
+                
+                {% for critica in criticas %}
+                    <h4><a href="/site-media/{{ critica.ficheiro }}">
+                        {{ critica.artista.nome }} - {{ critica.titulo }}
+                        {% if critica.data %} | {{ critica.data }}{% endif %}</a>
+                    </h4>
+                {% endfor %}
+        </div>
+	{% endif %}
+
+{% endblock %}
+
+

@@ -1,0 +1,41 @@
+{% extends "galeria/templates/galeria.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+    <div class="section">
+
+        <h1><a href="/mac">MAC</a> - {% trans "acervo" %}</h1>
+
+        {% if artist_list %}
+
+            <table width="100%">
+            
+                {% for linha in artist_list %}
+                    <tr>
+                    {% for artist in linha %}
+                        <td width="20%" valign="bottom">
+                            <h4><a href="/mac/acervo/{{ artist.id }}">{{ artist.nome }}</a></h4>
+                        </td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+                
+                <tr>
+                    <td colspan="3" valign="bottom" height="80px">
+                        <p></p>
+                        <p>Informações de PVP (preço de venda ao público) <a href="/contactos">contacte-nos</a></p>
+                    </td>
+                </tr>
+
+            </table>
+            
+        {% else %}
+                <p>Não há artistas.</p>
+        {% endif %}
+
+	</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,44 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+	<div class="section">
+        <h1>{% block subsection %}{% trans "artistas" %} {% endblock %}</h1>
+	
+    {% if artist_list %}
+        
+        <table width="100%">
+        
+        {% for linha in artist_list %}
+            <tr>
+                {% for artista in linha %}
+                    <td width="20%" valign="bottom">
+                        <h4><a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a>
+                            
+                            {% for destaque in em_exposicao %}
+                                {% ifequal destaque.nome artista.nome %}
+                                    <span style="color:red;">*</span>
+                                {% endifequal %}
+                            {% endfor %}
+                            
+                        </h4>
+                    </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        
+            <tr>
+                <td colspan="3">
+                    <p><span style="color:red;">*</span><a href="/exposicoes/actuais"> {% trans "Artista em exposição" %}.</a></p>
+                </td>
+            </tr>
+        </table>
+	
+    {% else %}
+		    <p>{% trans "Não há artistas" %}.</p>
+	{% endif %}
+    </div>
+
+{% endblock %}
+

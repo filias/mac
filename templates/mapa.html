@@ -1,0 +1,97 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+<style>
+  .sitemap ul{
+    padding:0;
+  }
+
+  .sitemap ul li{
+    padding-left:10px;
+  }
+
+  .sitemap_column li{
+    padding-left:0;
+  }
+</style>
+  <div class="section">
+
+    <h1>{% trans "mapa do site" %}</h1>
+
+    <table class="sitemap" width="100%">
+            <tr>
+                <td valign="top" width="25%">
+		
+		<ul class="sitemap_column">
+            <li><a href="/"><h4 style="text-transform:uppercase;">mac</h4></a>
+                <ul>
+                <li><a href="/mac/missao">{% trans "missão" %}</a></li>
+                <li><a href="/mac/historia">{% trans "história" %}</a></li>
+                <li><a href="/mac/galerias">{% trans "galerias" %}</a></li>
+                <!--<li><a href="/galeria/visita">Visita Virtual</a></li>-->
+                <li><a href="/mac/agenda">{% trans "agenda" %}</a></li>
+                <li><a href="/mac/curriculum">{% trans "curriculum" %}</a></li>
+                <li><a href="/mac/equipa">{% trans "estrutura" %}</a></li>
+                <li><a href="/mac/premios">{% trans "prémios MAC" %}</a></li>
+                <li><a href="/mac/acervo">{% trans "acervo" %}</a></li>
+                </ul>
+            </li>
+            
+            </ul>
+            </td>
+            
+            <td valign="top" width="25%">
+            <ul class="sitemap_column">
+                <li><a href="/exposicoes/actuais"><h4 style="text-transform:uppercase;">{% trans "exposições" %}</h4></a>
+                <ul>
+                    <li><a href="/exposicoes/passadas">{% trans "passadas" %}</a></li>
+                    <li><a href="/exposicoes/actuais">{% trans "actuais" %}</a></li>
+                    <li><a href="/exposicoes/futuras">{% trans "futuras" %}</a></li>
+                </ul>
+            </li>
+	    </td>
+            
+	    <td valign="top" width="25%">
+
+	    <ul class="sitemap_column">
+            <li><a href="/artistas"><h4 style="text-transform:uppercase;">{% trans "artistas" %}</h4></a>
+                    <ul>
+                        <li><a href="/artistas/ceramica">{% trans "cerâmica" %}</a></li>
+                        <li><a href="/artistas/desenho">{% trans "desenho" %}</a></li>
+                        <li><a href="/artistas/escultura">{% trans "escultura" %}</a></li>
+                        <li><a href="/artistas/fotografia">{% trans "fotografia" %}</a></li>
+                        <li><a href="/artistas/joalharia">{% trans "joalharia" %}</a></li>
+                        <li><a href="/artistas/medalhistica">{% trans "medalhística" %}</a></li>
+                        <li><a href="/artistas/pintura">{% trans "pintura" %}</a></li>
+                    </ul>
+                </li>
+            
+                
+            </ul>
+            </td>
+            
+            <td valign="top" width="25%">
+            <ul class="sitemap_column">
+                <li><a href="/publicacoes"><h4 style="text-transform:uppercase;">{% trans "publicações" %}</h4></a>
+                    <ul>
+                        <li><a href="/publicacoes/catalogos/AG">{% trans "catálogos" %}</a></li>
+                        <li><a href="/publicacoes/critica/AG">{% trans "crítica" %}</a></li>
+                        <li><a href="/publicacoes/imprensa/AG">{% trans "imprensa" %}</a></li>
+                        <li><a href="/publicacoes/monografias/AG">{% trans "monografias" %}</a></li>
+                        <li><a href="/publicacoes/newsletter/AG">{% trans "newsletter" %}</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="/contactos"><h4 style="text-transform:uppercase;">{% trans "contactos" %}</h4></a>
+                </li>
+
+                <li><a href="/links"><h4 style="text-transform:uppercase;">{% trans "links" %}</h4></a></li>
+        </ul>
+        </td>
+        </tr>
+        </table>
+    </div>
+	
+{% endblock %}
