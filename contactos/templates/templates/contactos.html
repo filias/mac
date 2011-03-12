@@ -1,0 +1,38 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+{% load email_obfuscator %}
+
+{% block sections %}
+	<div class="section">
+    
+        <h1>{% trans "contactos" %}</h1>
+    
+        {% if gallery_list %}
+	<table style="border:solid white 1px;border-collapse:collapse;">
+	  <tr>
+            {% for entry in gallery_list %}
+		<td style="border:#ccc dotted 0.5px;padding:0 10px 0 10px;">
+		    <h2>{{ entry.nome }}</h2>
+			    <p><b>{% trans "Morada" %}:</b> {{ entry.rua }} - {{ entry.cod_postal }} {{ entry.cidade }}</p>
+			    <p><a href="{{entry.mapa}}" target="blank"><b>{% trans "Mapa" %}</b></a></p>
+			    <p><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</p>
+			    <p><b>{% trans "Email" %}:</b> <a href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</p></a>
+	    		    <p><b>{% trans "Horário" %}:</b>
+			      {% ifequal LANGUAGE_CODE "en" %}
+				Weekdays from 13h to 20h, saturdays from 15h to 19h</p>
+				{% else %}
+				{{ entry.horario }}</p>
+			      {% endifequal %}
+		</td>
+            {% endfor %}
+	  </tr>
+	</table>
+	
+	{% else %}
+            <p>Não há contactos.</p>
+	{% endif %}
+    
+    </div>
+	
+{% endblock %}	
+
