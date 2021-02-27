@@ -51,10 +51,11 @@ class Obra(models.Model):
     materiais = models.ManyToManyField(Material, null=True, blank=True)
     estado = models.CharField(max_length=1, choices=ESTADO_CHOICES)
     foto = models.ForeignKey(Foto, null=True, blank=True)
-    def __unicode__(self):
-        return self.titulo
     
+    def __unicode__(self):
+        return '%s - %s' % (self.autor.nome, self.titulo)
+
     class Meta:
-        ordering = ['-ano']
+        ordering = ['autor', '-ano']
 	verbose_name = _('Obra')
         verbose_name_plural = _('Obras')

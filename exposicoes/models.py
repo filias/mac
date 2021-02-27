@@ -17,7 +17,7 @@ TIPO_CHOICES = (
 # Create your models here.
 class Exposicao(models.Model):
     titulo = models.CharField(max_length=200)
-    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES)
+    tipo = models.CharField(max_length=1, choices=TIPO_CHOICES, blank=True)
     tipo_arte = models.ManyToManyField(Tipo)
     descricao = models.TextField(null=True, blank=True)
     descricao_en = models.TextField(null=True, blank=True)
