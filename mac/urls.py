@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # Uncomment this for admin docs:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     # Uncomment this for admin:
-    (r'^admin/(.*)', admin.site.root),
+    #(r'^admin/(.*)', admin.site.root),
     # Static content for django server
     (r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/filipa/programming/websites/mac/django-media'}),
 

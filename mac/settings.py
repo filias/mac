@@ -1,6 +1,6 @@
 # Django settings for mac project.
 
-#DEBUG = True
+DEBUG = True
 #TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -83,7 +83,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 #    "/home/filipa/programming/websites/mac"
-    "/home/alvarogomes/webapps/django/mac"
+    "/home/alvarogomes/webapps/django/mac",
 )
 
 INSTALLED_APPS = (

@@ -1,9 +1,9 @@
-
+from PIL.Image import Image
 from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
 from time import gmtime, strftime, localtime, mktime, time
 from django.core.files import File
-import os, re, Image, decimal
+import os, re, decimal
 
 # get settings
 from filebrowser.fb_settings import *
