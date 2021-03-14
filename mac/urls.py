@@ -1,3 +1,6 @@
+import os
+
+from django.conf import settings
 from django.conf.urls.defaults import *
 
 # Uncomment this for admin:
@@ -14,7 +17,7 @@ urlpatterns = patterns('',
     # Uncomment this for admin:
     #(r'^admin/(.*)', admin.site.root),
     # Static content for django server
-    (r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': '/home/filipa/programming/websites/mac/django-media'}),
+    (r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.BASE_DIR, "media")}),
 
     # i18n
     (r'^i18n/', include('django.conf.urls.i18n')),
