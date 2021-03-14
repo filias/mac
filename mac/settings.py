@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DATABASE_ENGINE = 'mysql'                       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'mac'                           # Or path to database file if using sqlite3.
+DATABASE_NAME = os.getenv("DB_NAME", "mac")            # Or path to database file if using sqlite3.
 DATABASE_USER = os.getenv("DB_USER")            # Not used with sqlite3.
 DATABASE_PASSWORD = os.getenv("DB_PASSWORD")    # Not used with sqlite3.
 DATABASE_HOST = os.getenv("DB_HOST", "")              # Set to empty string for localhost. Not used with sqlite3.
