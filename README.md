@@ -14,6 +14,14 @@ To make the site work basically you need to do this:
 1. Create a virtualenv with python2.7
 1. Activate the virtualenv
 1. Install the requirements: `pip install -r requirements.txt`
+1. Extract the media files zip into a `media` directory in the root of the project (if you do not have the media zip please ask in the slack channel)
+1. Create a .env file with this:
+```
+DB_USER=<dbuser>
+DB_PASSWORD=<dbpass>
+MEDIA_URL=http://127.0.0.1/media/
+```
+1. Load these variables into your venv, in linux shell this can be done like this: `set -a && source .env && set +a`
 1. Run the django development server: `./manage.py runserver`
 
 It is possible that, depending on your OS, you need to install some dependencies. On ubuntu 20.04 I had to install or do the following:
