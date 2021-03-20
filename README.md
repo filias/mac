@@ -3,8 +3,8 @@
 To make the site work basically you need to do this:
 
 1. Clone this repository or pull the latest master: `git pull origin master`
-1. Install mysql server for you operating system. In ubuntu 20.04:
-    1. `sudo apt install mysql-server
+1. Install mysql server for your operating system. In ubuntu 20.04:
+    1. `sudo apt install mysql-server`
 1. In the mysql shell: `mysql -u root -p`
     1. Create a database and a user: 
         1. `CREATE USER <username> IDENTIFIED BY '<password>';`
