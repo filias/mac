@@ -2,13 +2,7 @@ import os
 
 
 DEBUG = True
-#TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    ('Filipa Andrade', 'admin@movimentoartecontemporanea.com'),
-)
-
-MANAGERS = ADMINS
+TEMPLATE_DEBUG = DEBUG
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -39,7 +33,6 @@ LANGUAGES = (
     ('en', 'English'),
     ('pt', 'Portuguese'),
 )
-SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -54,10 +47,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "site-media")
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = os.getenv("MEDIA_URL")
 
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+# Static files settings
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "static/"
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'w-ezr04of=m-vsp0om4b-dq7lkqqdf39gucpvs@gmi^@@q8hye'
@@ -71,6 +63,7 @@ TEMPLATE_LOADERS = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -96,10 +89,12 @@ INSTALLED_APPS = (
     'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.redirects', 
+    'django.contrib.staticfiles',
     'mac.galeria',
     'mac.exposicoes',
     'mac.artistas',

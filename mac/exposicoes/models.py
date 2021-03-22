@@ -46,6 +46,5 @@ class Exposicao(models.Model):
 
     class Meta:
         ordering = ['-data_inicio']
-	verbose_name = _('Exposicao')
+        verbose_name = _('Exposicao')
         verbose_name_plural = _('Exposicoes')
-

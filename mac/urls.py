@@ -1,12 +1,11 @@
 import os
 
 from django.conf import settings
-from django.conf.urls import patterns, include
+from django.conf.urls import patterns, include, url
 
-# Uncomment this for admin:
 from django.contrib import admin
 
-# Uncomment to load INSTALLED_APPS admin.py module for default AdminSite instance.
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -14,15 +13,18 @@ urlpatterns = patterns('',
     #(r'^admin/filebrowser/', include('filebrowser.urls')),
 
     # Uncomment this for admin:
+    #(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
     #(r'^admin/(.*)', admin.site.root),
 
     # Static content for django server
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.BASE_DIR, "static")}),
     (r'^site-media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.BASE_DIR, "media")}),
 
     # i18n
     (r'^i18n/', include('django.conf.urls.i18n')),
 
-    (r'^setlang/(?P<lang_code>.*)/$', 'mac.views.set_language') , 
+    (r'^setlang/(?P<lang_code>.*)/$', 'mac.views.set_language'),
 
     (r'^mac', include('mac.galeria.urls')),
     (r'^exposicoes', include('mac.exposicoes.urls')),
