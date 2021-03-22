@@ -33,7 +33,7 @@ class FotoAdmin(admin.ModelAdmin):
     class Media:
         js = ['/media/filebrowser/js/AddFileBrowser.js']
 
-admin.site.register(Foto, FotoAdmin)
+#admin.site.register(Foto, FotoAdmin)
 
 class DestaqueAdmin(admin.ModelAdmin):
     list_display = ('nome', 'visivel', 'imagem', 'texto', 'ordem', 'url')

@@ -22,7 +22,7 @@ class Artista(models.Model):
     biografia = models.FileField(upload_to='biografias/', null=True, blank=True)
     tipo = models.ManyToManyField(Tipo)
     telas = models.ManyToManyField(Tela, null=True, blank=True)
-    artista_mac = models.BooleanField()
+    artista_mac = models.BooleanField(default=False)
     
     def __unicode__(self):
         return self.nome
