@@ -1,12 +1,9 @@
-import datetime
-
 from django.db import models
-from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-#from filebrowser.fields import FileBrowseField
+from filebrowser.fields import FileBrowseField
 
-# Create your models here.
+
 class Tela(models.Model):
     titulo = models.CharField(max_length=200)
     image = models.ImageField(upload_to='geral/')
@@ -48,8 +45,8 @@ class Material(models.Model):
         
 class Foto(models.Model):
     nome = models.CharField(max_length=100)
-    #thumbnail = FileBrowseField(max_length=200, initial_directory="/", extensions_allowed=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
-    #image = FileBrowseField(max_length=200, initial_directory="/", extensions_allowed=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
+    thumbnail = FileBrowseField(max_length=200, directory="/", extensions=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
+    image = FileBrowseField(max_length=200, directory="/", extensions=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
     def __unicode__(self):
         return self.nome
     class Meta:

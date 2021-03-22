@@ -92,6 +92,8 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'grappelli',
+    'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -104,5 +106,4 @@ INSTALLED_APPS = (
     'mac.publicacoes',
     'mac.contactos',
     'mac.geral',
-    #'filebrowser',
 )
