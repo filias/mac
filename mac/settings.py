@@ -2,23 +2,21 @@ import os
 
 
 DEBUG = True
-#TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    ('Filipa Andrade', 'admin@movimentoartecontemporanea.com'),
-)
-
-MANAGERS = ADMINS
+TEMPLATE_DEBUG = DEBUG
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-DATABASE_ENGINE = 'mysql'                       # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = os.getenv("DB_NAME", "mac")            # Or path to database file if using sqlite3.
-DATABASE_USER = os.getenv("DB_USER")            # Not used with sqlite3.
-DATABASE_PASSWORD = os.getenv("DB_PASSWORD")    # Not used with sqlite3.
-DATABASE_HOST = os.getenv("DB_HOST", "")              # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = ''             # Set to empty string for default. Not used with sqlite3.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv("DB_NAME", "mac"),
+        'USER': os.getenv("DB_USER"),
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': os.getenv("DB_HOST", ""),
+        'PORT': '5432',
+    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -35,7 +33,6 @@ LANGUAGES = (
     ('en', 'English'),
     ('pt', 'Portuguese'),
 )
-SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -50,24 +47,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "site-media")
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = os.getenv("MEDIA_URL")
 
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
-ADMIN_MEDIA_PREFIX = '/media/'
+# Static files settings
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'w-ezr04of=m-vsp0om4b-dq7lkqqdf39gucpvs@gmi^@@q8hye'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.load_template_source',
-    'django.template.loaders.app_directories.load_template_source',
-#     'django.template.loaders.eggs.load_template_source',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
-    'django.core.context_processors.auth',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,26 +85,20 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
+    'grappelli',
+    'filebrowser',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.redirects', 
+    'django.contrib.staticfiles',
     'mac.galeria',
     'mac.exposicoes',
     'mac.artistas',
     'mac.publicacoes',
     'mac.contactos',
     'mac.geral',
-    'filebrowser',
 )
-
-# for webfaction
-#EMAIL_HOST = 'mail3.webfaction.com'
-#for gmail
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'webmaster@movimentoartecontemporanea.com'
-EMAIL_HOST_PASSWORD = 'webmacpass'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
