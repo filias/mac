@@ -72,7 +72,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware', 
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
-    'django.contrib.redirects.middleware.RedirectFallbackMiddleware', 
 )
 
 ROOT_URLCONF = 'mac.urls'
@@ -92,7 +91,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.admin',
-    'django.contrib.redirects', 
     'django.contrib.staticfiles',
     'mac.galeria',
     'mac.exposicoes',
