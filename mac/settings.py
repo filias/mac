@@ -51,7 +51,7 @@ MEDIA_URL = os.getenv("MEDIA_URL")
 
 # Static files settings
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-#STATIC_URL = "/static/"
+STATIC_URL = "/static/"
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'w-ezr04of=m-vsp0om4b-dq7lkqqdf39gucpvs@gmi^@@q8hye'
@@ -73,7 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware', 
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.middleware.doc.XViewMiddleware',
+    'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 )
 
