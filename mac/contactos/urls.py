@@ -1,11 +1,10 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
+
+from views import *
 
 
-urlpatterns = patterns(
-    'mac.contactos.views',
-    (r'^$', 'contactos'),
-    (r'^contacte_nos/$', 'contacte_nos'),
-    (r'^contacte_nos/sucesso/$', 'sucesso'),
-)
-
-
+urlpatterns = [
+    url(r'^$', contactos),
+    url(r'^contacte_nos/$', contacte_nos),
+    url(r'^contacte_nos/sucesso/$', sucesso),
+]

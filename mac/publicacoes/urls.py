@@ -1,11 +1,12 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
 
-urlpatterns = patterns(
-    'mac.publicacoes.views',
-    (r'^$', 'index'),
-    (r'^newsletters/(?P<select>\w+)/$', 'newsletters'),
-    (r'^catalogos/(?P<select>\w+)/$', 'catalogos'),
-    (r'^monografias/(?P<select>\w+)/$', 'monografias'),
-    (r'^imprensa/(?P<select>\w+)/$', 'imprensa'),
-    (r'^critica/(?P<select>\w+)/$', 'critica'),
-)
+from views import *
+
+urlpatterns = [
+    url(r'^$', index),
+    url(r'^newsletters/(?P<select>\w+)/$', newsletters),
+    url(r'^catalogos/(?P<select>\w+)/$', catalogos),
+    url(r'^monografias/(?P<select>\w+)/$', monografias),
+    url(r'^imprensa/(?P<select>\w+)/$', imprensa),
+    url(r'^critica/(?P<select>\w+)/$', critica),
+]

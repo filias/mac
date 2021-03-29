@@ -1,12 +1,13 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
 
-urlpatterns = patterns(
-    'mac.exposicoes.views',
-    (r'^actuais/$', 'index'),
-    (r'^passadas/$', 'passadas'),
-    (r'^futuras/$', 'futuras'),
-    (r'^passadas/(?P<exposicao_ano>\d+)/$', 'passadas_ano'),
-    (r'^(?P<exposicao_id>\d+)/$', 'detail'),
-    (r'^(?P<exposicao_id>\d+)/obras/$', 'obras'),
-    (r'^(?P<exposicao_id>\d+)/obras/(?P<obra_id>\d+)/$', 'obra_detalhe'),
-)
+from views import *
+
+urlpatterns = [
+    url(r'^actuais/$', index),
+    url(r'^passadas/$', passadas),
+    url(r'^futuras/$', futuras),
+    url(r'^passadas/(?P<exposicao_ano>\d+)/$', passadas_ano),
+    url(r'^(?P<exposicao_id>\d+)/$', detail),
+    url(r'^(?P<exposicao_id>\d+)/obras/$', obras),
+    url(r'^(?P<exposicao_id>\d+)/obras/(?P<obra_id>\d+)/$', obra_detalhe),
+]
