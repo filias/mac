@@ -1,19 +1,16 @@
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from django.template import RequestContext
 
 from mac.contactos.models import ContactForm
 from mac.galeria.models import Galeria
-from mac.geral.models import Tela
 from mac.common import common
 
 RTR_DICT = common.DEFAULT_DICT
 
-# Create your views here.
 def contactos(request):
     gallery_list = Galeria.objects.filter(nome__startswith='MAC').order_by('-nome')
     RTR_DICT['gallery_list'] = gallery_list
-    return render_to_response('contactos/templates/contactos.html', RTR_DICT, context_instance=RequestContext(request))
+    return render(request, 'contactos/templates/contactos.html', RTR_DICT)
 
 def contacte_nos(request):
     if request.method == 'POST': # If the form has been submitted...
@@ -34,7 +31,7 @@ def contacte_nos(request):
         form = ContactForm() # An unbound form
     
     RTR_DICT['form'] = form
-    return render_to_response('contactos/templates/contacte_nos.html', RTR_DICT, context_instance=RequestContext(request))
+    return render(request, 'contactos/templates/contacte_nos.html', RTR_DICT)
 
 def sucesso(request):
-    return render_to_response('contactos/templates/contactos_sucesso.html', RTR_DICT, context_instance=RequestContext(request))
+    return render(request, 'contactos/templates/contactos_sucesso.html', RTR_DICT)
