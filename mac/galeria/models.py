@@ -14,7 +14,7 @@ class Galeria(models.Model):
     telefone = models.CharField(max_length=13, null=True, blank=True)
     email = models.EmailField(max_length=75, null=True, blank=True)
     horario = models.CharField(max_length=200, null=True, blank=True)
-    fotos = models.ManyToManyField(Foto, null=True, blank=True)
+    fotos = models.ManyToManyField(Foto, blank=True)
     mapa = models.URLField(null=True, blank=True)
     def __unicode__(self):
         return self.nome
@@ -50,7 +50,7 @@ class Aniversario(models.Model):
     trofeu = models.ForeignKey(Obra, null=True, blank=True)
     convite = models.FileField(upload_to='convites/', null=True, blank=True)
     catalogo = models.FileField(upload_to='catalogos/', null=True, blank=True)
-    fotos = models.ManyToManyField(Foto, null=True, blank=True)
+    fotos = models.ManyToManyField(Foto, blank=True)
     def __unicode__(self):
         return self.descricao
         

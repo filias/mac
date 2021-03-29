@@ -21,7 +21,7 @@ class Artista(models.Model):
     foto_obra = models.ForeignKey(Foto, null=True, blank=True, related_name='foto_obra')
     biografia = models.FileField(upload_to='biografias/', null=True, blank=True)
     tipo = models.ManyToManyField(Tipo)
-    telas = models.ManyToManyField(Tela, null=True, blank=True)
+    telas = models.ManyToManyField(Tela, blank=True)
     artista_mac = models.BooleanField(default=False)
     
     def __unicode__(self):
@@ -44,11 +44,11 @@ class Obra(models.Model):
     descricao = models.TextField(null=True, blank=True)
     descricao_en = models.TextField(null=True, blank=True)
     tipo = models.ForeignKey(Tipo)
-    tecnicas = models.ManyToManyField(Tecnica, null=True, blank=True)
+    tecnicas = models.ManyToManyField(Tecnica, blank=True)
     altura = models.IntegerField(null=True, blank=True)
     largura = models.IntegerField(null=True, blank=True)
     profundidade = models.IntegerField(null=True, blank=True)
-    materiais = models.ManyToManyField(Material, null=True, blank=True)
+    materiais = models.ManyToManyField(Material, blank=True)
     estado = models.CharField(max_length=1, choices=ESTADO_CHOICES)
     foto = models.ForeignKey(Foto, null=True, blank=True)
     
