@@ -4,14 +4,16 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.static import serve
+from filebrowser.sites import site
 
 from views import links, mapa, resultados, set_language
 
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
+    url(r'^admin/', include(admin.site.urls)),
 
     # Static content for django server
     url(r'^static/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, "static")}),
