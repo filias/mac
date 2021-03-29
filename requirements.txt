@@ -1,4 +1,4 @@
-Django==1.10.8
-django-filebrowser==3.8.1
+Django==1.11.29
+django-filebrowser==3.9.2
 MySQL-python==1.2.5
 Pillow==6.2.2
