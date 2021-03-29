@@ -7,7 +7,7 @@ TEMPLATE_DEBUG = DEBUG
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-ALLOWED_HOSTS = [u'macsiteadmin.pythonanywhere.com']
+ALLOWED_HOSTS = [u'localhost', u'macsiteadmin.pythonanywhere.com']
 
 DATABASES = {
     'default': {
