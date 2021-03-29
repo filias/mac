@@ -8,8 +8,10 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),
 
     # Static content for django server
     (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': os.path.join(settings.BASE_DIR, "static")}),
@@ -17,9 +19,9 @@ urlpatterns = patterns('',
 
     # i18n
     (r'^i18n/', include('django.conf.urls.i18n')),
-
     (r'^setlang/(?P<lang_code>.*)/$', 'mac.views.set_language'),
 
+    # Site urls
     (r'^mac', include('mac.galeria.urls')),
     (r'^exposicoes', include('mac.exposicoes.urls')),
     (r'^artistas', include('mac.artistas.urls')),
