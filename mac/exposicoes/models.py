@@ -32,7 +32,7 @@ class Exposicao(models.Model):
     press_release = models.FileField(upload_to='press_releases/', null=True, blank=True)
     telas = models.ManyToManyField(Tela)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.titulo
 
     def exposicao_actual(self):

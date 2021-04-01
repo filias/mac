@@ -7,7 +7,7 @@ from filebrowser.fields import FileBrowseField
 class Tela(models.Model):
     titulo = models.CharField(max_length=200)
     image = models.ImageField(upload_to='geral/')
-    def __unicode__(self):
+    def __str__(self):
         return self.titulo
 
     class Meta:
@@ -15,16 +15,18 @@ class Tela(models.Model):
 
 class Tipo(models.Model):
     nome = models.CharField(max_length=50)
-    def __unicode__(self):
+
+    def __str__(self):
         return self.nome
     
     class Meta:
         ordering = ['nome']
 
+
 class Tecnica(models.Model):
     nome = models.CharField(max_length=50)
     categoria = models.ForeignKey(Tipo)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
     
     class Meta:
@@ -35,7 +37,7 @@ class Tecnica(models.Model):
 class Material(models.Model):
     nome = models.CharField(max_length=50)
     categoria = models.ForeignKey(Tipo)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
     
     class Meta:
@@ -47,7 +49,7 @@ class Foto(models.Model):
     nome = models.CharField(max_length=100)
     thumbnail = FileBrowseField(max_length=200, directory="/", extensions=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
     image = FileBrowseField(max_length=200, directory="/", extensions=['.jpg', '.jpeg', '.gif','.png','.tif','.tiff'], blank=True, null=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
     class Meta:
         ordering = ['nome']
@@ -62,7 +64,7 @@ class Destaque(models.Model):
     visivel = models.BooleanField(default=False)
     ordem = models.SmallIntegerField()
     
-    def __unicode__(self):
+    def __str__(self):
         return self.url
     
     class Meta:

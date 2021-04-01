@@ -24,7 +24,7 @@ class Artista(models.Model):
     telas = models.ManyToManyField(Tela, blank=True)
     artista_mac = models.BooleanField(default=False)
     
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
     
     def tem_acervo(self):
@@ -33,7 +33,7 @@ class Artista(models.Model):
     
     class Meta:
         ordering = ['nome']
-	verbose_name = _('Artista')
+        verbose_name = _('Artista')
         verbose_name_plural = _('Artistas')
         
 
@@ -52,10 +52,10 @@ class Obra(models.Model):
     estado = models.CharField(max_length=1, choices=ESTADO_CHOICES)
     foto = models.ForeignKey(Foto, null=True, blank=True)
     
-    def __unicode__(self):
+    def __str__(self):
         return '%s - %s' % (self.autor.nome, self.titulo)
 
     class Meta:
         ordering = ['autor', '-ano']
-	verbose_name = _('Obra')
+        verbose_name = _('Obra')
         verbose_name_plural = _('Obras')

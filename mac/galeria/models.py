@@ -16,7 +16,7 @@ class Galeria(models.Model):
     horario = models.CharField(max_length=200, null=True, blank=True)
     fotos = models.ManyToManyField(Foto, blank=True)
     mapa = models.URLField(null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
 
     class Meta:
@@ -28,7 +28,7 @@ class Staff(models.Model):
     email = models.EmailField(max_length=75, null=True, blank=True)
     telefone = models.CharField(max_length=13, null=True, blank=True)
     foto = models.ForeignKey(Foto, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
         
     class Meta:
@@ -38,7 +38,7 @@ class Premiado(models.Model):
     nome = models.CharField(max_length=150)
     profissao = models.CharField(max_length=50, null=True, blank=True)
     foto = models.ForeignKey(Foto, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
         
     class Meta:
@@ -51,7 +51,7 @@ class Aniversario(models.Model):
     convite = models.FileField(upload_to='convites/', null=True, blank=True)
     catalogo = models.FileField(upload_to='catalogos/', null=True, blank=True)
     fotos = models.ManyToManyField(Foto, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.descricao
         
     class Meta:
@@ -63,7 +63,7 @@ class Premio(models.Model):
     premiado = models.ForeignKey(Premiado, null=True, blank=True)
     aniversario = models.ForeignKey(Aniversario, null=True, blank=True)
     foto = models.ForeignKey(Foto, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
         
     class Meta:

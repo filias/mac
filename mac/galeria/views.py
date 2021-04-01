@@ -75,13 +75,14 @@ def acervo_artist(request, artist_id):
     artista = Artista.objects.get(pk=artist_id)
     telas = artista.telas.all()
     acervo_list = Obra.objects.filter(estado='A', autor=artista).order_by('-ano')
-    return render('galeria/templates/galeria_acervo_artista.html', {'artista': artista, 'telas': telas, 'acervo_list':acervo_list})
+    return render(request, 'galeria/templates/galeria_acervo_artista.html', {'artista': artista, 'telas': telas, 'acervo_list':acervo_list})
 
 def acervo_detalhe(request, obra_id,  artist_id):
     obra = get_object_or_404(Obra, pk=obra_id)
     telas = obra.autor.telas.all()
     tecnicas = obra.tecnicas.all()
     materiais = obra.materiais.all()
+
     return render(request, 'galeria/templates/acervo_detalhe.html', {'obra': obra, 'telas': telas, 'tecnicas': tecnicas, 'materiais': materiais})
 
 def visita(request):

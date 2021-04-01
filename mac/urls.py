@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.views.static import serve
 from filebrowser.sites import site
 
-from views import links, mapa, resultados, set_language
+from .views import links, mapa, resultados, set_language
 
 admin.autodiscover()
 

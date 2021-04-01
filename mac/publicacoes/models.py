@@ -26,19 +26,19 @@ class Publicacao(models.Model):
     descricao = models.TextField(null=True, blank=True)
     descricao_en = models.TextField(null=True, blank=True)
     ficheiro = models.FileField(upload_to='publicacoes/', max_length=200, null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.titulo
 
     class Meta:
         ordering = ['-data']
-	verbose_name = _('Publicacao')
+        verbose_name = _('Publicacao')
         verbose_name_plural = _('Publicacoes')
 
 class Texto(models.Model):
     titulo = models.CharField(max_length=500)
     texto = models.TextField(null=True, blank=True)
     texto_en = models.TextField(null=True, blank=True)
-    def __unicode__(self):
+    def __str__(self):
         return self.titulo
 
     class Meta:
@@ -47,7 +47,7 @@ class Texto(models.Model):
 class Link(models.Model):
     nome = models.CharField(max_length=200)
     url = models.URLField()
-    def __unicode__(self):
+    def __str__(self):
         return self.nome
         
     class Meta:
