@@ -1,5 +1,0 @@
-Django==1.11.29
-django-filebrowser==3.9.2
-mysqlclient==2.0.3
-Pillow==6.2.2
-python-dotenv==0.16.0
