@@ -11,7 +11,7 @@ To make the site work basically you need to do this:
         1. `CREATE DATABASE mac;`
         1. `GRANT ALL PRIVILEGES ON mac.* TO <username>;`
 1.Load the database dump into the new table: `mysql -u <username> -p mac < mac_backup.sql` (if you do not have the database dump please ask in the slack channel)
-1. Create a virtualenv with python2.7
+1. Create a virtualenv with python 3.8
 1. Activate the virtualenv
 1. Install the requirements: `pip install -r requirements.txt`
 1. Extract the media files zip into a `media` directory in the root of the project (if you do not have the media zip please ask in the slack channel)
