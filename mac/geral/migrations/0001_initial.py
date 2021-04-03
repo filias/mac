@@ -7,99 +7,159 @@ import filebrowser.fields
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Destaque',
+            name="Destaque",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nome', models.CharField(max_length=50)),
-                ('imagem', models.ImageField(null=True, upload_to=b'inicial/', blank=True)),
-                ('texto', models.TextField(null=True, blank=True)),
-                ('texto_en', models.TextField(null=True, blank=True)),
-                ('url', models.CharField(max_length=100)),
-                ('visivel', models.BooleanField(default=False)),
-                ('ordem', models.SmallIntegerField()),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("nome", models.CharField(max_length=50)),
+                (
+                    "imagem",
+                    models.ImageField(null=True, upload_to=b"inicial/", blank=True),
+                ),
+                ("texto", models.TextField(null=True, blank=True)),
+                ("texto_en", models.TextField(null=True, blank=True)),
+                ("url", models.CharField(max_length=100)),
+                ("visivel", models.BooleanField(default=False)),
+                ("ordem", models.SmallIntegerField()),
             ],
             options={
-                'ordering': ['nome'],
+                "ordering": ["nome"],
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Foto',
+            name="Foto",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nome', models.CharField(max_length=100)),
-                ('thumbnail', filebrowser.fields.FileBrowseField(max_length=200, null=True, blank=True)),
-                ('image', filebrowser.fields.FileBrowseField(max_length=200, null=True, blank=True)),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("nome", models.CharField(max_length=100)),
+                (
+                    "thumbnail",
+                    filebrowser.fields.FileBrowseField(
+                        max_length=200, null=True, blank=True
+                    ),
+                ),
+                (
+                    "image",
+                    filebrowser.fields.FileBrowseField(
+                        max_length=200, null=True, blank=True
+                    ),
+                ),
             ],
             options={
-                'ordering': ['nome'],
+                "ordering": ["nome"],
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Material',
+            name="Material",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nome', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("nome", models.CharField(max_length=50)),
             ],
             options={
-                'ordering': ['nome'],
-                'verbose_name': 'Material',
-                'verbose_name_plural': 'Materiais',
+                "ordering": ["nome"],
+                "verbose_name": "Material",
+                "verbose_name_plural": "Materiais",
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Tecnica',
+            name="Tecnica",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nome', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("nome", models.CharField(max_length=50)),
             ],
             options={
-                'ordering': ['nome'],
-                'verbose_name': 'Tecnica',
-                'verbose_name_plural': 'Tecnicas',
+                "ordering": ["nome"],
+                "verbose_name": "Tecnica",
+                "verbose_name_plural": "Tecnicas",
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Tela',
+            name="Tela",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('titulo', models.CharField(max_length=200)),
-                ('image', models.ImageField(upload_to=b'geral/')),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=200)),
+                ("image", models.ImageField(upload_to=b"geral/")),
             ],
             options={
-                'ordering': ['titulo'],
+                "ordering": ["titulo"],
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='Tipo',
+            name="Tipo",
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nome', models.CharField(max_length=50)),
+                (
+                    "id",
+                    models.AutoField(
+                        verbose_name="ID",
+                        serialize=False,
+                        auto_created=True,
+                        primary_key=True,
+                    ),
+                ),
+                ("nome", models.CharField(max_length=50)),
             ],
             options={
-                'ordering': ['nome'],
+                "ordering": ["nome"],
             },
             bases=(models.Model,),
         ),
         migrations.AddField(
-            model_name='tecnica',
-            name='categoria',
-            field=models.ForeignKey(to='geral.Tipo', on_delete=models.CASCADE),
+            model_name="tecnica",
+            name="categoria",
+            field=models.ForeignKey(to="geral.Tipo", on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
-            model_name='material',
-            name='categoria',
-            field=models.ForeignKey(to='geral.Tipo', on_delete=models.CASCADE),
+            model_name="material",
+            name="categoria",
+            field=models.ForeignKey(to="geral.Tipo", on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]
