@@ -30,3 +30,16 @@ It is possible that, depending on your OS, you need to install some dependencies
 - `sudo apt install default-libmysqlclient-dev python2.7-dev libmysqlclient-dev libssl-dev`
 and do this:
 - `sudo wget https://raw.githubusercontent.com/paulfitz/mysql-connector-c/master/include/my_config.h -P /usr/include/mysql/`
+
+To deploy the website:
+
+1. `poetry update` to update the lock file
+1. Regenerate the requirements.txt file when changing dependencies: `poetry export -o requirements.txt`
+1. `git commit`
+1. `git push origin master`
+1. In pythonanywhere shell:
+    1. `git pull origin master`
+    1. `pip install -r requirements.txt`
+    1. Apply migration if needed: `./manage.py migrate`
+    1. Collect static files: `./manage.py collectstatic`
+    1. Reload the application
