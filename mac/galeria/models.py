@@ -16,56 +16,68 @@ class Galeria(models.Model):
     horario = models.CharField(max_length=200, null=True, blank=True)
     fotos = models.ManyToManyField(Foto, blank=True)
     mapa = models.URLField(null=True, blank=True)
+
     def __str__(self):
         return self.nome
 
     class Meta:
-        ordering = ['nome']
-        
+        ordering = ["nome"]
+
+
 class Staff(models.Model):
     nome = models.CharField(max_length=150)
     funcao = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(max_length=75, null=True, blank=True)
     telefone = models.CharField(max_length=13, null=True, blank=True)
     foto = models.ForeignKey(Foto, null=True, blank=True, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.nome
-        
+
     class Meta:
-        ordering = ['nome']
+        ordering = ["nome"]
+
 
 class Premiado(models.Model):
     nome = models.CharField(max_length=150)
     profissao = models.CharField(max_length=50, null=True, blank=True)
     foto = models.ForeignKey(Foto, null=True, blank=True, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.nome
-        
+
     class Meta:
-        ordering = ['nome']
+        ordering = ["nome"]
+
 
 class Aniversario(models.Model):
     data = models.DateField(null=True, blank=True)
     descricao = models.TextField(null=True, blank=True)
     trofeu = models.ForeignKey(Obra, null=True, blank=True, on_delete=models.CASCADE)
-    convite = models.FileField(upload_to='convites/', null=True, blank=True)
-    catalogo = models.FileField(upload_to='catalogos/', null=True, blank=True)
+    convite = models.FileField(upload_to="convites/", null=True, blank=True)
+    catalogo = models.FileField(upload_to="catalogos/", null=True, blank=True)
     fotos = models.ManyToManyField(Foto, blank=True)
+
     def __str__(self):
         return self.descricao
-        
+
     class Meta:
-        ordering = ['data']
+        ordering = ["data"]
+
 
 class Premio(models.Model):
     nome = models.CharField(max_length=150)
     descricao = models.TextField(null=True, blank=True)
-    premiado = models.ForeignKey(Premiado, null=True, blank=True, on_delete=models.CASCADE)
-    aniversario = models.ForeignKey(Aniversario, null=True, blank=True, on_delete=models.CASCADE)
+    premiado = models.ForeignKey(
+        Premiado, null=True, blank=True, on_delete=models.CASCADE
+    )
+    aniversario = models.ForeignKey(
+        Aniversario, null=True, blank=True, on_delete=models.CASCADE
+    )
     foto = models.ForeignKey(Foto, null=True, blank=True, on_delete=models.CASCADE)
+
     def __str__(self):
         return self.nome
-        
-    class Meta:
-        ordering = ['nome']
 
+    class Meta:
+        ordering = ["nome"]
