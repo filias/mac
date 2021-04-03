@@ -57,14 +57,24 @@ STATIC_URL = "/static/"
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'w-ezr04of=m-vsp0om4b-dq7lkqqdf39gucpvs@gmi^@@q8hye'
 
-MIDDLEWARE_CLASSES = (
+# MIDDLEWARE_CLASSES = (
+#     'django.middleware.common.CommonMiddleware',
+#     'django.contrib.sessions.middleware.SessionMiddleware',
+#     'django.middleware.locale.LocaleMiddleware',
+#     'django.contrib.auth.middleware.AuthenticationMiddleware',
+#     'django.contrib.admindocs.middleware.XViewMiddleware',
+#     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
+# )
+
+MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware', 
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
-)
+    'django.contrib.messages.middleware.MessageMiddleware'
+]
 
 ROOT_URLCONF = 'mac.urls'
 

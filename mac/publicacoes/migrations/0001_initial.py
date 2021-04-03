@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('descricao', models.TextField(null=True, blank=True)),
                 ('descricao_en', models.TextField(null=True, blank=True)),
                 ('ficheiro', models.FileField(max_length=200, null=True, upload_to=b'publicacoes/', blank=True)),
-                ('artista', models.ForeignKey(blank=True, to='artistas.Artista', null=True)),
+                ('artista', models.ForeignKey(blank=True, to='artistas.Artista', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['-data'],
