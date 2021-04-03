@@ -1,12 +1,11 @@
-# -*- coding: utf-8 -*
 import datetime
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from mac.galeria.models import Galeria
 from mac.artistas.models import Artista, Obra
-from mac.geral.models import Tipo, Foto, Tela
+from mac.galeria.models import Galeria
+from mac.geral.models import Foto, Tela, Tipo
 from mac.publicacoes.models import Publicacao
 
 TIPO_CHOICES = (

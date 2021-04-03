@@ -1,6 +1,6 @@
-from django.db import models
 from django.contrib import admin
-from mac.galeria.models import Galeria, Staff, Premiado, Aniversario, Premio
+
+from mac.galeria.models import Aniversario, Galeria, Premiado, Premio, Staff
 
 
 class GaleriaAdmin(admin.ModelAdmin):

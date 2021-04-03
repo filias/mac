@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib import admin
+
 from mac.exposicoes.models import Exposicao
 
 

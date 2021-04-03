@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
-from mac.publicacoes.models import Publicacao
 from mac.common import common
+from mac.publicacoes.models import Publicacao
 
 RTR_DICT = common.DEFAULT_DICT
 

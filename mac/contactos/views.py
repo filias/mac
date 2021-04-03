@@ -1,9 +1,9 @@
-from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
+from mac.common import common
 from mac.contactos.models import ContactForm
 from mac.galeria.models import Galeria
-from mac.common import common
 
 RTR_DICT = common.DEFAULT_DICT
 
