@@ -93,13 +93,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='tecnica',
             name='categoria',
-            field=models.ForeignKey(to='geral.Tipo'),
+            field=models.ForeignKey(to='geral.Tipo', on_delete=models.CASCADE),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='material',
             name='categoria',
-            field=models.ForeignKey(to='geral.Tipo'),
+            field=models.ForeignKey(to='geral.Tipo', on_delete=models.CASCADE),
             preserve_default=True,
         ),
     ]

@@ -13,7 +13,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/filebrowser/', site.urls),
     url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
 
     # Static content for django server
     url(r'^static/(?P<path>.*)$', serve, {'document_root': os.path.join(settings.BASE_DIR, "static")}),

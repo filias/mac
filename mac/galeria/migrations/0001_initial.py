@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('convite', models.FileField(null=True, upload_to=b'convites/', blank=True)),
                 ('catalogo', models.FileField(null=True, upload_to=b'catalogos/', blank=True)),
                 ('fotos', models.ManyToManyField(to='geral.Foto', null=True, blank=True)),
-                ('trofeu', models.ForeignKey(blank=True, to='artistas.Obra', null=True)),
+                ('trofeu', models.ForeignKey(blank=True, to='artistas.Obra', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['data'],
@@ -54,7 +54,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nome', models.CharField(max_length=150)),
                 ('profissao', models.CharField(max_length=50, null=True, blank=True)),
-                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True)),
+                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['nome'],
@@ -67,9 +67,9 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nome', models.CharField(max_length=150)),
                 ('descricao', models.TextField(null=True, blank=True)),
-                ('aniversario', models.ForeignKey(blank=True, to='galeria.Aniversario', null=True)),
-                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True)),
-                ('premiado', models.ForeignKey(blank=True, to='galeria.Premiado', null=True)),
+                ('aniversario', models.ForeignKey(blank=True, to='galeria.Aniversario', null=True, on_delete=models.CASCADE)),
+                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True, on_delete=models.CASCADE)),
+                ('premiado', models.ForeignKey(blank=True, to='galeria.Premiado', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['nome'],
@@ -84,7 +84,7 @@ class Migration(migrations.Migration):
                 ('funcao', models.CharField(max_length=50, null=True, blank=True)),
                 ('email', models.EmailField(max_length=75, null=True, blank=True)),
                 ('telefone', models.CharField(max_length=13, null=True, blank=True)),
-                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True)),
+                ('foto', models.ForeignKey(blank=True, to='geral.Foto', null=True, on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ['nome'],

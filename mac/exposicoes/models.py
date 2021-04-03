@@ -27,7 +27,7 @@ class Exposicao(models.Model):
     artistas = models.ManyToManyField(Artista, blank=True)
     obras = models.ManyToManyField(Obra, blank=True)
     fotos = models.ManyToManyField(Foto, blank=True)
-    catalogo = models.ForeignKey(Publicacao, null=True, blank=True, limit_choices_to = {'tipo__exact': "Catalogo"})
+    catalogo = models.ForeignKey(Publicacao, null=True, blank=True, limit_choices_to = {'tipo__exact': "Catalogo"}, on_delete=models.CASCADE)
     convite = models.FileField(upload_to='convites/', null=True, blank=True)
     press_release = models.FileField(upload_to='press_releases/', null=True, blank=True)
     telas = models.ManyToManyField(Tela)

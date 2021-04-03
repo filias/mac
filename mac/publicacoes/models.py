@@ -1,11 +1,7 @@
-import datetime
-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from mac.galeria.models import Staff
 from mac.artistas.models import Artista
-from mac.geral.models import Foto
 
 TIPO_CHOICES = (
 	(u'Newsletter', u'Newsletter'), 
@@ -20,7 +16,7 @@ class Publicacao(models.Model):
     titulo = models.CharField(max_length=200)
     autor = models.CharField(max_length=100, null=True, blank=True)
     editor = models.CharField(max_length=100, null=True, blank=True)
-    artista = models.ForeignKey(Artista, null=True, blank=True)
+    artista = models.ForeignKey(Artista, null=True, blank=True, on_delete=models.CASCADE)
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
     data = models.DateField(null=True, blank=True)
     descricao = models.TextField(null=True, blank=True)

@@ -6,9 +6,8 @@ authors = ["Filipa Andrade <filipa.andrade@gmail.com>"]
 license = "UNLICENSED"
 
 [tool.poetry.dependencies]
-Django = "^1"
-django-filebrowser = "^3.12"
-django-grappelli = "~2.13"
+Django = "^2"
+django-filebrowser = "^3.10.2"
 mysqlclient = "^2.0.3"
 python = "^3.8"
 python-dotenv = "^0.16.0"

@@ -25,7 +25,7 @@ class Tipo(models.Model):
 
 class Tecnica(models.Model):
     nome = models.CharField(max_length=50)
-    categoria = models.ForeignKey(Tipo)
+    categoria = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     def __str__(self):
         return self.nome
     
@@ -36,7 +36,7 @@ class Tecnica(models.Model):
 
 class Material(models.Model):
     nome = models.CharField(max_length=50)
-    categoria = models.ForeignKey(Tipo)
+    categoria = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     def __str__(self):
         return self.nome
     

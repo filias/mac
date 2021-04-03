@@ -17,8 +17,8 @@ class Artista(models.Model):
     nome = models.CharField(max_length=100)
     bio_resumo = models.TextField(null=True, blank=True)
     bio_resumo_en = models.TextField(null=True, blank=True)
-    foto = models.ForeignKey(Foto, null=True, blank=True, related_name='foto')
-    foto_obra = models.ForeignKey(Foto, null=True, blank=True, related_name='foto_obra')
+    foto = models.ForeignKey(Foto, null=True, blank=True, related_name='foto', on_delete=models.CASCADE)
+    foto_obra = models.ForeignKey(Foto, null=True, blank=True, related_name='foto_obra', on_delete=models.CASCADE)
     biografia = models.FileField(upload_to='biografias/', null=True, blank=True)
     tipo = models.ManyToManyField(Tipo)
     telas = models.ManyToManyField(Tela, blank=True)
@@ -38,19 +38,19 @@ class Artista(models.Model):
         
 
 class Obra(models.Model):
-    autor = models.ForeignKey(Artista)
+    autor = models.ForeignKey(Artista, on_delete=models.CASCADE)
     titulo = models.CharField(max_length=100)
     ano = models.CharField(max_length=12)
     descricao = models.TextField(null=True, blank=True)
     descricao_en = models.TextField(null=True, blank=True)
-    tipo = models.ForeignKey(Tipo)
+    tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     tecnicas = models.ManyToManyField(Tecnica, blank=True)
     altura = models.IntegerField(null=True, blank=True)
     largura = models.IntegerField(null=True, blank=True)
     profundidade = models.IntegerField(null=True, blank=True)
     materiais = models.ManyToManyField(Material, blank=True)
     estado = models.CharField(max_length=1, choices=ESTADO_CHOICES)
-    foto = models.ForeignKey(Foto, null=True, blank=True)
+    foto = models.ForeignKey(Foto, null=True, blank=True, on_delete=models.CASCADE)
     
     def __str__(self):
         return '%s - %s' % (self.autor.nome, self.titulo)

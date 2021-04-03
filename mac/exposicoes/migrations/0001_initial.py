@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('convite', models.FileField(null=True, upload_to=b'convites/', blank=True)),
                 ('press_release', models.FileField(null=True, upload_to=b'press_releases/', blank=True)),
                 ('artistas', models.ManyToManyField(to='artistas.Artista', null=True, blank=True)),
-                ('catalogo', models.ForeignKey(blank=True, to='publicacoes.Publicacao', null=True)),
+                ('catalogo', models.ForeignKey(blank=True, to='publicacoes.Publicacao', null=True, on_delete=models.CASCADE)),
                 ('fotos', models.ManyToManyField(to='geral.Foto', null=True, blank=True)),
                 ('galerias', models.ManyToManyField(to='galeria.Galeria')),
                 ('obras', models.ManyToManyField(to='artistas.Obra', null=True, blank=True)),
