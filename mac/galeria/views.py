@@ -1,17 +1,16 @@
 import random
 
-from django.shortcuts import get_object_or_404
-from django.views.decorators.cache import never_cache
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.views.decorators.cache import never_cache
 
-from mac.artistas.models import Obra, Artista
-from mac.galeria.models import Galeria, Staff, Premio, Aniversario, Premiado
-from mac.geral.models import Tela, Destaque
-from mac.publicacoes.models import Texto
-from mac.exposicoes.models import Exposicao
-from mac.utils import utils
+from mac.artistas.models import Artista, Obra
 from mac.common import common
+from mac.exposicoes.models import Exposicao
+from mac.galeria.models import Aniversario, Galeria, Premio
+from mac.geral.models import Destaque, Tela
+from mac.publicacoes.models import Texto
+from mac.utils import utils
 
 RTR_DICT = common.DEFAULT_DICT
 

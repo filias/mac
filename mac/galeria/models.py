@@ -1,10 +1,9 @@
 from django.db import models
-from django.contrib import admin
-from mac.geral.models import Foto
-from mac.artistas.models import Obra
-import datetime
 
-# Create your models here.
+from mac.artistas.models import Obra
+from mac.geral.models import Foto
+
+
 class Galeria(models.Model):
     nome = models.CharField(max_length=200)
     descricao = models.TextField(null=True, blank=True)

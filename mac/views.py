@@ -1,10 +1,10 @@
 from django import http
-from django.utils.translation import check_for_language
 from django.conf import settings
 from django.shortcuts import render
+from django.utils.translation import check_for_language
 
-from mac.publicacoes.models import Link
 from mac.common import common
+from mac.publicacoes.models import Link
 
 RTR_DICT = common.DEFAULT_DICT
 

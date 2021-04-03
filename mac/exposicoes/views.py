@@ -1,9 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 
-from mac.exposicoes.models import Exposicao
 from mac.artistas.models import Obra
-
 from mac.common import common
+from mac.exposicoes.models import Exposicao
 from mac.utils import utils
 
 RTR_DICT = common.DEFAULT_DICT

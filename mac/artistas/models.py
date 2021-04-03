@@ -1,10 +1,7 @@
-import datetime
-
 from django.db import models
-from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from mac.geral.models import Tipo, Tecnica, Material, Tela, Foto
+from mac.geral.models import Foto, Material, Tecnica, Tela, Tipo
 
 ESTADO_CHOICES = (
     (u"A", u"Acervo"),

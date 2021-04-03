@@ -1,7 +1,8 @@
-# -*- coding: utf-8 -*-
 from __future__ import absolute_import
+
 from django.contrib import admin
-from mac.geral.models import Tipo, Tecnica, Material, Tela, Foto, Destaque
+
+from mac.geral.models import Destaque, Foto, Material, Tecnica, Tela, Tipo
 
 admin.site.register(Tipo)
 

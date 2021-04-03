@@ -1,6 +1,6 @@
-from django.db import models
 from django.contrib import admin
-from mac.publicacoes.models import Publicacao, Texto, Link
+
+from mac.publicacoes.models import Link, Publicacao, Texto
 
 
 class PublicacaoAdmin(admin.ModelAdmin):
