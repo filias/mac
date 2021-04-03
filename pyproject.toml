@@ -18,6 +18,7 @@ autohooks = "^21.3.0"
 autohooks-plugin-black = "^1.2.0"
 
 [tool.autohooks]
+mode = "poetry"
 pre-commit = ["autohooks.plugins.black"]
 
 [build-system]
