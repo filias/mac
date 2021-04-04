@@ -5,7 +5,7 @@ DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-ALLOWED_HOSTS = [u"localhost", u"macsiteadmin.pythonanywhere.com"]
+ALLOWED_HOSTS = ["localhost", "macsiteadmin.pythonanywhere.com", "127.0.0.1"]
 
 DATABASES = {
     "default": {
