@@ -1,0 +1,568 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-04-05 18:55+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mac/404.html:5 mac/500.html:5
+msgid "Page not found"
+msgstr ""
+
+#: mac/404.html:10 mac/500.html:10
+msgid "The page you requested could not be found."
+msgstr ""
+
+#: mac/404.html:11 mac/500.html:11
+msgid "Are you sure your current url is valid ?"
+msgstr ""
+
+#: mac/404.html:12 mac/500.html:12
+msgid "If the problem persists, please contact an administrator"
+msgstr ""
+
+#: mac/artistas/models.py:37
+msgid "Artista"
+msgstr "Artist"
+
+#: mac/artistas/models.py:38
+#: mac/exposicoes/templates/exposicoes_detalhe.html:69
+msgid "Artistas"
+msgstr "Artists"
+
+#: mac/artistas/models.py:61 mac/artistas/templates/artistas_detalhe.html:21
+#: mac/artistas/templates/templates/artistas_detalhe.html:21
+msgid "Obra"
+msgstr "Work"
+
+#: mac/artistas/models.py:62
+#: mac/exposicoes/templates/exposicoes_detalhe.html:41
+msgid "Obras"
+msgstr "Works"
+
+#: mac/artistas/templates/artistas.html:7
+#: mac/artistas/templates/artistas_acervo.html:7
+#: mac/artistas/templates/artistas_ceramica.html:4
+#: mac/artistas/templates/artistas_critica.html:7
+#: mac/artistas/templates/artistas_desenho.html:4
+#: mac/artistas/templates/artistas_detalhe.html:7
+#: mac/artistas/templates/artistas_escultura.html:4
+#: mac/artistas/templates/artistas_exposicoes.html:7
+#: mac/artistas/templates/artistas_fotografia.html:4
+#: mac/artistas/templates/artistas_imprensa.html:7
+#: mac/artistas/templates/artistas_joalharia.html:4
+#: mac/artistas/templates/artistas_medalhistica.html:4
+#: mac/artistas/templates/artistas_obras.html:7
+#: mac/artistas/templates/artistas_pintura.html:4
+#: mac/artistas/templates/obra_detalhe.html:8
+#: mac/artistas/templates/templates/artistas.html:7
+#: mac/artistas/templates/templates/artistas_acervo.html:7
+#: mac/artistas/templates/templates/artistas_ceramica.html:4
+#: mac/artistas/templates/templates/artistas_critica.html:7
+#: mac/artistas/templates/templates/artistas_desenho.html:4
+#: mac/artistas/templates/templates/artistas_detalhe.html:7
+#: mac/artistas/templates/templates/artistas_escultura.html:4
+#: mac/artistas/templates/templates/artistas_exposicoes.html:7
+#: mac/artistas/templates/templates/artistas_fotografia.html:4
+#: mac/artistas/templates/templates/artistas_imprensa.html:7
+#: mac/artistas/templates/templates/artistas_joalharia.html:4
+#: mac/artistas/templates/templates/artistas_medalhistica.html:4
+#: mac/artistas/templates/templates/artistas_obras.html:7
+#: mac/artistas/templates/templates/artistas_pintura.html:4
+#: mac/artistas/templates/templates/obra_detalhe.html:8
+#: mac/templates/base.html:124 mac/templates/mapa.html:59
+msgid "artistas"
+msgstr "artists"
+
+#: mac/artistas/templates/artistas.html:33
+#: mac/artistas/templates/templates/artistas.html:33
+msgid "Artista em exposição"
+msgstr "In exhibition"
+
+#: mac/artistas/templates/artistas.html:39
+#: mac/artistas/templates/templates/artistas.html:39
+msgid "Não há artistas"
+msgstr "No artists"
+
+#: mac/artistas/templates/artistas_acervo.html:7
+#: mac/artistas/templates/templates/artistas_acervo.html:7
+msgid "Acervo"
+msgstr "Collection"
+
+#: mac/artistas/templates/artistas_ceramica.html:4
+#: mac/artistas/templates/templates/artistas_ceramica.html:4
+#: mac/templates/base.html:126 mac/templates/mapa.html:61
+msgid "cerâmica"
+msgstr "ceramics"
+
+#: mac/artistas/templates/artistas_desenho.html:4
+#: mac/artistas/templates/templates/artistas_desenho.html:4
+#: mac/templates/base.html:127 mac/templates/mapa.html:62
+msgid "desenho"
+msgstr "drawing"
+
+#: mac/artistas/templates/artistas_detalhe.html:17
+#: mac/artistas/templates/templates/artistas_detalhe.html:17
+msgid "Curriculum"
+msgstr ""
+
+#: mac/artistas/templates/artistas_detalhe.html:25
+#: mac/artistas/templates/templates/artistas_detalhe.html:25
+msgid "Crítica"
+msgstr "Critics"
+
+#: mac/artistas/templates/artistas_detalhe.html:29
+#: mac/artistas/templates/templates/artistas_detalhe.html:29
+#: mac/publicacoes/templates/publicacoes.html:44
+msgid "Imprensa"
+msgstr "Press"
+
+#: mac/artistas/templates/artistas_detalhe.html:33
+#: mac/artistas/templates/templates/artistas_detalhe.html:33
+msgid "Expo MAC"
+msgstr "MAC Exhibitions"
+
+#: mac/artistas/templates/artistas_detalhe.html:37
+#: mac/artistas/templates/templates/artistas_detalhe.html:37
+msgid "Acervo MAC"
+msgstr "MAC Collection"
+
+#: mac/artistas/templates/artistas_escultura.html:4
+#: mac/artistas/templates/templates/artistas_escultura.html:4
+#: mac/templates/base.html:128 mac/templates/mapa.html:63
+msgid "escultura"
+msgstr "sculpture"
+
+#: mac/artistas/templates/artistas_exposicoes.html:7
+#: mac/artistas/templates/templates/artistas_exposicoes.html:7
+#: mac/exposicoes/templates/exposicoes.html:8
+#: mac/exposicoes/templates/exposicoes_detalhe.html:10
+#: mac/exposicoes/templates/exposicoes_obras.html:8
+#: mac/exposicoes/templates/exposicoes_passadas.html:7
+#: mac/exposicoes/templates/obra_detalhe.html:8 mac/templates/base.html:115
+#: mac/templates/mapa.html:47
+msgid "exposições"
+msgstr "exhibitions"
+
+#: mac/artistas/templates/artistas_fotografia.html:4
+#: mac/artistas/templates/templates/artistas_fotografia.html:4
+#: mac/templates/base.html:129 mac/templates/mapa.html:64
+msgid "fotografia"
+msgstr "photography"
+
+#: mac/artistas/templates/artistas_imprensa.html:7
+#: mac/artistas/templates/templates/artistas_imprensa.html:7
+#: mac/publicacoes/templates/publicacoes_imprensa.html:4
+#: mac/templates/base.html:143 mac/templates/mapa.html:81
+msgid "imprensa"
+msgstr "press"
+
+#: mac/artistas/templates/artistas_joalharia.html:4
+#: mac/artistas/templates/templates/artistas_joalharia.html:4
+#: mac/templates/base.html:130 mac/templates/mapa.html:65
+msgid "joalharia"
+msgstr "jewelery"
+
+#: mac/artistas/templates/artistas_medalhistica.html:4
+#: mac/artistas/templates/templates/artistas_medalhistica.html:4
+#: mac/templates/base.html:131 mac/templates/mapa.html:66
+msgid "medalhística"
+msgstr "medals"
+
+#: mac/artistas/templates/artistas_obras.html:7
+#: mac/artistas/templates/obra_detalhe.html:8
+#: mac/artistas/templates/templates/artistas_obras.html:7
+#: mac/artistas/templates/templates/obra_detalhe.html:8
+msgid "obra"
+msgstr "work"
+
+#: mac/artistas/templates/artistas_pintura.html:4
+#: mac/artistas/templates/templates/artistas_pintura.html:4
+#: mac/templates/base.html:132 mac/templates/mapa.html:67
+msgid "pintura"
+msgstr "painting"
+
+#: mac/artistas/templates/obra_detalhe.html:23
+#: mac/artistas/templates/templates/obra_detalhe.html:23
+#: mac/exposicoes/templates/obra_detalhe.html:37
+#: mac/galeria/templates/acervo_detalhe.html:22
+#: mac/galeria/templates/trofeu.html:23
+msgid "Descrição"
+msgstr "Description"
+
+#: mac/artistas/templates/obra_detalhe.html:27
+#: mac/artistas/templates/templates/obra_detalhe.html:27
+#: mac/exposicoes/templates/obra_detalhe.html:41
+#: mac/galeria/templates/acervo_detalhe.html:26
+#: mac/galeria/templates/trofeu.html:27
+msgid "Dimensões"
+msgstr "Dimensions"
+
+#: mac/artistas/templates/obra_detalhe.html:36
+#: mac/artistas/templates/templates/obra_detalhe.html:36
+#: mac/exposicoes/templates/obra_detalhe.html:50
+#: mac/galeria/templates/acervo_detalhe.html:35
+#: mac/galeria/templates/trofeu.html:36 mac/geral/models.py:50
+msgid "Materiais"
+msgstr "Materials"
+
+#: mac/artistas/templates/obra_detalhe.html:47
+#: mac/artistas/templates/templates/obra_detalhe.html:47
+#: mac/exposicoes/templates/obra_detalhe.html:61
+#: mac/galeria/templates/acervo_detalhe.html:46
+#: mac/galeria/templates/trofeu.html:47
+msgid "Técnicas"
+msgstr "Techniques"
+
+#: mac/contactos/templates/contacte_nos.html:7
+#: mac/contactos/templates/contactos.html:8
+#: mac/contactos/templates/contactos_sucesso.html:6
+#: mac/contactos/templates/templates/contacte_nos.html:7
+#: mac/contactos/templates/templates/contactos.html:8
+#: mac/contactos/templates/templates/contactos_sucesso.html:6
+#: mac/templates/base.html:151 mac/templates/mapa.html:87
+msgid "contactos"
+msgstr "contact"
+
+#: mac/contactos/templates/contacte_nos.html:7
+#: mac/contactos/templates/templates/contacte_nos.html:7
+#: mac/exposicoes/templates/exposicoes_detalhe.html:108
+msgid "contacte-nos"
+msgstr "contact us"
+
+#: mac/contactos/templates/contacte_nos.html:11
+#: mac/contactos/templates/templates/contacte_nos.html:11
+msgid "Assunto"
+msgstr "Subject"
+
+#: mac/contactos/templates/contacte_nos.html:16
+#: mac/contactos/templates/templates/contacte_nos.html:16
+msgid "Mensagem"
+msgstr "Message"
+
+#: mac/contactos/templates/contacte_nos.html:22
+#: mac/contactos/templates/templates/contacte_nos.html:22
+msgid "O seu email"
+msgstr "Your email"
+
+#: mac/contactos/templates/contactos.html:16
+#: mac/contactos/templates/templates/contactos.html:16
+msgid "Morada"
+msgstr "Address"
+
+#: mac/contactos/templates/contactos.html:17
+#: mac/contactos/templates/templates/contactos.html:17
+#: mac/galeria/templates/galeria.html:15
+msgid "Mapa"
+msgstr "Map"
+
+#: mac/contactos/templates/contactos.html:18
+#: mac/contactos/templates/templates/contactos.html:18
+#: mac/galeria/templates/galeria.html:34
+msgid "Telefone"
+msgstr "Phone"
+
+#: mac/contactos/templates/contactos.html:19
+#: mac/contactos/templates/templates/contactos.html:19
+msgid "Email"
+msgstr ""
+
+#: mac/contactos/templates/contactos.html:20
+#: mac/contactos/templates/templates/contactos.html:20
+msgid "Horário"
+msgstr "Opening Time"
+
+#: mac/contactos/templates/contactos_sucesso.html:6
+#: mac/contactos/templates/templates/contactos_sucesso.html:6
+msgid "obrigado"
+msgstr "thank you"
+
+#: mac/contactos/templates/contactos_sucesso.html:8
+#: mac/contactos/templates/templates/contactos_sucesso.html:8
+msgid "Muito obrigado pelo seu contacto"
+msgstr "Thank you very much for your message"
+
+#: mac/exposicoes/models.py:57
+#, fuzzy
+msgid "Exposicao"
+msgstr "Exhibition"
+
+#: mac/exposicoes/models.py:58
+#, fuzzy
+msgid "Exposicoes"
+msgstr "Exhibitions"
+
+#: mac/exposicoes/templates/exposicoes_actuais.html:4
+#: mac/templates/base.html:118 mac/templates/mapa.html:50
+msgid "actuais"
+msgstr "current"
+
+#: mac/exposicoes/templates/exposicoes_detalhe.html:45
+msgid "Press Release"
+msgstr ""
+
+#: mac/exposicoes/templates/exposicoes_detalhe.html:49
+#: mac/galeria/templates/premios_detalhe.html:20
+msgid "Convite"
+msgstr "Invitation"
+
+#: mac/exposicoes/templates/exposicoes_detalhe.html:53
+#: mac/galeria/templates/premios_detalhe.html:24
+msgid "Catálogo"
+msgstr "Catalog"
+
+#: mac/exposicoes/templates/exposicoes_detalhe.html:64
+msgid "Galerias"
+msgstr "Galleries"
+
+#: mac/exposicoes/templates/exposicoes_detalhe.html:108
+msgid "Informações de PVP (preço de venda ao público)"
+msgstr "For price informations"
+
+#: mac/exposicoes/templates/exposicoes_futuras.html:4
+#: mac/templates/base.html:119 mac/templates/mapa.html:51
+msgid "futuras"
+msgstr "future"
+
+#: mac/exposicoes/templates/exposicoes_passadas.html:7
+#: mac/exposicoes/templates/exposicoes_passadas_ano.html:4
+#: mac/templates/base.html:117 mac/templates/mapa.html:49
+msgid "passadas"
+msgstr "past"
+
+#: mac/exposicoes/templates/obra_detalhe.html:19
+msgid "obras"
+msgstr "works"
+
+#: mac/galeria/templates/acervo_detalhe.html:7
+#: mac/galeria/templates/galeria_acervo.html:8
+#: mac/galeria/templates/galeria_acervo_artista.html:8
+#: mac/templates/base.html:110 mac/templates/mapa.html:38
+msgid "acervo"
+msgstr "collection"
+
+#: mac/galeria/templates/acervo_detalhe.html:18
+msgid "Tipo"
+msgstr ""
+
+#: mac/galeria/templates/galeria.html:7 mac/templates/base.html:105
+#: mac/templates/mapa.html:32
+msgid "galerias"
+msgstr "galleries"
+
+#: mac/galeria/templates/galeria_agenda.html:8 mac/templates/base.html:106
+#: mac/templates/mapa.html:34
+msgid "agenda"
+msgstr ""
+
+#: mac/galeria/templates/galeria_curriculum.html:8
+#: mac/galeria/templates/galeria_curriculum_anos.html:8
+#: mac/templates/base.html:107 mac/templates/mapa.html:35
+msgid "curriculum"
+msgstr ""
+
+#: mac/galeria/templates/galeria_equipa.html:8 mac/templates/base.html:108
+#: mac/templates/mapa.html:36
+msgid "estrutura"
+msgstr "departments"
+
+#: mac/galeria/templates/galeria_historia.html:8 mac/templates/base.html:104
+#: mac/templates/mapa.html:31
+msgid "história"
+msgstr "history"
+
+#: mac/galeria/templates/galeria_missao.html:8 mac/templates/base.html:103
+#: mac/templates/mapa.html:30
+msgid "missão"
+msgstr "mission"
+
+#: mac/galeria/templates/galeria_premios.html:8
+#: mac/galeria/templates/premiados.html:8
+#: mac/galeria/templates/premios_detalhe.html:8
+#: mac/galeria/templates/trofeu.html:7 mac/templates/base.html:109
+#: mac/templates/mapa.html:37
+msgid "prémios MAC"
+msgstr "MAC awards"
+
+#: mac/galeria/templates/galeria_visita.html:7
+msgid "visita virtual"
+msgstr "virtual visit"
+
+#: mac/galeria/templates/premiados.html:9
+msgid "premiados"
+msgstr "awardees"
+
+#: mac/galeria/templates/premiados.html:33
+msgid "Premiado"
+msgstr "Awardee"
+
+#: mac/galeria/templates/premios_detalhe.html:28
+msgid "Premiados"
+msgstr "Awardees"
+
+#: mac/geral/models.py:36
+#, fuzzy
+msgid "Tecnica"
+msgstr "Techniques"
+
+#: mac/geral/models.py:37
+#, fuzzy
+msgid "Tecnicas"
+msgstr "Techniques"
+
+#: mac/geral/models.py:49
+#, fuzzy
+msgid "Material"
+msgstr "Materials"
+
+#: mac/publicacoes/models.py:35
+msgid "Publicacao"
+msgstr ""
+
+#: mac/publicacoes/models.py:36
+#, fuzzy
+msgid "Publicacoes"
+msgstr "publications"
+
+#: mac/publicacoes/templates/publicacoes.html:8
+#: mac/publicacoes/templates/publicacoes_base.html:8
+#: mac/publicacoes/templates/publicacoes_catalogos.html:4
+#: mac/publicacoes/templates/publicacoes_criticas.html:4
+#: mac/publicacoes/templates/publicacoes_detalhe.html:7
+#: mac/publicacoes/templates/publicacoes_imprensa.html:4
+#: mac/publicacoes/templates/publicacoes_monografias.html:4
+#: mac/publicacoes/templates/publicacoes_newsletters.html:4
+#: mac/templates/base.html:138 mac/templates/mapa.html:77
+msgid "publicações"
+msgstr "publications"
+
+#: mac/publicacoes/templates/publicacoes.html:14
+msgid "Catálogos"
+msgstr "Catalogs"
+
+#: mac/publicacoes/templates/publicacoes.html:28
+msgid "Críticas"
+msgstr "Critics"
+
+#: mac/publicacoes/templates/publicacoes.html:58
+msgid "Monografias"
+msgstr "Monography"
+
+#: mac/publicacoes/templates/publicacoes.html:71
+msgid "Newsletters"
+msgstr ""
+
+#: mac/publicacoes/templates/publicacoes_base.html:32
+msgid "Não há publicações"
+msgstr "There are no publications"
+
+#: mac/publicacoes/templates/publicacoes_catalogos.html:4
+#: mac/templates/base.html:141 mac/templates/mapa.html:79
+msgid "catálogos"
+msgstr "catalogs"
+
+#: mac/publicacoes/templates/publicacoes_criticas.html:4
+#: mac/templates/base.html:142 mac/templates/mapa.html:80
+msgid "crítica"
+msgstr "critics"
+
+#: mac/publicacoes/templates/publicacoes_detalhe.html:10
+msgid "Autor"
+msgstr "Author"
+
+#: mac/publicacoes/templates/publicacoes_detalhe.html:14
+msgid "Data"
+msgstr "Date"
+
+#: mac/publicacoes/templates/publicacoes_detalhe.html:20
+msgid "Download"
+msgstr ""
+
+#: mac/publicacoes/templates/publicacoes_monografias.html:4
+#: mac/templates/base.html:144 mac/templates/mapa.html:82
+msgid "monografias"
+msgstr "monographies"
+
+#: mac/publicacoes/templates/publicacoes_newsletters.html:4
+#: mac/templates/base.html:145
+msgid "newsletters"
+msgstr ""
+
+#: mac/templates/arte.html:8
+msgid "arte e decoração"
+msgstr "art and deco"
+
+#: mac/templates/base.html:101
+msgid "MAC"
+msgstr ""
+
+#: mac/templates/base.html:140 mac/templates/mapa.html:83
+msgid "newsletter"
+msgstr ""
+
+#: mac/templates/base.html:155 mac/templates/mapa.html:90
+msgid "links"
+msgstr ""
+
+#: mac/templates/base.html:159
+msgid "Mapa do site"
+msgstr "Sitemap"
+
+#: mac/templates/base.html:170
+msgid "Pesquisar"
+msgstr "Search"
+
+#: mac/templates/index.html:8
+msgid "Destaques"
+msgstr "News"
+
+#: mac/templates/mapa.html:21
+msgid "mapa do site"
+msgstr "sitemap"
+
+#: mac/templates/resultados.html:8
+msgid "resultados"
+msgstr "results"
+
+#: mac/templates/servicos.html:7
+msgid "serviços"
+msgstr "services"
+
+#~ msgid "troféus"
+#~ msgstr "trophies"
+
+#~ msgid "Cc para si"
+#~ msgstr "Cc to you"
+
+#~ msgid "programa"
+#~ msgstr "program"
+
+#~ msgid "fotos"
+#~ msgstr "photos"
+
+#~ msgid "todas"
+#~ msgstr "all"
+
+#~ msgid "projecto"
+#~ msgstr "project"
+
+#~ msgid "objectivos"
+#~ msgstr "goals"
+
+#~ msgid "curadoria/comissariado"
+#~ msgstr "curatorship"
+
+#~ msgid "mesas redondas"
+#~ msgstr "round table"

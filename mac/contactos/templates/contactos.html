@@ -1,6 +1,5 @@
 {% extends "templates/base.html" %}
 {% load i18n %}
-{% load email_obfuscator %}
 
 {% block sections %}
 	<div class="section">
@@ -16,12 +15,12 @@
 			    <p><b>{% trans "Morada" %}:</b> {{ entry.rua }} - {{ entry.cod_postal }} {{ entry.cidade }}</p>
 			    <p><a href="{{entry.mapa}}" target="blank"><b>{% trans "Mapa" %}</b></a></p>
 			    <p><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</p>
-			    <p><b>{% trans "Email" %}:</b> <a href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</p></a>
+			    <p><b>{% trans "Email" %}:</b> <a href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</a></p>
 	    		    <p><b>{% trans "Horário" %}:</b>
 			      {% ifequal LANGUAGE_CODE "en" %}
 				Weekdays from 13h to 20h, saturdays from 15h to 19h</p>
 				{% else %}
-				{{ entry.horario }}</p>
+				<p>{{ entry.horario }}</p>
 			      {% endifequal %}
 		</td>
             {% endfor %}

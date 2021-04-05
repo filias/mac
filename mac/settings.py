@@ -1,9 +1,10 @@
 import os
+from pathlib import Path
 
 DEBUG = True
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent
 
 ALLOWED_HOSTS = ["localhost", "macsiteadmin.pythonanywhere.com", "127.0.0.1"]
 
@@ -34,6 +35,8 @@ LANGUAGES = (
     ("pt", "Portuguese"),
 )
 
+LOCALE_PATHS = [PROJECT_ROOT / "locale"]
+
 SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
@@ -42,7 +45,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "site-media")
+MEDIA_ROOT = BASE_DIR / "site-media"
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -50,7 +53,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "site-media")
 MEDIA_URL = os.getenv("MEDIA_URL")
 
 # Static files settings
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "/static/"
 
 # Make this unique, and don't share it with anybody.
