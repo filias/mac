@@ -10,6 +10,7 @@ RTR_DICT = common.DEFAULT_DICT
 
 
 def set_language(request, lang_code):
+    breakpoint()
     next = request.REQUEST.get("next", None)
     if not next:
         next = "/"
