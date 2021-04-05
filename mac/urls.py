@@ -6,7 +6,7 @@ from django.contrib import admin
 from django.views.static import serve
 from filebrowser.sites import site
 
-from .views import links, mapa, resultados, set_language
+from .views import links, mapa, resultados
 
 admin.autodiscover()
 
@@ -27,7 +27,6 @@ urlpatterns = [
     ),
     # i18n
     url(r"^i18n/", include("django.conf.urls.i18n")),
-    url(r"^setlang/(?P<lang_code>.*)/$", set_language),
     # Site urls
     url(r"^mac/", include("mac.galeria.urls")),
     url(r"^exposicoes/", include("mac.exposicoes.urls")),
