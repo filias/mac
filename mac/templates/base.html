@@ -30,7 +30,7 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <script type="text/javascript" src="/site-media/javascript/jquery/jquery-1.3.1.min.js"></script>
     <script type="text/javascript" src="/site-media/javascript/jquery/plugins/jquery.cycle.all.js"></script>
     <script type="text/javascript" src="/site-media/javascript/jquery/plugins/jquery.lightbox-0.5.js"></script>
-    	
+
     <script type="text/javascript">
         function set_lang(lang) {
             $('#language-select-language').val(lang).closest('form').submit();
@@ -58,12 +58,133 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
 </head>    
 
 <body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/site-media/logos/logo_mac_com_texto_branco_verde_cinzento_100px.jpg" width="60"
+                        class="d-inline-block align-top" alt="logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- About item  -->
+                        <li class="nav-item dropdown text-uppercase {% active request '/mac' %}">
+                            <a class="nav-link dropdown-toggle {% active request '/mac' %}" href="/mac" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% trans 'MAC' %}
+                            </a>
+                            <ul class="dropdown-menu {% active request '/mac' %}"
+                                aria-labelledby="navbarDropdown">
+                                <li><a class="{% active request '/mac/missao/' %} dropdown-item"
+                                        href="/mac/missao">{% trans "missão" %}</a></li>
+                                <li><a class="{% active request '/mac/historia/' %} dropdown-item"
+                                        href="/mac/historia">{% trans "história" %}</a></li>
+                                <li><a class="{% active request '/mac/galerias' %} dropdown-item"
+                                        href="/mac/galerias">{% trans "galerias" %}</a></li>
+                                <li><a class="{% active request '/mac/agenda/' %} dropdown-item"
+                                        href="/mac/agenda">{% trans "agenda" %}</a></li>
+                                <li><a class="{% active request '/mac/curriculum/' %} dropdown-item"
+                                        href="/mac/curriculum">{% trans "curriculum" %}</a></li>
+                                <li><a class="{% active request '/mac/equipa/' %} dropdown-item"
+                                        href="/mac/equipa">{% trans "estrutura" %}</a></li>
+                                <li><a class="{% active request '/mac/premios/' %} dropdown-item"
+                                        href="/mac/premios">{% trans "prémios MAC" %}</a></li>
+                                <li><a class="{% active request '/mac/acervo/' %} dropdown-item"
+                                        href="/mac/acervo">{% trans "acervo" %}</a></li>
+                            </ul>
+                        </li>
+                        <!-- exibitions item  -->
+                        <li class="nav-item dropdown text-uppercase {% active request '/exposicoes' %}">
+                            <a class="nav-link dropdown-toggle {% active request '/exposicoes' %}"
+                                href="/exposicoes/actuais" id="exibitionsDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">{% trans 'exposições' %}</a>
+                            <ul class="dropdown-menu {% active request '/exposicoes' %}"
+                                aria-labelledby="exibitionsDropdown">
+                                <li><a class="dropdown-item {% active request '/exposicoes/passadas/' %}"
+                                        href="/exposicoes/passadas">{% trans "passadas" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/exposicoes/actuais/' %}"
+                                        href="/exposicoes/actuais">{% trans "actuais" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/exposicoes/futuras/' %}"
+                                        href="/exposicoes/futuras">{% trans "futuras" %}</a></li>
+                            </ul>
+                        </li>
+                        <!-- artists item  -->
+                        <li class="nav-item dropdown text-uppercase {% active request '/artistas' %}">
+                            <a class="nav-link dropdown-toggle {% active request '/artistas' %}" href="/artistas"
+                                id="artistsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {% trans 'artistas' %}</a>
+                            <ul class="dropdown-menu {% active request '/artistas' %}"
+                                aria-labelledby="artistsDropdown">
+                                <li><a class="dropdown-item {% active request '/artistas/ceramica/' %}"
+                                        href="/artistas/ceramica">{% trans "cerâmica" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/desenho/' %}"
+                                        href="/artistas/desenho">{% trans "desenho" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/escultura/' %}"
+                                        href="/artistas/escultura">{% trans "escultura" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/fotografia/' %}"
+                                        href="/artistas/fotografia">{% trans "fotografia" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/joalharia/' %}"
+                                        href="/artistas/joalharia">{% trans "joalharia" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/medalhistica/' %}"
+                                        href="/artistas/medalhistica">{% trans "medalhística" %}</a></li>
+                                <li><a class="dropdown-item {% active request '/artistas/pintura/' %}"
+                                        href="/artistas/pintura">{% trans "pintura" %}</a></li>
+                            </ul>
+                        </li>
+                        <!-- publications item  -->
+                        <li class="nav-item dropdown text-uppercase {% active request '/publicacoes' %}">
+                            <a class="nav-link dropdown-toggle {% active request '/publicacoes' %}" href="/publicacoes"  
+                            id="publicationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'publicações'%}</a>
+                            <ul class="dropdown-menu {% active request '/publicacoes' %}" aria-labelledby="publicationsDropdown">
+                                <li><a class="dropdown-item  {% active request '/publicacoes/catalogos/' %}"
+                                        href="/publicacoes/catalogos/AG">{% trans "catálogos" %}</a></li>
+                                <li><a class="dropdown-item  {% active request '/publicacoes/critica/' %}"
+                                        href="/publicacoes/critica/AG">{% trans "crítica" %}</a></li>
+                                <li><a class="dropdown-item  {% active request '/publicacoes/imprensa/' %}"
+                                        href="/publicacoes/imprensa/AG">{% trans "imprensa" %}</a></li>
+                                <li><a class="dropdown-item  {% active request '/publicacoes/monografias/' %}"
+                                        href="/publicacoes/monografias/AG">{% trans "monografias" %}</a></li>
+                                <li><a class="dropdown-item  {% active request '/publicacoes/newsletters/' %}"
+                                        href="/publicacoes/newsletters/AG">{% trans "newsletters" %}</a></li>
+                            </ul>
+                        </li>
+                        <!-- contact item  -->
+                        <li class="nav-item {% active request '/contactos' %}">
+                            <a class="nav-link text-uppercase {% active request '/contactos' %}" href="/contactos">{% trans 'contactos' %}</a>
+                        </li>
+                        <!-- links item  -->
+                        <li class="nav-item {% active request '/links' %}">
+                            <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
+                        </li>
+                        <!-- links item  -->
+                        <li class="nav-item {% active request '/mapa' %}">
+                            <a class="nav-link text-uppercase {% active request '/mapa' %}" href="/mapa" style="text-transform:none;">{% trans 'Mapa do site' %}</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" action="/resultados/" id="cse-search-box">
+                        <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
+                        <input type="hidden" name="cof" value="FORID:9" />
+                        <input type="hidden" name="ie" value="UTF-8" />
+                        <input class="form-control me-2" type="search" name="q" />
+                        <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-outline-success" />
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
     <div id="top_left">
     </div>
-    
+
     {% get_available_languages as LANGUAGES %}
     {% get_current_language as LANGUAGE_CODE %}
-    
+
     <div id="top">
 	<form id="language-select" class="c2-hidden" method="post" action="/i18n/setlang/">
 	  <input id="language-select-language" type="hidden" value="pt" name="language"/>
