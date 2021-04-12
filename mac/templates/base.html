@@ -153,20 +153,20 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
         </nav>
 
         {% endblock navbar %}
+    </div>
 
+    <div id="logo" style="overflow:hidden;">
+        {% block tela %}
 
-        <div id="logo" style="overflow:hidden;">
-            {% block tela %}
-
-            <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
-                {% if telas %} {% for tela in telas %}
-                <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" border="0" alt="" title="" style="height:120px;" /></a>
-                {% endfor %} {% endif %}
-            </div>
-
-            {% endblock %}
+        <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
+            {% if telas %} {% for tela in telas %}
+            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" border="0" alt="" title="" style="height:120px;" /></a>
+            {% endfor %} {% endif %}
         </div>
 
+        {% endblock %}
+    </div>
+    <div class="container">
         <div id="content">
             {% block sections %} {% endblock %}
         </div>
