@@ -1,64 +1,63 @@
 {% extends "galeria/templates/galeria.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
+<div class="section">
+    <h1><a href="/mac">MAC</a> - <a href="/mac/premios">{% trans "prémios MAC" %}</a>
+        - {{ aniversario.data|date:"Y" }}</h1>
 
-  <div class="section">
+    <table cellpading="0" cellspacing="0" border="0">
 
-        <h1><a href="/mac">MAC</a> - <a href="/mac/premios">{% trans "prémios MAC" %}</a> - {{ aniversario.data|date:"Y" }}</h1>
+        <tr>
+            <td valign="top">
 
-        <table cellpading="0" cellspacing="0" border="0">
+                <a href="/mac/premios/{{ aniversario.id }}/trofeu">
+                    <img src="{% get_media_prefix %}{{ aniversario.trofeu.foto.thumbnail }}" border=0>
+                </a>
 
-            <tr>
-                <td valign="top">
-                    
-                    <a href="/mac/premios/{{ aniversario.id }}/trofeu">
-                        <img src="/site-media/{{ aniversario.trofeu.foto.thumbnail }}" border=0>
-                    </a>
-                    
-                    {% if aniversario.convite %}
-                        <h4><a href="/site-media/{{ aniversario.convite }}">{% trans "Convite" %}</a></h4>
-                    {% endif %}
+                {% if aniversario.convite %}
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.convite }}">{% trans "Convite" %}</a></h4>
+                {% endif %}
 
-                    {% if aniversario.catalogo  %}
-                        <h4><a href="/site-media/{{ aniversario.catalogo  }}">{% trans "Catálogo" %}</a></h4>
-                    {% endif %}
+                {% if aniversario.catalogo %}
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.catalogo }}">{% trans "Catálogo" %}</a></h4>
+                {% endif %}
 
-                    {% if premios  %}
-                        <h4><a href="/mac/premios/{{ aniversario.id }}/premiados">{% trans "Premiados" %}</a></h4>
-                    {% endif %}
-                    
-                </td>
+                {% if premios %}
+                    <h4><a href="/mac/premios/{{ aniversario.id }}/premiados">{% trans "Premiados" %}</a></h4>
+                {% endif %}
 
-                <td  valign="top">
-                    {% if aniversario.data %}
-                        <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
-                    {% endif %}
+            </td>
 
-                    {% ifequal LANGUAGE_CODE "en" %}
-                      <p>{{ aniversario.descricao_en }}</p>
-                    {% else %}
-                      <p>{{ aniversario.descricao }}</p>
-                    {% endifequal%}
-                    
-                    {% if fotos %}
-                                <div class="obras">
-                                {% for foto in fotos %}
-                                    <div class="obra" style="border:none; margin:10px 10px 0 0;">
-                                        <div class="obra-holder">
-                                            <a href="/site-media/{{ foto.image }}">
-                                                <img src="/site-media/{{ foto.thumbnail }}" target="blank"/>
-                                            </a>
-                                        </div>
-                                    </div>
-                                {% endfor %}
+            <td valign="top">
+                {% if aniversario.data %}
+                    <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
+                {% endif %}
+
+                {% ifequal LANGUAGE_CODE "en" %}
+                    <p>{{ aniversario.descricao_en }}</p>
+                {% else %}
+                    <p>{{ aniversario.descricao }}</p>
+                {% endifequal %}
+
+                {% if fotos %}
+                    <div class="obras">
+                        {% for foto in fotos %}
+                            <div class="obra" style="border:none; margin:10px 10px 0 0;">
+                                <div class="obra-holder">
+                                    <a href="{% get_media_prefix %}{{ foto.image }}">
+                                        <img src="{% get_media_prefix %}{{ foto.thumbnail }}" target="blank"/>
+                                    </a>
+                                </div>
                             </div>
-                        {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
 
-                </td>
-                
-            </tr>
-        </table>
+            </td>
 
-    </div>
+        </tr>
+    </table>
+
+</div>
 {% endblock %}

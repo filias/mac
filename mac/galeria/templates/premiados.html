@@ -1,49 +1,50 @@
 {% extends "galeria/templates/galeria.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
+<div class="section">
 
-  <div class="section">
+    <h1><a href="/mac">MAC</a> - <a href="/mac/premios">{% trans "prémios MAC" %}</a> -
+        <a href="/mac/premios/{{ aniversario.id }}"> {{ aniversario.data|date:"Y" }}</a> - {% trans "premiados" %}
+    </h1>
 
-        <h1><a href="/mac">MAC</a> - <a href="/mac/premios">{% trans "prémios MAC" %}</a> -
-            <a href="/mac/premios/{{ aniversario.id }}"> {{ aniversario.data|date:"Y" }}</a> - {% trans "premiados" %}
-        </h1>
+    <table cellpading="0" cellspacing="0" border="0">
 
-        <table cellpading="0" cellspacing="0" border="0">
+        <tr>
+            <td valign="top">
+                <a href="{% get_media_prefix %}{{ aniversario.trofeu.foto.image }}"><img
+                        src="{% get_media_prefix %}{{ aniversario.trofeu.foto.thumbnail }}" border=0></a>
+            </td>
 
-            <tr>
-                <td valign="top">
-                    <a href="/site-media/{{ aniversario.trofeu.foto.image }}"><img src="/site-media/{{ aniversario.trofeu.foto.thumbnail }}" border=0></a>
-                </td>
+            <td valign="top">
+                {% if aniversario.data %}
+                    <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
+                {% endif %}
 
-                <td  valign="top">
-                    {% if aniversario.data %}
-                        <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
-                    {% endif %}
+                {% ifequal LANGUAGE_CODE "en" %}
+                    <p>{{ aniversario.descricao_en }}</p>
+                {% else %}
+                    <p>{{ aniversario.descricao }}</p>
+                {% endifequal %}
 
-                    {% ifequal LANGUAGE_CODE "en" %}
-                      <p>{{ aniversario.descricao_en }}</p>
-                    {% else %}
-                      <p>{{ aniversario.descricao }}</p>
-                    {% endifequal%}
+                {% if premios %}
+                    {% for premio in premios %}
+                        <h4>{{ premio.nome }}</h4>
+                        <p><b>{% trans "Premiado" %}: </b>{{ premio.premiado.nome }}
+                            {% if premio.premiado.profissao %}| {% endif %}{{ premio.premiado.profissao }}</p>
+                        {% ifequal LANGUAGE_CODE "en" %}
+                            <p>{{ premio.descricao_en }}</p>
+                        {% else %}
+                            <p>{{ premio.descricao }}</p>
+                        {% endifequal %}
 
-                    {% if premios  %}
-			{% for premio in premios %}
-	                        <h4>{{ premio.nome }}</h4>
-        	                <p><b>{% trans "Premiado" %}: </b>{{ premio.premiado.nome }} {% if premio.premiado.profissao %}| {% endif %}{{ premio.premiado.profissao }}</p>
-                	        {% ifequal LANGUAGE_CODE "en" %}
-				    <p>{{ premio.descricao_en }}</p>
-			        {% else %}
-				    <p>{{ premio.descricao }}</p>
-			        {% endifequal%}
-				
-			{% endfor %}
-                    {% endif %}
+                    {% endfor %}
+                {% endif %}
 
-                </td>
-            </tr>
-        </table>
+            </td>
+        </tr>
+    </table>
 
-    </div>
+</div>
 {% endblock %}
 
