@@ -43,14 +43,15 @@ SITE_ID = 1
 # to load the internationalization machinery.
 USE_I18N = True
 
-# Absolute path to the directory that holds media.
-# Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = BASE_DIR / "site-media"
+# aws settings for media
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+AWS_DEFAULT_ACL = "public-read"
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
 
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash if there is a path component (optional in other cases).
-# Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = os.getenv("MEDIA_URL")
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
 # Static files settings
 STATIC_ROOT = BASE_DIR / "static"
@@ -106,4 +107,5 @@ INSTALLED_APPS = (
     "mac.publicacoes",
     "mac.contactos",
     "mac.geral",
+    "storages",
 )

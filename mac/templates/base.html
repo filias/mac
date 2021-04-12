@@ -1,4 +1,4 @@
-{% load i18n tags %}
+{% load i18n tags static %}
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -213,7 +213,7 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
             <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
                 {% if telas %}
                     {% for tela in telas %}
-                        <a href="/"><img src="/site-media/{{ tela.image }}" border="0" alt="" title="" style="height:120px;" /></a>
+                        <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" border="0" alt="" title="" style="height:120px;" /></a>
                     {% endfor %}
                 {% endif %}
             </div>
