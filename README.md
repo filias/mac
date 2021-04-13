@@ -21,7 +21,7 @@ To make the site work basically you need to do this:
     ```
     DB_USER=<dbuser>
     DB_PASSWORD=<dbpass>
-    MEDIA_URL=http://127.0.0.1/media/
+    AWS_STORAGE_BUCKET_NAME=mac-media
     ```
 1. Load these variables into your venv, in linux shell this can be done like this: `set -a && source .env && set +a`
 1. Run the migrations: `./manage.py migrate`
