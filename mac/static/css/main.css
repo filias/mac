@@ -1,6 +1,4 @@
-/*html {overflow-y: scroll;}*/
-
-body { 
+body {
     margin: 0 auto;
     padding: 0px;
     background: white; 
@@ -101,7 +99,6 @@ a:focus, a:active {
 .section-table,
 .section-left,
 .section-right{
-    /*border:1px solid #ff0;*/
 }
 
 .section-table{
@@ -135,7 +132,6 @@ a:focus, a:active {
 	font-size: 1em;
 	color: gray;
     margin: 0;
-    /*display: inline;*/
     padding-right: 1em;
 }
 
@@ -169,8 +165,6 @@ a:focus, a:active {
 	text-decoration: none;
 }
 
-
-
 /* MENU - right menu holder */
 #menu {
     width: 13%;
@@ -181,49 +175,6 @@ a:focus, a:active {
     min-height: 28.5em;
     float: left;
 }
-
-/*
-#menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 2px;
-    width: auto;
-}
-
-#menu h2 {
-    text-transform: uppercase;
-    font-size: 13px;
-    padding: 2px 4px 2px;
-    line-height: 1.5;
-}
-
-#menu h3 {
-    text-transform: capitalize;
-    text-align: left;
-    padding: 4px 6px 6px
-}
-
-#menu h4 {
-    text-transform: capitalize;
-    font-size: 13px;
-    padding: 6px 4px 6px;
-}
-
-#menu h3:hover, #menu h2:hover, #menu h4:hover {
-    color: #7D9EC0;
-    text-decoration: none;
-}
-
-#menu a {
-    color: #828282;
-	text-decoration: none;
-}
-
-#menu img {
-    margin: 10px;
-    border: 0;
-}
-*/
 
 /* RIGHT MENU */
 ul#right_menu,
@@ -306,65 +257,6 @@ div.obras{
     text-align:center;
 }
 
-
-/* 140x140 */
-/*
-div.obras div.obra{
-    text-align:center; 
-    overflow:hidden; 
-    width:170px; 
-    height:170px; 
-    margin:7px 7px 0 0; 
-    border:1px dotted #ccc; 
-    float:left; 
-}
-
-div.obra div.obra-holder{
-    width:140px; 
-    height:140px; 
-    border:15px solid #fff; 
-    overflow:hidden;
-}
-
-div.obra-holder a{}
-
-div.obra-holder img{
-    padding:0; 
-    margin:0; 
-    width:140px;
-}
-*/
-
-
-/* 100x100 */
-/*
-div.obras div.obra{
-    text-align:center; 
-    overflow:hidden; 
-    width:100px; 
-    height:100px; 
-    margin:30px 30px 0 0; 
-    border:2px solid #CCC; 
-    float:left; 
-}
-
-div.obra div.obra-holder{
-    width:98px;
-    height:98px;
-    border:1px solid #FFF; 
-    overflow:hidden;
-}
-
-div.obra-holder a{}
-
-div.obra-holder img{
-    padding:0; 
-    margin:0; 
-    width:100px;
-}
-*/
-
-
 div.obras div.obra{
     text-align:center; 
     overflow:hidden; 
@@ -391,7 +283,6 @@ div.obra-holder img{
 }
 
 /* PUBLICACOES */
-
 #publicacoes td{
     width:50%;
     vertical-align:top;
