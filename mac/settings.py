@@ -54,6 +54,7 @@ AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
 
 # Static files settings
+STATICFILES_DIRS = [PROJECT_ROOT / "static"]
 STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL = "/static/"
 

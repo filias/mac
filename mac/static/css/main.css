@@ -1,0 +1,398 @@
+/*html {overflow-y: scroll;}*/
+
+body { 
+    margin: 0 auto;
+    padding: 0px;
+    background: white; 
+}
+
+a:focus, a:active { 
+    outline: none;
+}
+
+#top_left {
+    height: 20px;
+    width: 76%;
+    position: relative;
+    left: 0%;
+    padding-top: 8px;
+    margin-bottom: 6px;
+    border-right: 2px solid #aaaaaa;
+    float: left;
+}
+
+#top {
+	height: 20px;
+    width: 13%;
+    position: relative;
+    left: 0.4%;
+    background: #2F4F4F;
+    padding-top: 8px;
+    margin-bottom: 6px;
+    text-align: right;
+    font: 12px arial, "lucida console", sans-serif;
+    float: left;
+}
+
+#top a {
+    text-decoration: none;
+    padding-right: 6px;
+    color: #F5F5DC;
+}
+
+#top a:hover {
+    color: #7D9EC0;
+    text-decoration: none;
+}
+
+#logo {
+    position: relative;
+    height: 120px;
+    width: 100%;
+    background: transparent;
+    float: left;
+}
+
+#logo_mac {
+    width: 12%;
+    position: relative;
+    left: 0%;
+    margin-top: 22px;
+    float: left;
+}
+
+#content {
+    width: 100%;
+    position: relative;
+    left: 3%;
+    text-align: left;
+    border-left: 2px solid #aaaaaa;
+    border-right: 2px solid #aaaaaa;
+    font-family: verdana, "trebuchet MS", helvetica, sans-serif; 
+    margin-top: 6px;
+	padding-left: 10px;
+    padding-right: 24px;
+    font-size: 16px;
+    max-height: 28.5em;
+    min-height: 28.5em;
+    float: left;
+    overflow: auto;
+}
+
+
+#foot {
+	width: 50%;
+    position: relative;
+    bottom: -16px;
+    left: 15%;
+    color: #aaaaaa;
+	font-size: 10px;
+    clear: left;
+}
+
+.section {
+	color: #444444;
+	font-size: 13px;
+    line-height: 1.8;
+	margin: 5px;
+    padding-bottom: 20px;
+}
+
+.section-table,
+.section-left,
+.section-right{
+    /*border:1px solid #ff0;*/
+}
+
+.section-table{
+    width:100%;
+}
+
+.section-left{
+    width:158px;
+}
+
+.section-right{
+}
+
+.section h1 {
+	font-size: 15px;
+    text-transform: capitalize;
+	color: gray;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.section h2 {
+	font-size: 14px;
+	color: gray;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.section h4 {
+	font-size: 1em;
+	color: gray;
+    margin: 0;
+    /*display: inline;*/
+    padding-right: 1em;
+}
+
+.section ul {
+    list-style: none;
+    margin: -0em;
+    padding: -1em;
+    width: auto;
+}
+
+.section li {
+	margin: -1em, -1em, -2em, -1em;
+    padding: -1em;
+}
+
+.section img {
+	margin: -1em, -0em, -1em, -1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    border: 0;
+}
+
+.section a {
+    color: gray;
+    width: auto;
+    text-decoration: none;
+}
+
+.section a:hover {
+	color: #7D9EC0;
+	text-decoration: none;
+}
+
+
+
+/* MENU - right menu holder */
+#menu {
+    width: 13%;
+    position: relative;
+    left: 3.5%;
+    margin-top: 6px;
+	background: #2F4F4F;
+    min-height: 28.5em;
+    float: left;
+}
+
+/*
+#menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    width: auto;
+}
+
+#menu h2 {
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 2px 4px 2px;
+    line-height: 1.5;
+}
+
+#menu h3 {
+    text-transform: capitalize;
+    text-align: left;
+    padding: 4px 6px 6px
+}
+
+#menu h4 {
+    text-transform: capitalize;
+    font-size: 13px;
+    padding: 6px 4px 6px;
+}
+
+#menu h3:hover, #menu h2:hover, #menu h4:hover {
+    color: #7D9EC0;
+    text-decoration: none;
+}
+
+#menu a {
+    color: #828282;
+	text-decoration: none;
+}
+
+#menu img {
+    margin: 10px;
+    border: 0;
+}
+*/
+
+/* RIGHT MENU */
+ul#right_menu,
+ul#right_menu ul{
+    list-style: none;
+    margin: 0;
+    padding: 2px;
+    width: auto;
+}
+
+ul#right_menu li{
+    padding: 2px;
+    width: auto;
+}
+
+ul#right_menu ul{
+    margin:0 0 0 10px;
+    padding:0;
+}
+
+ul#right_menu {
+    font: 11px/12.5px arial, "lucida console", sans-serif;
+    display: block;
+    margin: 0;
+    background: #2F4F4F;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+ul#right_menu .parent a,
+ul#right_menu .child a
+{
+    color: #F5F5DC;
+	text-decoration: none;
+}
+
+ul#right_menu .parent a:link,
+ul#right_menu .parent a:visited{
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 2px 4px 2px;
+    line-height: 1.5;
+}
+
+ul#right_menu .child a:link,
+ul#right_menu .child a:visited{
+    text-transform: capitalize;
+    font-size: 11px;
+    text-align: left;
+    padding: 4px 6px 6px
+}
+
+
+ul#right_menu .parent a:hover,
+ul#right_menu .child a:hover
+{
+    color: #7D9EC0;
+    text-decoration: none;
+}
+
+ul#right_menu .parent a.active,
+ul#right_menu .child a.active
+{
+    color: #7D9EC0;
+    text-decoration: none;
+}
+
+ul#right_menu ul.childs{
+    display:none;
+}
+
+ul#right_menu ul.childs.active{
+    display:block;
+}
+
+/* ARTISTA */
+div.obras{
+    position:relative; 
+    width:100%; 
+    text-align:center;
+}
+
+
+/* 140x140 */
+/*
+div.obras div.obra{
+    text-align:center; 
+    overflow:hidden; 
+    width:170px; 
+    height:170px; 
+    margin:7px 7px 0 0; 
+    border:1px dotted #ccc; 
+    float:left; 
+}
+
+div.obra div.obra-holder{
+    width:140px; 
+    height:140px; 
+    border:15px solid #fff; 
+    overflow:hidden;
+}
+
+div.obra-holder a{}
+
+div.obra-holder img{
+    padding:0; 
+    margin:0; 
+    width:140px;
+}
+*/
+
+
+/* 100x100 */
+/*
+div.obras div.obra{
+    text-align:center; 
+    overflow:hidden; 
+    width:100px; 
+    height:100px; 
+    margin:30px 30px 0 0; 
+    border:2px solid #CCC; 
+    float:left; 
+}
+
+div.obra div.obra-holder{
+    width:98px;
+    height:98px;
+    border:1px solid #FFF; 
+    overflow:hidden;
+}
+
+div.obra-holder a{}
+
+div.obra-holder img{
+    padding:0; 
+    margin:0; 
+    width:100px;
+}
+*/
+
+
+div.obras div.obra{
+    text-align:center; 
+    overflow:hidden; 
+    width:80px; 
+    height:80px; 
+    margin:30px 30px 0 0; 
+    border:2px solid #CCC; 
+    float:left; 
+}
+
+div.obra div.obra-holder{
+    width:78px;
+    height:78px;
+    border:1px solid #FFF; 
+    overflow:hidden;
+}
+
+div.obra-holder a{}
+
+div.obra-holder img{
+    padding:0; 
+    margin:0; 
+    width:80px;
+}
+
+/* PUBLICACOES */
+
+#publicacoes td{
+    width:50%;
+    vertical-align:top;
+}

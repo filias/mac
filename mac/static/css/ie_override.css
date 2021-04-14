@@ -1,0 +1,31 @@
+#top {
+	height: 20px;
+    width: 12%;
+    position: relative;
+    left: 0.5%;
+    background: #2F4F4F;
+    padding-top: 8px;
+    margin-bottom: 6px;
+    text-align: right;
+    font: 12px arial, "lucida console", sans-serif;
+}
+
+#foot {
+	width: 90%;
+    position: relative;
+    top: 1%;
+    left: 1%;
+    color: #aaaaaa;
+	font-size: 10px;
+    clear: left;
+}
+
+.section ul {
+    list-style: square;
+    margin: 1.5em;
+}
+
+.section li {
+	margin: -1em, -0em, -1em, -1em;
+    padding: -0;
+}
