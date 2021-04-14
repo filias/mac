@@ -14,16 +14,11 @@ urlpatterns = [
     url(r"^admin/filebrowser/", site.urls),
     url(r"^grappelli/", include("grappelli.urls")),
     url(r"^admin/", admin.site.urls),
-    # Static content for django server
+    # Static content for django server (only used for development)
     url(
         r"^static/(?P<path>.*)$",
         serve,
         {"document_root": os.path.join(settings.BASE_DIR, "static")},
-    ),
-    url(
-        r"^site-media/(?P<path>.*)$",
-        serve,
-        {"document_root": os.path.join(settings.BASE_DIR, "media")},
     ),
     # i18n
     url(r"^i18n/", include("django.conf.urls.i18n")),
