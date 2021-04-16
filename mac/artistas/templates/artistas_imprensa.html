@@ -1,21 +1,20 @@
 {% extends "artistas/templates/artistas.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
-	{% if artista %}
-		<div class="section">
-                <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "imprensa" %}</h1>
-                
-                {% for artigo in imprensa %}
-                    <h4><a href="/site-media/{{ artigo.ficheiro }}">
-                        {{ artigo.artista.nome }} - "{{ artigo.titulo }}" 
-                        in {{ artigo.editor }}
-                        {% if artigo.data %} | {{  artigo.data }}{% endif %}</a>
-                    </h4>
-                {% endfor %}
-        </div>
-	{% endif %}
+{% if artista %}
+    <div class="section">
+            <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "imprensa" %}</h1>
 
+            {% for artigo in imprensa %}
+                <h4><a href="{% get_media_prefix %}{{ artigo.ficheiro }}">
+                    {{ artigo.artista.nome }} - "{{ artigo.titulo }}"
+                    in {{ artigo.editor }}
+                    {% if artigo.data %} | {{  artigo.data }}{% endif %}</a>
+                </h4>
+            {% endfor %}
+    </div>
+{% endif %}
 {% endblock %}
 
 

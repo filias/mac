@@ -1,5 +1,5 @@
 {% extends "exposicoes/templates/exposicoes.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
 
@@ -28,13 +28,13 @@
                                 {% if forloop.first %}
 				    {% if obra.foto %}
                                     	<a href="/exposicoes/{{ exposicao.id }}/obras" target="blank">
-                                        	<img src="/site-media/{{ obra.foto.thumbnail}}" border=0/>
+                                        	<img src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" border=0/>
                                     	</a>
 				    {% endif %}
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            <img src="/site-media/fotos/mac1_01.jpg" width="140" border=0/>
+                            <img src="{% get_media_prefix %}fotos/mac1_01.jpg" width="140" border=0/>
                         {% endif %}
                         
                         {% if obras %}
@@ -42,15 +42,15 @@
                         {% endif %}
 
                         {% if exposicao.press_release %}
-                            <h4><a href="/site-media/{{ exposicao.press_release }}">{% trans "Press Release" %}</a></h4>
+                            <h4><a href="{% get_media_prefix %}{{ exposicao.press_release }}">{% trans "Press Release" %}</a></h4>
                         {% endif %}
 
                         {% if exposicao.convite %}
-                            <h4><a href="/site-media/{{ exposicao.convite }}">{% trans "Convite" %}</a></h4>
+                            <h4><a href="{% get_media_prefix %}{{ exposicao.convite }}">{% trans "Convite" %}</a></h4>
                         {% endif %}
 
                         {% if exposicao.catalogo_id %}
-                            <h4><a href="/site-media/{{ exposicao.catalogo.ficheiro }}">{% trans "Catálogo" %}</a></h4>
+                            <h4><a href="{% get_media_prefix %}{{ exposicao.catalogo.ficheiro }}">{% trans "Catálogo" %}</a></h4>
                         {% endif %}
                         
                         </td>
@@ -88,8 +88,8 @@
                                 {% for foto in fotos %}
                                     <div class="obra" style="border:none; margin:10px 10px 0 0;">
                                         <div class="obra-holder">
-                                            <a href="/site-media/{{ foto.image }}">
-                                                <img src="/site-media/{{ foto.thumbnail }}" target="blank"/>
+                                            <a href="{% get_media_prefix %}{{ foto.image }}">
+                                                <img src="{% get_media_prefix %}{{ foto.thumbnail }}" target="blank"/>
                                             </a>
                                         </div>
                                     </div>
