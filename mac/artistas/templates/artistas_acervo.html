@@ -1,37 +1,26 @@
 {% extends "artistas/templates/artistas.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
-	{% if artista %}
-		<div class="section">
-                <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "Acervo" %}</h1>
-               
-                
-                {% if obras %}
-                
-             <div class="obras">
-           
-                {% for obra in obras %}
-               
-                    {% if obra.foto %}
-					
-					<div class="obra">
-						<div class="obra-holder">
-                            <a href="/artistas/{{ artista.id }}/obras/{{ obra.id }}">
-                                <img src="/site-media/{{ obra.foto.thumbnail}}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}" title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
-                            </a>
-                    	</div>
-					</div>
-					
-                    {% endif %}
-                        
-                {% endfor %}
-            </div>
-            
-            {% endif %}
-            
+{% if artista %}
+    <div class="section">
+    <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "Acervo" %}</h1>
+    {% if obras %}
+         <div class="obras">
+            {% for obra in obras %}
+                {% if obra.foto %}
+                <div class="obra">
+                    <div class="obra-holder">
+                        <a href="/artistas/{{ artista.id }}/obras/{{ obra.id }}">
+                            <img src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}" title="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
         </div>
-	{% endif %}
-
+    {% endif %}
+    </div>
+{% endif %}
 {% endblock %}
 

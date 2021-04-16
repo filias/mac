@@ -1,4 +1,4 @@
-{% load i18n %}
+{% load i18n static %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
@@ -6,7 +6,7 @@
     </head>
     <body>
         <center>
-            <img border="0" align="right" src="/site-media/logos/logo_mac_com_texto_branco_verde_cinzento_100px.jpg" /><br /> 
+            <img border="0" align="right" src="{% static 'logos/logo_mac_100px.jpg' %}" /><br />
             <h1>{% trans "The page you requested could not be found." %}</h1>
             <p>{% trans "Are you sure your current url is valid ?" %}</p>
             <p>{% trans "If the problem persists, please contact an administrator" %}</p>
