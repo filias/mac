@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from mac.galeria.models import Aniversario, Galeria, Premiado, Premio, Staff
-
+from mac.galeria.models import Aniversario, Galeria, Premiado, Premio
 
 class GaleriaAdmin(admin.ModelAdmin):
     list_display = ("nome", "rua", "cidade")
@@ -18,22 +17,6 @@ class GaleriaAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Galeria, GaleriaAdmin)
-
-
-class StaffAdmin(admin.ModelAdmin):
-    list_display = ("nome", "funcao", "email")
-    ordering = ["nome"]
-    fieldsets = [
-        ("Geral", {"fields": ["nome", "funcao"]}),
-        ("Contactos", {"fields": ["telefone", "email"]}),
-        ("Foto", {"fields": ["foto"]}),
-    ]
-
-    class Media:
-        js = ["/media/filebrowser/js/AddFileBrowser.js"]
-
-
-admin.site.register(Staff, StaffAdmin)
 
 
 class PremiadoAdmin(admin.ModelAdmin):

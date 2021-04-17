@@ -23,20 +23,6 @@ class Galeria(models.Model):
         ordering = ["nome"]
 
 
-class Staff(models.Model):
-    nome = models.CharField(max_length=150)
-    funcao = models.CharField(max_length=50, null=True, blank=True)
-    email = models.EmailField(max_length=75, null=True, blank=True)
-    telefone = models.CharField(max_length=13, null=True, blank=True)
-    foto = models.ForeignKey(Foto, null=True, blank=True, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.nome
-
-    class Meta:
-        ordering = ["nome"]
-
-
 class Premiado(models.Model):
     nome = models.CharField(max_length=150)
     profissao = models.CharField(max_length=50, null=True, blank=True)
