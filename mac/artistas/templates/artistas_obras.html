@@ -4,8 +4,8 @@
 {% block sections %}
 {% if artista %}
     <div class="section">
-        <h1><a href="/artistas">{% trans "artistas" %}</a> - <a
-                href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "obra" %}</h1>
+        <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a
+                href="{% url "artist_detail" artista.id %}">{{ artista.nome }}</a> - {% trans "obra" %}</h1>
 
         {% if obras %}
             <div class="obras">
@@ -29,5 +29,3 @@
     </div>
 {% endif %}
 {% endblock %}
-
-

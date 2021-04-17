@@ -4,7 +4,7 @@
 {% block sections %}
 {% if artista %}
     <div class="section">
-        <h1><a href="/artistas">{% trans "artistas" %}</a> - {{ artista.nome }}</h1>
+        <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - {{ artista.nome }}</h1>
 
         <table>
             <tr>
@@ -20,23 +20,23 @@
                     {% endif %}
 
                     {% if obras %}
-                        <h4><a href="/artistas/{{ artista.id }}/obras">{% trans "Obra" %}</a></h4>
+                        <h4><a href="{% url "artist_works" artista.id %}">{% trans "Obra" %}</a></h4>
                     {% endif %}
 
                     {% if criticas %}
-                        <h4><a href="/artistas/{{ artista.id }}/critica">{% trans "Crítica" %}</a></h4>
+                        <h4><a href="{% url "artist_critics" artista.id %}">{% trans "Crítica" %}</a></h4>
                     {% endif %}
 
                     {% if imprensa %}
-                        <h4><a href="/artistas/{{ artista.id }}/imprensa">{% trans "Imprensa" %}</a></h4>
+                        <h4><a href="{% url "artist_press" artista.id %}">{% trans "Imprensa" %}</a></h4>
                     {% endif %}
 
                     {% if exposicoes %}
-                        <h4><a href="/artistas/{{ artista.id }}/exposicoes">{% trans "Expo MAC" %}</a></h4>
+                        <h4><a href="{% url "artist_exhibitions" artista.id %}">{% trans "Expo MAC" %}</a></h4>
                     {% endif %}
 
                     {% if acervo %}
-                        <h4><a href="/artistas/{{ artista.id }}/acervo">{% trans "Acervo MAC" %}</a></h4>
+                        <h4><a href="{% url "artist_collection" artista.id %}">{% trans "Acervo MAC" %}</a></h4>
                     {% endif %}
                 </td>
 
@@ -51,6 +51,3 @@
     </div>
 {% endif %}
 {% endblock %}
-
-
-
