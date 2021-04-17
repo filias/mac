@@ -27,11 +27,11 @@
 			// Configuration related to navigation
 			fixedNavigation:		false,		// (boolean) Boolean that informs if the navigation (next and prev button) will be fixed or not in the interface.
 			// Configuration related to images
-			imageLoading:			'/site-media/images/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
-			imageBtnPrev:			'/site-media/images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
-			imageBtnNext:			'/site-media/images/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
-			imageBtnClose:			'/site-media/images/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
-			imageBlank:				'/site_media/images/lightbox-blank.gif',			// (string) Path and the name of a blank image (one pixel)
+			imageLoading:			static_url + 'images/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
+			imageBtnPrev:			static_url + 'images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
+			imageBtnNext:			static_url + 'images/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
+			imageBtnClose:			static_url + 'images/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
+			imageBlank:				static_url + 'images/lightbox-blank.gif',			// (string) Path and the name of a blank image (one pixel)
 			// Configuration related to container image box
 			containerBorderSize:	10,			// (integer) If you adjust the padding in the CSS for the container, #lightbox-container-image-box, you will need to update this value
 			containerResizeSpeed:	400,		// (integer) Specify the resize duration of container image. These number are miliseconds. 400 is default.
