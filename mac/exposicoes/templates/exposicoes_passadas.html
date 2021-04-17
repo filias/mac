@@ -10,7 +10,7 @@
         <tr>
         {% for ano in linha %}
             <td style="padding:0 40px 0 0;" valign="bottom">
-            <h4><a href="{% url "past_exhibitions_per_year" ano %}">{{ ano }}</a></h4>
+            <h4><a href="/exposicoes/passadas/{{ ano }}">{{ ano }}</a></h4>
         {% endfor %}
         </tr>
     {% endfor %}
