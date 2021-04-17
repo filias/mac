@@ -22,7 +22,6 @@ def passadas(request):
     anos = list(anos)
     anos.reverse()
     anos = utils.arrange_by_columns(anos, 2)
-    breakpoint()
     RTR_DICT["anos"] = anos
     return render(request, "exposicoes/templates/exposicoes_passadas.html", RTR_DICT)
 
