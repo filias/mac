@@ -9,4 +9,5 @@ def arrange_by_columns(entries, column_count):
         for i in range(column_count)
     ]
 
+    # TODO: fix this zip in python3 is different from python2
     return zip(*columns)
