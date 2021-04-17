@@ -2,27 +2,19 @@
 {% load i18n %}
 
 {% block sections %}
-	{% if artista %}
-		<div class="section">
-                <h1><a href="/artistas">{% trans "artistas" %}</a> - <a href="/artistas/{{ artista.id }}">{{ artista.nome }}</a> - {% trans "exposições" %}</h1>
-                
-                {% if exposicoes %}
-                    {% for exposicao in exposicoes %}
-                    	<h4>
-			  <a href="/exposicoes/{{ exposicao.id }}">{{exposicao.titulo}} | 
-				{{ exposicao.data_inicio|date:"j F Y" }} - {{ exposicao.data_fim|date:"j F Y" }}
-			  </a>
-			</h4>
-                    {% endfor %}
+{% if artista %}
+<div class="section">
+    <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artista.id %}">{{ artista.nome }}</a> - {% trans "exposições" %}</h1>
 
-                {% else %}
-                    <p>Não há exposições.</p>
-                {% endif %}
-
-
-        </div>
-	{% endif %}
-
+    {% for exposicao in exposicoes %}
+        <h4>
+          <a href="/exposicoes/{{ exposicao.id }}">{{exposicao.titulo}} |
+            {{ exposicao.data_inicio|date:"j F Y" }} - {{ exposicao.data_fim|date:"j F Y" }}
+          </a>
+        </h4>
+    {% empty %}
+        <p>Não há exposições.</p>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}
-
-
