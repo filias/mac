@@ -15,8 +15,8 @@
         {% else %}
             <a href="/mac/galerias">MAC</a>
         {% endif %}
-        - <a href="{% url "enhibition_detail" exposicao.id %}">"{{ exposicao.titulo }}"</a>
-        - <a href="{% url "enhibition_works" exposicao.id %}">{% trans "obras" %}</a>
+        - <a href="{% url "exhibition_detail" exposicao.id %}">"{{ exposicao.titulo }}"</a>
+        - <a href="{% url "exhibition_works" exposicao.id %}">{% trans "obras" %}</a>
         - {{ obra.titulo }}</h1>
 
         <table >
