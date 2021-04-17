@@ -4,9 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from mac.artistas.models import Artista
 
 TIPO_CHOICES = (
-    (u"Newsletter", u"Newsletter"),
     (u"Catalogo", u"Catalogo"),
-    (u"Monografia", u"Monografia"),
     (u"Imprensa", u"Imprensa"),
     (u"Critica", u"Critica"),
 )

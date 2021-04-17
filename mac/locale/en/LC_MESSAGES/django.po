@@ -442,8 +442,6 @@ msgstr "publications"
 #: mac/publicacoes/templates/publicacoes_criticas.html:4
 #: mac/publicacoes/templates/publicacoes_detalhe.html:7
 #: mac/publicacoes/templates/publicacoes_imprensa.html:4
-#: mac/publicacoes/templates/publicacoes_monografias.html:4
-#: mac/publicacoes/templates/publicacoes_newsletters.html:4
 #: mac/templates/base.html:138 mac/templates/mapa.html:77
 msgid "publicações"
 msgstr "publications"
@@ -455,14 +453,6 @@ msgstr "Catalogs"
 #: mac/publicacoes/templates/publicacoes.html:28
 msgid "Críticas"
 msgstr "Critics"
-
-#: mac/publicacoes/templates/publicacoes.html:58
-msgid "Monografias"
-msgstr "Monography"
-
-#: mac/publicacoes/templates/publicacoes.html:71
-msgid "Newsletters"
-msgstr ""
 
 #: mac/publicacoes/templates/publicacoes_base.html:32
 msgid "Não há publicações"
@@ -490,26 +480,12 @@ msgstr "Date"
 msgid "Download"
 msgstr ""
 
-#: mac/publicacoes/templates/publicacoes_monografias.html:4
-#: mac/templates/base.html:144 mac/templates/mapa.html:82
-msgid "monografias"
-msgstr "monographies"
-
-#: mac/publicacoes/templates/publicacoes_newsletters.html:4
-#: mac/templates/base.html:145
-msgid "newsletters"
-msgstr ""
-
 #: mac/templates/arte.html:8
 msgid "arte e decoração"
 msgstr "art and deco"
 
 #: mac/templates/base.html:101
 msgid "MAC"
-msgstr ""
-
-#: mac/templates/base.html:140 mac/templates/mapa.html:83
-msgid "newsletter"
 msgstr ""
 
 #: mac/templates/base.html:155 mac/templates/mapa.html:90
