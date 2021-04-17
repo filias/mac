@@ -2,52 +2,40 @@
 {% load i18n static %}
 
 {% block sections %}
-	{% if exposicao %}
-		<div class="section">
-        
-            <h1><a href="/exposicoes/actuais">{% trans "exposições" %}</a> - 
-            {% if exposicao.artistas.all|length_is:"1" %}
-                    {% for artista in exposicao.artistas.all %}
-                        {% if forloop.first %}
-                            <a href="/artistas/{{ artista.id }}">{{ artista }}</a> 
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <a href="/mac/galerias">MAC</a> 
-                {% endif %}
-                - <a href="/exposicoes/{{ exposicao.id }}">"{{ exposicao.titulo }}"</a>
-                - Obras</h1>
-            
-        {% if obras %}
-    	
-        <div class="obras">
-           
-                {% for obra in obras %}
-               
-                    {% if obra.foto %}
-					
-					<div class="obra">
-						<div class="obra-holder">
-                            <a href="/exposicoes/{{ exposicao.id }}/obras/{{ obra.id }}">
-                                <img src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"
-title="{{ obra.autor }} | {{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
-                            </a>
-                    	</div>
-					</div>
-					
+{% if exposicao %}
+    <div class="section">
+
+        <h1><a href="{% url "current_exhibitions" %}">{% trans "exposições" %}</a> -
+        {% if exposicao.artistas.all|length_is:"1" %}
+                {% for artista in exposicao.artistas.all %}
+                    {% if forloop.first %}
+                        <a href="{% url "artist_detail" artista.id %}">{{ artista }}</a>
                     {% endif %}
-                        
                 {% endfor %}
-            </div>
+            {% else %}
+                <a href="/mac/galerias">MAC</a>
+            {% endif %}
+            - <a href="{% url "enhibition_detail" exposicao.id %}">"{{ exposicao.titulo }}"</a>
+            - Obras</h1>
 
-        
-	{% else %}
-        <p>Não há obras na exposição.</p>
-	{% endif %}
-    
+        {% if obras %}
+        <div class="obras">
+            {% for obra in obras %}
+                {% if obra.foto %}
+                <div class="obra">
+                    <div class="obra-holder">
+                        <a href="{% url "work_detail" exposicao.id obra.id %}">
+                            <img src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" border="0" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"
+                                 title="{{ obra.autor }} | {{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
         </div>
-	{% endif %}
-
+        {% else %}
+            <p>Não há obras na exposição.</p>
+        {% endif %}
+    </div>
+{% endif %}
 {% endblock %}
-
-
