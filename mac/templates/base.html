@@ -64,9 +64,7 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <meta name="verify-v1" content="ndHXIOUJ4nJnrugKa7yg1uQUVJlSU8sqtPIJKQbIzEw=" />
 </head>
 
-<body>
-
-<div class="container-fluid">    
+<body class="d-flex flex-column h-100">
     <div class="container">
         {% block navbar %}
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -135,10 +133,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <li class="nav-item {% active request '/links' %}">
                             <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
                         </li>
-                        <!-- sitemap item  -->
-                        <li class="nav-item {% active request '/mapa' %}">
-                            <a class="nav-link text-uppercase {% active request '/mapa' %}" href="/mapa" style="text-transform:none;">{% trans 'Mapa do site' %}</a>
-                        </li>
                     </ul>
                     {% get_available_languages as LANGUAGES %} {% get_current_language as LANGUAGE_CODE %}
                     <form id="language-select" class="c2-hidden" method="post" action="/i18n/setlang/">
@@ -149,13 +143,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <a class="text-uppercase text-decoration-none link-secondary" href="#" onClick="return set_lang('{{ i.0 }}');">{{ i.0 }}</a>
                     </li>
                     {% endfor %}
-                    <form class="d-flex" action="/resultados/" id="cse-search-box">
-                        <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
-                        <input type="hidden" name="cof" value="FORID:9" />
-                        <input type="hidden" name="ie" value="UTF-8" />
-                        <input class="form-control me-2" type="search" name="q" />
-                        <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-light" />
-                    </form>
                 </div>
             </div>
         </nav>
@@ -168,29 +155,68 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
         {% block tela %}
         <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
             {% if telas %} {% for tela in telas %}
-            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}"/></a>
+            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" /></a>
             {% endfor %} {% endif %}
         </div>
         {% endblock %}
     </div>
-
-
-        <div class="container">
+    <main class="flex-shrink-0">
+        <div class="container mt-3">
+            <div id="content">
                 {% block sections %} {% endblock %}
-        </div>
-
-        <div class="container">
-            <div class="border-top text-center">
-                <p class="fs-6 text-black-50">
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Movimento Arte Contemporânea - All rights reserved.
-                </p>
             </div>
         </div>
-
-</body>
-<script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
-
-</html>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        {% for entry in gallery_list %}
+                        <div class="col-6" style="font-size: 13px;">
+                            <div>{{ entry.nome }}</div>
+                            <a href="{{entry.mapa}}" target="blank" class="text-muted"><span>{{ entry.rua }} - {{ entry.cod_postal }}
+                                {{ entry.cidade }}</span></a>
+                            <div><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</div>
+                            <div><a class="text-decoration-none link-dark" href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</a></div>
+                            <span><b>{% trans "Horário" %}:</b>
+                                {% ifequal LANGUAGE_CODE "en" %}
+                                Weekdays from 13h to 20h, saturdays from 15h to 19h</span>
+                            {% else %}
+                            <span>{{ entry.horario }}</span>
+                            {% endifequal %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="row">
+                            <form class="d-flex" action="/resultados/" id="cse-search-box">
+                                <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
+                                <input type="hidden" name="cof" value="FORID:9" />
+                                <input type="hidden" name="ie" value="UTF-8" />
+                                <input class="form-control me-2" type="search" name="q" />
+                                <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-light" />
+                            </form>
+                        </div>
+                        <span class="text-muted small  mt-3">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>, Movimento Arte Contemporânea - All rights reserved.
+                        </span>
+                    </div>
+                    <div class="row mt-1">
+                        <a class="text-muted small text-decoration-none" {% active request '/mapa' %}" href="/mapa"
+                            style="text-transform:none;">{% trans 'Mapa do site' %}</a>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </footer>
+    </body>
+    <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
+    
+    </html>
