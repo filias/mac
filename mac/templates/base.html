@@ -131,6 +131,14 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <li class="nav-item {% active request '/contactos' %}">
                             <a class="nav-link text-uppercase {% active request '/contactos' %}" href="/contactos">{% trans 'contactos' %}</a>
                         </li>
+                        <!-- links item  -->
+                        <li class="nav-item {% active request '/links' %}">
+                            <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
+                        </li>
+                        <!-- sitemap item  -->
+                        <li class="nav-item {% active request '/mapa' %}">
+                            <a class="nav-link text-uppercase {% active request '/mapa' %}" href="/mapa" style="text-transform:none;">{% trans 'Mapa do site' %}</a>
+                        </li>
                     </ul>
                     {% get_available_languages as LANGUAGES %} {% get_current_language as LANGUAGE_CODE %}
                     <form id="language-select" class="c2-hidden" method="post" action="/i18n/setlang/">
