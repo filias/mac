@@ -60,7 +60,7 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <meta name="verify-v1" content="ndHXIOUJ4nJnrugKa7yg1uQUVJlSU8sqtPIJKQbIzEw=" />
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
     <div class="container">
         {% block navbar %}
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -168,19 +168,24 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
 
         {% endblock %}
     </div>
-    <div class="container">
-        <div id="content">
-            {% block sections %} {% endblock %}
-        </div>
-    </div>
-    </div>
-    <div id="foot">
-        Copyright &copy;
-        <script>
-            document.write(new Date().getFullYear())
-        </script>, Movimento Arte Contemporânea - All rights reserved.
-    </div>
-</body>
-<script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
-
-</html>
+        <main class="flex-shrink-0">
+            <div class="container mt-3">
+                <div id="content">
+                    {% block sections %} {% endblock %}
+                </div>
+            </div>
+        </main>
+        <footer class="footer mt-auto py-3 bg-light">
+            <div class="container">
+                <span class="text-muted small">
+                    Copyright &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>, Movimento Arte Contemporânea - All rights reserved.
+                </span>
+            </div>
+        </footer>
+        </body>
+        <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
+        
+        </html>
