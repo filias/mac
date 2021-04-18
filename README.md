@@ -24,7 +24,6 @@ To make the site work basically you need to do this:
     ```
 1. Load these variables into your venv, in linux shell this can be done like this: `set -a && source .env && set +a`
 1. Run the migrations: `./manage.py migrate`
-1. Collect the static files into the `static` folder: `./manage.py collectstatic`
 1. Run the django development server: `./manage.py runserver`
 
 his might be deprecated) It is possible that, depending on your OS, you need to install some dependencies. On ubuntu 20.04 I had to install or do the following:
