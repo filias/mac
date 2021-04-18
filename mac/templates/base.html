@@ -155,36 +155,43 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
         {% block tela %}
         <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
             {% if telas %} {% for tela in telas %}
-            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}"/></a>
+            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" /></a>
             {% endfor %} {% endif %}
         </div>
         {% endblock %}
     </div>
-        <main class="flex-shrink-0">
-            <div class="container mt-3">
-                <div id="content">
-                    {% block sections %} {% endblock %}
-                </div>
+    <main class="flex-shrink-0">
+        <div class="container mt-3">
+            <div id="content">
+                {% block sections %} {% endblock %}
             </div>
-        </main>
-        <footer class="footer mt-auto py-3 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-8">
-                        <div class="row">
-                            <span class="text-muted small">
-                                Copyright &copy;
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>, Movimento Arte Contemporânea - All rights reserved.
-                            </span>
+        </div>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        {% for entry in gallery_list %}
+                        <div class="col-6" style="font-size: 13px;">
+                            <div>{{ entry.nome }}</div>
+                            <span>{{ entry.rua }} - {{ entry.cod_postal }}
+                                {{ entry.cidade }}</span>
+                            <span><a href="{{entry.mapa}}" target="blank"><b>{% trans "Mapa" %}</b></a></span>
+                            <div><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</div>
+                            <div><a href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</a></div>
+                            <span><b>{% trans "Horário" %}:</b>
+                                {% ifequal LANGUAGE_CODE "en" %}
+                                Weekdays from 13h to 20h, saturdays from 15h to 19h</span>
+                            {% else %}
+                            <span>{{ entry.horario }}</span>
+                            {% endifequal %}
                         </div>
-                        <div class="row mt-1">
-                            <a class="text-muted small text-decoration-none" {% active request '/mapa' %}" href="/mapa"
-                                style="text-transform:none;">{% trans 'Mapa do site' %}</a>
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <div class="row">
                         <div class="row">
                             <form class="d-flex" action="/resultados/" id="cse-search-box">
                                 <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
@@ -194,10 +201,23 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                                 <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-light" />
                             </form>
                         </div>
+                        <span class="text-muted small  mt-3">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>, Movimento Arte Contemporânea - All rights reserved.
+                        </span>
                     </div>
+                    <div class="row mt-1">
+                        <a class="text-muted small text-decoration-none" {% active request '/mapa' %}" href="/mapa"
+                            style="text-transform:none;">{% trans 'Mapa do site' %}</a>
+                    </div>
+    
                 </div>
             </div>
-        </footer>
-        </body>
-        <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
-        </html>
+        </div>
+    </footer>
+    </body>
+    <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
+    
+    </html>
