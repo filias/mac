@@ -10,9 +10,13 @@
         {% if texto %}
 	{% get_current_language as LANGUAGE_CODE %}
         {% ifequal LANGUAGE_CODE 'en' %}
-	    <p>{{ texto.texto_en }}</p>
+        <div class="text">
+	        <p>{{ texto.texto_en }}</p>
+        </div>
 	{% else %}
+        <div class="text">
             <p>{{ texto.texto }}</p>
+        </div>
         {% endifequal %}
 	{% endif %}        
     </div>
