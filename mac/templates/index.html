@@ -30,12 +30,12 @@
                             {% endif %}
                             {% ifequal LANGUAGE_CODE 'en' %}
                                 <td>
-                                    <h1>{% trans "Welcome to Movimento Arte Contemporâne" %}</h1>
+                                    <p>{{ destaque.texto_en }}</p>
                                 </td>
 
                             {% else %}
                                 <td>
-                                    <h1>Bem-vindo ao Movimento Arte Contemporâne</h1>
+                                    <p>{{ destaque.texto }}</p>
                                 </td>
                             {% endifequal %}
                             </td>
