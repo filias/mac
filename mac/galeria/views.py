@@ -10,7 +10,6 @@ from mac.exposicoes.models import Exposicao
 from mac.galeria.models import Aniversario, Galeria, Premio
 from mac.geral.models import Destaque, Tela
 from mac.publicacoes.models import Texto
-from mac.utils import utils
 
 RTR_DICT = common.DEFAULT_DICT
 
@@ -51,11 +50,10 @@ def historia(request):
 
 def curriculum(request):
     exposicoes = Exposicao.objects.all()
-    anos = set([exposicao.data_inicio.year for exposicao in exposicoes])
-    anos = list(anos)
-    anos.reverse()
-    anos = utils.arrange_by_columns(anos, 2)
-    RTR_DICT["anos"] = anos
+    years = list(set([exposicao.data_inicio.year for exposicao in exposicoes]))
+    years.reverse()
+    RTR_DICT["years"] = years
+
     return render(request, "galeria/templates/galeria_curriculum.html", RTR_DICT)
 
 
@@ -74,9 +72,8 @@ def equipa(request):
 
 def acervo(request):
     artistas = Artista.objects.all().order_by("nome")
-    artistas = [artista for artista in artistas if artista.tem_acervo()]
-    artistas_lista = utils.arrange_by_columns(list(artistas), 3)
-    RTR_DICT["artist_list"] = artistas_lista
+    artists = [artista for artista in artistas if artista.tem_acervo()]
+    RTR_DICT["artists"] = artists
     return render(request, "galeria/templates/galeria_acervo.html", RTR_DICT)
 
 
@@ -102,10 +99,6 @@ def acervo_detalhe(request, obra_id, artist_id):
         "galeria/templates/acervo_detalhe.html",
         {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais},
     )
-
-
-def visita(request):
-    return render(request, "galeria/templates/galeria_visita.html", RTR_DICT)
 
 
 def agenda(request):
