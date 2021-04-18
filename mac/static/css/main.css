@@ -67,11 +67,6 @@ a:focus, a:active {
     padding-bottom: 20px;
 }
 
-.section-table,
-.section-left,
-.section-right{
-}
-
 .section-table{
     width:100%;
 }
@@ -80,23 +75,22 @@ a:focus, a:active {
     width:158px;
 }
 
-.section-right{
-}
-
 .section h1 {
-	font-size: 15px;
     text-transform: capitalize;
 	color: gray;
 	margin-top: 10px;
 	margin-bottom: 10px;
     text-decoration: none;
+    font-family: 'Orelega One', cursive;
+    font-size:5vw;
+
 }
 
 .section h2 {
-	font-size: 14px;
 	color: gray;
 	margin-top: 10px;
 	margin-bottom: 10px;
+    font-family: 'Orelega One', cursive;
 }
 
 .section h4 {
@@ -244,8 +238,6 @@ div.obra div.obra-holder{
     border:1px solid #FFF; 
     overflow:hidden;
 }
-
-div.obra-holder a{}
 
 div.obra-holder img{
     padding:0; 

@@ -3,9 +3,9 @@
 
 {% block sections %}
 
-    <div class="section" style="padding-bottom:0px;">
+    <div class="section">
 
-        <h1>{% trans "Destaques" %}</h1>
+        <h2>{% trans "Destaques" %}</h2>
 
         {{ lang }}
         {% get_current_language as LANGUAGE_CODE %}
@@ -17,49 +17,24 @@
     {{ LANGUAGE_BIDI }}-->
 
         {% if destaques %}
-            <style>
-                #index-table {
-                    width: 100%;
-                    height: 380px;
-                    border-collapse: collapse;
-                    border: white solid;
-                }
 
-                #index-table td {
-                    vertical-align: top;
-                    padding: 0;
-                    margin: 0;
-                    border: 0.5px dotted;
-                }
-
-                #index-table td img {
-                    width: 70%;
-                }
-
-                .cell_1 {
-                    width: 33%;
-                }
-            </style>
-
-            <table id="index-table" cellpading="0" cellspacing="0">
+            <table class="table table-borderless text-center" id="index-table">
 
                 {% if destaques|length_is:"1" %}
                     <tr>
                         {% for destaque in destaques %}
                             {% if destaque.imagem %}
-                                <td style="width:50%;padding:0 15px 0 0;">
-                                    <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"
-                                                                      border="0"
-                                                                      style="width:275px; height:355px;"/></a>
+                                <td>
+                                    <img src="{% get_media_prefix %}{{ destaque.imagem }}"/> <a>
                                 </td>
                             {% endif %}
                             {% ifequal LANGUAGE_CODE 'en' %}
-                                <td style="width:50%;padding:0 15px; text-align:left;">
+                                <td>
                                     <p>{{ destaque.texto_en }}</p>
                                 </td>
 
                             {% else %}
-                                <td style="width:50%;padding:0 15px; text-align:left;">
+                                <td>
                                     <p>{{ destaque.texto }}</p>
                                 </td>
                             {% endifequal %}
@@ -73,13 +48,12 @@
                     <tr>
                         {% for destaque in destaques %}
                             {% ifequal forloop.counter 1 %}
-                                <td style="width:50%; padding:0 15px 0 0;">
+                                <td>
                                     {% else %}
-                                <td style="width:50%; padding:0 0 0 15px">
+                                <td>
                             {% endifequal %}
                         {% if destaque.imagem %}
-                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"
-                                                              border="0" style="width:275px; height:195px;"/></a>
+                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"/></a>
                         {% endif %}
 
                         {% ifequal LANGUAGE_CODE 'en' %}
@@ -98,18 +72,16 @@
                     <tr>
                         {% for destaque in destaques %}
                             {% ifequal forloop.counter 1 %}
-                                <td style="width:33%; padding:0 5px 0 0;">
+                                <td>
                             {% endifequal %}
                         {% ifequal forloop.counter 2 %}
-                            <td style="width:34%;  padding:0 6px;">
+                            <td>
                         {% endifequal %}
                         {% ifequal forloop.counter 3 %}
-                            <td style="width:33%; padding:0 0 0 5px;">
+                            <td>
                         {% endifequal %}
                         {% if destaque.imagem %}
-                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"
-                                                              border="0"
-                                                              style="padding:0;margin:0; width:185px; height:225px;"/></a>
+                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"/></a>
                         {% endif %}
 
                         {% ifequal LANGUAGE_CODE 'en' %}
@@ -130,20 +102,19 @@
                                 <tr>
                             {% endifequal %}
                         {% ifequal forloop.counter 1 %}
-                            <td style="width:50%; padding: 0 10px 0 0;">
+                            <td>
                         {% endifequal %}
                         {% ifequal forloop.counter 3 %}
-                            <td style="width:50%; padding: 0 10px 0 0;">
+                            <td>
                         {% endifequal %}
                         {% ifequal forloop.counter 2 %}
-                            <td style="width:50%; padding: 0 0 0 10px;">
+                            <td>
                         {% endifequal %}
                         {% ifequal forloop.counter 4 %}
-                            <td style="width:50%; padding: 0 0 0 10px;">
+                            <td>
                         {% endifequal %}
                         {% if destaque.imagem %}
-                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"
-                                                              border="0" style="width:280px; height:100px;"/>
+                            <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
                             </a>
                         {% endif %}
 
