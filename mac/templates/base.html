@@ -129,10 +129,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <li class="nav-item {% active request '/links' %}">
                             <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
                         </li>
-                        <!-- sitemap item  -->
-                        <li class="nav-item {% active request '/mapa' %}">
-                            <a class="nav-link text-uppercase {% active request '/mapa' %}" href="/mapa" style="text-transform:none;">{% trans 'Mapa do site' %}</a>
-                        </li>
                     </ul>
                     {% get_available_languages as LANGUAGES %} {% get_current_language as LANGUAGE_CODE %}
                     <form id="language-select" class="c2-hidden" method="post" action="/i18n/setlang/">
@@ -172,12 +168,18 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
             <div class="container">
                 <div class="row">
                     <div class="col-8">
-                        <span class="text-muted small">
-                            Copyright &copy;
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>, Movimento Arte Contemporânea - All rights reserved.
-                        </span>
+                        <div class="row">
+                            <span class="text-muted small">
+                                Copyright &copy;
+                                <script>
+                                    document.write(new Date().getFullYear())
+                                </script>, Movimento Arte Contemporânea - All rights reserved.
+                            </span>
+                        </div>
+                        <div class="row mt-1">
+                            <a class="text-muted small text-decoration-none" {% active request '/mapa' %}" href="/mapa"
+                                style="text-transform:none;">{% trans 'Mapa do site' %}</a>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="row">
@@ -191,7 +193,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         </div>
                     </div>
                 </div>
-        
             </div>
         </footer>
         </body>
