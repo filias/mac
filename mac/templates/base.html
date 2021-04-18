@@ -143,13 +143,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <a class="text-uppercase text-decoration-none link-secondary" href="#" onClick="return set_lang('{{ i.0 }}');">{{ i.0 }}</a>
                     </li>
                     {% endfor %}
-                    <form class="d-flex" action="/resultados/" id="cse-search-box">
-                        <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
-                        <input type="hidden" name="cof" value="FORID:9" />
-                        <input type="hidden" name="ie" value="UTF-8" />
-                        <input class="form-control me-2" type="search" name="q" />
-                        <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-light" />
-                    </form>
                 </div>
             </div>
         </nav>
@@ -177,15 +170,30 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
         </main>
         <footer class="footer mt-auto py-3 bg-light">
             <div class="container">
-                <span class="text-muted small">
-                    Copyright &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>, Movimento Arte Contemporânea - All rights reserved.
-                </span>
+                <div class="row">
+                    <div class="col-8">
+                        <span class="text-muted small">
+                            Copyright &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>, Movimento Arte Contemporânea - All rights reserved.
+                        </span>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <form class="d-flex" action="/resultados/" id="cse-search-box">
+                                <input type="hidden" name="cx" value="006106839518899152571:cr9p73wvgt8" />
+                                <input type="hidden" name="cof" value="FORID:9" />
+                                <input type="hidden" name="ie" value="UTF-8" />
+                                <input class="form-control me-2" type="search" name="q" />
+                                <input type="submit" name="sa" value={% trans "Pesquisar" %} class="btn btn-light" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        
             </div>
         </footer>
         </body>
         <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
-        
         </html>
