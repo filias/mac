@@ -21,8 +21,6 @@ def contacte_nos(request):
             subject = form.cleaned_data["subject"]
             message = form.cleaned_data["message"]
             sender = form.cleaned_data["sender"]
-            #            cc_myself = form.cleaned_data['cc_myself']
-
             recipients = ["mac@movimentoartecontemporanea.com"]
             recipients.append(sender)
 

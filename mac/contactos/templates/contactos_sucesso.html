@@ -2,11 +2,10 @@
 {% load i18n %}
 
 {% block sections %}
-		<div class="section">
-            <h1><a href="/contactos">{% trans "contactos" %}</a> - {% trans "obrigado" %}</h1>
-            
-		    <p>{% trans "Muito obrigado pelo seu contacto" %}.</p>
-            
-	    </div>
-{% endblock %}	
+<div class="section">
+    <h1><a href="{% url "contacts" %}">{% trans "contactos" %}</a> - {% trans "obrigado" %}</h1>
 
+    <p>{% trans "Muito obrigado pelo seu contacto" %}.</p>
+
+</div>
+{% endblock %}	
