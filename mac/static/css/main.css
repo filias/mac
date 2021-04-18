@@ -59,6 +59,37 @@ a:focus, a:active {
     float: left;
 }
 
+/*
+#content {
+    width: 100%;
+    position: relative;
+    left: 3%;
+    text-align: left;
+    border-left: 2px solid #aaaaaa;
+    border-right: 2px solid #aaaaaa;
+    font-family: verdana, "trebuchet MS", helvetica, sans-serif; 
+    margin-top: 6px;
+	padding-left: 10px;
+    padding-right: 24px;
+    font-size: 16px;
+    max-height: 28.5em;
+    min-height: 28.5em;
+    float: left;
+    overflow: auto;
+}
+*/
+
+
+#foot {
+	width: 50%;
+    position: relative;
+    bottom: -16px;
+    left: 15%;
+    color: #aaaaaa;
+	font-size: 10px;
+    clear: left;
+}
+
 .section {
 	color: #444444;
 	font-size: 13px;
@@ -249,4 +280,25 @@ div.obra-holder img{
 #publicacoes td{
     width:50%;
     vertical-align:top;
+}
+
+/* MAC - Galeria */
+.text p {
+    margin: 0;
+    text-indent: 2rem;
+    text-align: justify;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }
