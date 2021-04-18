@@ -1,2 +1,10 @@
 *.pyc
 .bzr
+.env
+.env.save
+mac.sql:Zone.Identifier
+mac_backup.sql
+media.zip
+media.zip:Zone.Identifier
+media/
+venv/
