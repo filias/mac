@@ -18,7 +18,7 @@ urlpatterns = [
     url(
         r"^static/(?P<path>.*)$",
         serve,
-        {"document_root": os.path.join(settings.BASE_DIR, "static")},
+        {"document_root": settings.PROJECT_ROOT / "static"},
     ),
     # i18n
     url(r"^i18n/", include("django.conf.urls.i18n")),
