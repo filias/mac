@@ -59,6 +59,7 @@ a:focus, a:active {
     float: left;
 }
 
+/*
 #content {
     width: 100%;
     position: relative;
@@ -76,6 +77,7 @@ a:focus, a:active {
     float: left;
     overflow: auto;
 }
+*/
 
 
 #foot {
@@ -87,6 +89,7 @@ a:focus, a:active {
 	font-size: 10px;
     clear: left;
 }
+
 .section {
 	color: #444444;
 	font-size: 13px;
@@ -284,4 +287,18 @@ div.obra-holder img{
     margin: 0;
     text-indent: 2rem;
     text-align: justify;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }

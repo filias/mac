@@ -2,8 +2,8 @@
 {% load i18n %}
 
 {% block sections %}
-  
-        <h1><a href="/mac">MAC</a> - {% trans "história" %}</h1>
+    <div class="section">
+        <h2><a href="/mac">MAC</a> - {% trans "história" %}</h2>
         {% if texto %}
 	{% get_current_language as LANGUAGE_CODE %}
         {% ifequal LANGUAGE_CODE 'en' %}
@@ -16,6 +16,6 @@
         </div>
         {% endifequal %}
 	{% endif %}
-        
+    </div>    
 {% endblock %}
 
