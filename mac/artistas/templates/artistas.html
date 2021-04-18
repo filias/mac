@@ -3,10 +3,10 @@
 
 {% block sections %}
 <div class="section">
+    
     <h1>{% block subsection %}{% trans "artistas" %} {% endblock %}</h1>
-
     {% if artists %}
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-4">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6">
         {% for artist in artists %}
         <div class="row">
             <div class="card h-25 border-light mb-3">
