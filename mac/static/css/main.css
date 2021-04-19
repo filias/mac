@@ -44,11 +44,20 @@ a:focus, a:active {
     text-decoration: none;
 }
 
-#logo {
+.banner {
     position: relative;
     height: 120px;
     width: 100%;
     background: transparent;
+}
+.banner__img{
+    min-width: 100%;
+}
+
+.banner__container {
+    overflow: hidden; 
+    height: 120px; 
+    width: 100%;
 }
 
 #logo_mac {
@@ -58,26 +67,6 @@ a:focus, a:active {
     margin-top: 22px;
     float: left;
 }
-
-/*
-#content {
-    width: 100%;
-    position: relative;
-    left: 3%;
-    text-align: left;
-    border-left: 2px solid #aaaaaa;
-    border-right: 2px solid #aaaaaa;
-    font-family: verdana, "trebuchet MS", helvetica, sans-serif; 
-    margin-top: 6px;
-	padding-left: 10px;
-    padding-right: 24px;
-    font-size: 16px;
-    max-height: 28.5em;
-    min-height: 28.5em;
-    float: left;
-    overflow: auto;
-}
-*/
 
 
 #foot {

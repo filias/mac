@@ -153,11 +153,11 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     </div>
 
     <!-- Banner -->
-    <div class="container-fluid" id="logo">
+    <div class="banner">
         {% block tela %}
-        <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
+        <div id="tela" class="banner__container">
             {% if telas %} {% for tela in telas %}
-            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" /></a>
+                <img class="banner__img" src="{% get_media_prefix %}{{ tela.image }}" />
             {% endfor %} {% endif %}
         </div>
         {% endblock %}
