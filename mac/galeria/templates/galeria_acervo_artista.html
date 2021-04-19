@@ -3,7 +3,7 @@
 
 {% block sections %}
 <div class="section">
-    <h1><a href="/mac">MAC</a> - <a href="/mac/acervo">{% trans "acervo" %}</a> - {{ artista.nome }}</h1>
+    <h2>{% trans "acervo" %} - {{ artista.nome }}</h2>
     {% if acervo_list %}
         <div class="obras">
             {% for obra in acervo_list %}

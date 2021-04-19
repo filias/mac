@@ -3,7 +3,7 @@
 
 {% block sections %}
 <div class="section">
-    <h1><a href="{% url "current_exhibitions" %}">{% trans "exposições" %}</a>  - {% trans "passadas" %}</h1>
+    <h2>{% trans "exposições" %} - {% trans "passadas" %}</h2>
     {% if anos %}
     <table>
     {% for linha in anos %}

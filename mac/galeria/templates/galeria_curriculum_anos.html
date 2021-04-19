@@ -5,7 +5,7 @@
 
 	<div class="section">
     
-        <h1><a href="/mac">MAC</a> - <a href="/mac/curriculum">{% trans "curriculum" %}</a> - {{ ano }}</h1>
+        <h2>{% trans "curriculum" %} - {{ ano }}</h2>
        
        {% for evento in eventos %}
             <h4><a href="/exposicoes/{{ evento.id }}">{{ evento.titulo }} | {{ evento.data_inicio|date:"j F" }} - {{ evento.data_fim|date:"j F Y" }}</a></h4>

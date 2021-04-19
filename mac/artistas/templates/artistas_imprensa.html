@@ -4,7 +4,7 @@
 {% block sections %}
 {% if artista %}
 <div class="section">
-    <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artista.id %}">{{ artista.nome }}</a> - {% trans "imprensa" %}</h1>
+    <h2>{{ artista.nome }} - {% trans "imprensa" %}</h2>
     {% for artigo in imprensa %}
         <h4><a href="{% get_media_prefix %}{{ artigo.ficheiro }}">
             {{ artigo.artista.nome }} - "{{ artigo.titulo }}"
