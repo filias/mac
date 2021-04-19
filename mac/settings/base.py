@@ -1,12 +1,8 @@
 import os
 from pathlib import Path
 
-DEBUG = True
-
-BASE_DIR = Path(__file__).parent.parent
-PROJECT_ROOT = Path(__file__).parent
-
-ALLOWED_HOSTS = ["localhost", "macsiteadmin.pythonanywhere.com", "127.0.0.1"]
+BASE_DIR = Path(__file__).parent.parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 DATABASES = {
     "default": {
@@ -86,7 +82,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ),
-            "debug": DEBUG,
+            "debug": False,
         },
     },
 ]
