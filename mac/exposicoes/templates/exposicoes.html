@@ -3,7 +3,7 @@
 
 {% block sections %}
 <div class="section">
-   <h1><a href="{% url "current_exhibitions" %}">{% trans "exposições" %}</a> {% block subsection %}{% endblock %}</h1>
+   <h2>{% trans "exposições" %}{% block subsection %}{% endblock %}</h2>
 
     {% for exposicao in exposicoes %}
         <h4><a href="{% url "exhibition_detail" exposicao.id %}">{{ exposicao.titulo }} | {{ exposicao.data_inicio|date:"j F" }} - {{ exposicao.data_fim|date:"j F Y" }}</a></h4>

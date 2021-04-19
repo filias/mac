@@ -12,10 +12,6 @@
         {% get_available_languages as LANGUAGES %}
         {% get_current_language_bidi as LANGUAGE_BIDI %}
 
-        <!--{{ LANGUAGE_CODE }}
-    {{ LANGUAGES }}
-    {{ LANGUAGE_BIDI }}-->
-
         {% if destaques %}
 
             <table class="table table-borderless text-center" id="index-table">
@@ -25,7 +21,7 @@
                         {% for destaque in destaques %}
                             {% if destaque.imagem %}
                                 <td>
-                                    <img src="{% get_media_prefix %}{{ destaque.imagem }}"/> <a>
+                                    <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
                                 </td>
                             {% endif %}
                             {% ifequal LANGUAGE_CODE 'en' %}

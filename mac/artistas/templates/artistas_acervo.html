@@ -4,7 +4,7 @@
 {% block sections %}
 {% if artista %}
 <div class="section">
-    <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artista.id %}">{{ artista.nome }}</a> - {% trans "Acervo" %}</h1>
+    <h2>{% trans "artistas" %} - {{ artista.nome }} - {% trans "Acervo" %}</h2>
     {% if obras %}
      <div class="obras">
         {% for obra in obras %}
