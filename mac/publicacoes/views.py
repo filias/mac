@@ -17,25 +17,25 @@ def index(request):
     RTR_DICT["criticas"] = Publicacao.objects.filter(tipo="Critica").order_by("-data")[
         :3
     ]
-    return render(request, "publicacoes/templates/publicacoes.html", RTR_DICT)
+    return render(request, "publicacoes.html", RTR_DICT)
 
 
 def catalogos(request, select):
     RTR_DICT["publicacoes"] = Publicacao.objects.filter(
         tipo="Catalogo", artista__nome__range=(select[0], select[1])
     ).order_by("artista")
-    return render(request, "publicacoes/templates/publicacoes_catalogos.html", RTR_DICT)
+    return render(request, "publicacoes_catalogos.html", RTR_DICT)
 
 
 def imprensa(request, select):
     RTR_DICT["publicacoes"] = Publicacao.objects.filter(
         tipo="Imprensa", artista__nome__range=(select[0], select[1])
     ).order_by("artista")
-    return render(request, "publicacoes/templates/publicacoes_imprensa.html", RTR_DICT)
+    return render(request, "publicacoes_imprensa.html", RTR_DICT)
 
 
 def critica(request, select):
     RTR_DICT["publicacoes"] = Publicacao.objects.filter(
         tipo="Critica", artista__nome__range=(select[0], select[1])
     ).order_by("artista")
-    return render(request, "publicacoes/templates/publicacoes_criticas.html", RTR_DICT)
+    return render(request, "publicacoes_criticas.html", RTR_DICT)

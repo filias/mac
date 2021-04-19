@@ -33,19 +33,19 @@ def tela(request):
 def galerias(request):
     galerias = Galeria.objects.filter(nome__startswith="MAC").order_by("-nome")
     RTR_DICT["galerias"] = galerias
-    return render(request, "galeria/templates/galeria.html", RTR_DICT)
+    return render(request, "galeria.html", RTR_DICT)
 
 
 def missao(request):
     texto = Texto.objects.filter(titulo="missao")
     RTR_DICT["texto"] = texto[0]
-    return render(request, "galeria/templates/galeria_missao.html", RTR_DICT)
+    return render(request, "galeria_missao.html", RTR_DICT)
 
 
 def historia(request):
     texto = Texto.objects.filter(titulo="historia")
     RTR_DICT["texto"] = texto[0]
-    return render(request, "galeria/templates/galeria_historia.html", RTR_DICT)
+    return render(request, "galeria_historia.html", RTR_DICT)
 
 
 def curriculum(request):
@@ -54,7 +54,7 @@ def curriculum(request):
     years.reverse()
     RTR_DICT["years"] = years
 
-    return render(request, "galeria/templates/galeria_curriculum.html", RTR_DICT)
+    return render(request, "galeria_curriculum.html", RTR_DICT)
 
 
 def curriculum_ano(request, evento_ano):
@@ -67,14 +67,14 @@ def curriculum_ano(request, evento_ano):
 def equipa(request):
     texto = Texto.objects.filter(titulo="estrutura")
     RTR_DICT["texto"] = texto[0]
-    return render(request, "galeria/templates/galeria_equipa.html", RTR_DICT)
+    return render(request, "galeria_equipa.html", RTR_DICT)
 
 
 def acervo(request):
     artistas = Artista.objects.all().order_by("nome")
     artists = [artista for artista in artistas if artista.tem_acervo()]
     RTR_DICT["artists"] = artists
-    return render(request, "galeria/templates/galeria_acervo.html", RTR_DICT)
+    return render(request, "galeria_acervo.html", RTR_DICT)
 
 
 def acervo_artist(request, artist_id):
@@ -83,7 +83,7 @@ def acervo_artist(request, artist_id):
     acervo_list = Obra.objects.filter(estado="A", autor=artista).order_by("-ano")
     return render(
         request,
-        "galeria/templates/galeria_acervo_artista.html",
+        "galeria_acervo_artista.html",
         {"artista": artista, "telas": telas, "acervo_list": acervo_list},
     )
 
@@ -96,13 +96,13 @@ def acervo_detalhe(request, obra_id, artist_id):
 
     return render(
         request,
-        "galeria/templates/acervo_detalhe.html",
+        "acervo_detalhe.html",
         {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais},
     )
 
 
 def agenda(request):
-    return render(request, "galeria/templates/galeria_agenda.html", RTR_DICT)
+    return render(request, "galeria_agenda.html", RTR_DICT)
 
 
 def premios(request):
@@ -110,7 +110,7 @@ def premios(request):
     RTR_DICT["texto"] = texto[0]
     aniversarios = Aniversario.objects.all().order_by("-data")
     RTR_DICT["aniversarios"] = aniversarios
-    return render(request, "galeria/templates/galeria_premios.html", RTR_DICT)
+    return render(request, "galeria_premios.html", RTR_DICT)
 
 
 def detail(request, aniversario_id):
@@ -120,7 +120,7 @@ def detail(request, aniversario_id):
     RTR_DICT["fotos"] = fotos
     premios = Premio.objects.filter(aniversario=aniversario_id).order_by("nome")
     RTR_DICT["premios"] = premios
-    return render(request, "galeria/templates/premios_detalhe.html", RTR_DICT)
+    return render(request, "premios_detalhe.html", RTR_DICT)
 
 
 def premiados(request, aniversario_id):
@@ -128,7 +128,7 @@ def premiados(request, aniversario_id):
     RTR_DICT["aniversario"] = aniversario
     premios = Premio.objects.filter(aniversario=aniversario_id).order_by("nome")
     RTR_DICT["premios"] = premios
-    return render(request, "galeria/templates/premiados.html", RTR_DICT)
+    return render(request, "premiados.html", RTR_DICT)
 
 
 def trofeu(request, aniversario_id):
@@ -139,7 +139,7 @@ def trofeu(request, aniversario_id):
     materiais = trofeu.materiais.all()
     return render(
         request,
-        "galeria/templates/trofeu.html",
+        "trofeu.html",
         {
             "aniversario": aniversario,
             "trofeu": trofeu,

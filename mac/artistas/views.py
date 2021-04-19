@@ -26,7 +26,7 @@ def artistas(request):
 
     RTR_DICT["em_exposicao"] = artistas_em_exposicao
 
-    return render(request, "artistas/templates/artistas.html", RTR_DICT)
+    return render(request, "artistas.html", RTR_DICT)
 
 
 def pintura(request):
@@ -35,7 +35,7 @@ def pintura(request):
     )
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_pintura.html", RTR_DICT)
+    return render(request, "artistas_pintura.html", RTR_DICT)
 
 
 def medalhistica(request):
@@ -44,7 +44,7 @@ def medalhistica(request):
     ).order_by("nome")
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_medalhistica.html", RTR_DICT)
+    return render(request, "artistas_medalhistica.html", RTR_DICT)
 
 
 def joalharia(request):
@@ -53,7 +53,7 @@ def joalharia(request):
     ).order_by("nome")
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_joalharia.html", RTR_DICT)
+    return render(request, "artistas_joalharia.html", RTR_DICT)
 
 
 def escultura(request):
@@ -62,7 +62,7 @@ def escultura(request):
     ).order_by("nome")
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_escultura.html", RTR_DICT)
+    return render(request, "artistas_escultura.html", RTR_DICT)
 
 
 def fotografia(request):
@@ -71,7 +71,7 @@ def fotografia(request):
     ).order_by("nome")
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_fotografia.html", RTR_DICT)
+    return render(request, "artistas_fotografia.html", RTR_DICT)
 
 
 def desenho(request):
@@ -80,7 +80,7 @@ def desenho(request):
     )
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_desenho.html", RTR_DICT)
+    return render(request, "artistas_desenho.html", RTR_DICT)
 
 
 def ceramica(request):
@@ -89,14 +89,14 @@ def ceramica(request):
     )
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_ceramica.html", RTR_DICT)
+    return render(request, "artistas_ceramica.html", RTR_DICT)
 
 
 def trofeus(request):
     artistas = Artista.objects.filter(tipo__nome="Trofeus").order_by("nome")
     RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas/templates/artistas_trofeus.html", RTR_DICT)
+    return render(request, "artistas_trofeus.html", RTR_DICT)
 
 
 def detail(request, artist_id):
@@ -115,7 +115,7 @@ def detail(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_detalhe.html",
+        "artistas_detalhe.html",
         {
             "artista": artista,
             "obras": obras,
@@ -134,7 +134,7 @@ def obras(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_obras.html",
+        "artistas_obras.html",
         {"artista": artista, "obras": obras, "telas": telas},
     )
 
@@ -145,7 +145,7 @@ def acervo(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_acervo.html",
+        "artistas_acervo.html",
         {"artista": artista, "obras": obras, "telas": telas},
     )
 
@@ -158,7 +158,7 @@ def exposicoes(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_exposicoes.html",
+        "artistas_exposicoes.html",
         {"artista": artista, "exposicoes": exposicoes, "telas": telas},
     )
 
@@ -171,7 +171,7 @@ def critica(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_critica.html",
+        "artistas_critica.html",
         {"artista": artista, "criticas": criticas, "telas": telas},
     )
 
@@ -184,7 +184,7 @@ def imprensa(request, artist_id):
     telas = artist_canvas(artista)
     return render(
         request,
-        "artistas/templates/artistas_imprensa.html",
+        "artistas_imprensa.html",
         {"artista": artista, "imprensa": imprensa, "telas": telas},
     )
 
@@ -196,6 +196,6 @@ def obra_detalhe(request, obra_id, artist_id):
     materiais = obra.materiais.all()
     return render(
         request,
-        "artistas/templates/obra_detalhe.html",
+        "obra_detalhe.html",
         {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais},
     )
