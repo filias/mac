@@ -4,9 +4,8 @@
 {% block sections %}
 <div class="section">
 
-    <h1><a href="/mac">MAC</a> - <a href="/mac/premios">{% trans "prémios MAC" %}</a> -
-        <a href="/mac/premios/{{ aniversario.id }}"> {{ aniversario.data|date:"Y" }}</a> - {% trans "premiados" %}
-    </h1>
+    <h2>{% trans "prémios MAC" %} - {{ aniversario.data|date:"Y" }} - {% trans "premiados" %}
+    </h2>
 
     <table cellpading="0" cellspacing="0" border="0">
 

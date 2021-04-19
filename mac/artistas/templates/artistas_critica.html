@@ -4,7 +4,7 @@
 {% block sections %}
 {% if artista %}
     <div class="section">
-            <h1><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artista.id %}">{{ artista.nome }}</a> - Crítica</h1>
+            <h2>{% trans "artistas" %} - {{ artista.nome }} - {% trans "Crítica" %}</h2>
 
             {% for critica in criticas %}
                 <h4><a href="{% get_media_prefix %}{{ critica.ficheiro }}">

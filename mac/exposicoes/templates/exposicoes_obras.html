@@ -5,18 +5,7 @@
 {% if exposicao %}
     <div class="section">
 
-        <h1><a href="{% url "current_exhibitions" %}">{% trans "exposições" %}</a> -
-        {% if exposicao.artistas.all|length_is:"1" %}
-                {% for artista in exposicao.artistas.all %}
-                    {% if forloop.first %}
-                        <a href="{% url "artist_detail" artista.id %}">{{ artista }}</a>
-                    {% endif %}
-                {% endfor %}
-            {% else %}
-                <a href="/mac/galerias">MAC</a>
-            {% endif %}
-            - <a href="{% url "exhibition_detail" exposicao.id %}">"{{ exposicao.titulo }}"</a>
-            - Obras</h1>
+        <h2>{% trans "exposições" %} {{ exposicao.titulo }}" - {% trans "Obras" %}</h2>
 
         {% if obras %}
         <div class="obras">

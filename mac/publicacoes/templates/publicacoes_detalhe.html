@@ -4,7 +4,7 @@
 {% block sections %}
 {% if publicacao %}
     <div class="section">
-        <h2><a href="/publicacoes">{% trans "publicações" %}</a> - {{ publicacao.titulo }}</h2>
+        <h2>{{ publicacao.titulo }}</h2>
 
         {% if publicacao.autor %}
             <p><b>{% trans "Autor" %}: </b>{{ publicacao.autor }}</p>

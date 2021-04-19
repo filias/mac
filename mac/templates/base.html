@@ -153,11 +153,11 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     </div>
 
     <!-- Banner -->
-    <div class="container-fluid" id="logo">
+    <div class="banner">
         {% block tela %}
-        <div id="tela" class="pics" style="overflow:hidden; height:120px; width:100%;">
+        <div id="tela" class="banner__container">
             {% if telas %} {% for tela in telas %}
-            <a href="/"><img src="{% get_media_prefix %}{{ tela.image }}" /></a>
+                <img class="banner__img" src="{% get_media_prefix %}{{ tela.image }}" />
             {% endfor %} {% endif %}
         </div>
         {% endblock %}
@@ -210,7 +210,7 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         </span>
                     </div>
                     <div class="row mt-1">
-                        <a class="text-muted small text-decoration-none" {% active request '/mapa' %}" href="/mapa"
+                        <a class="text-muted small text-decoration-none" {% active request '/mapa' %} href="/mapa"
                             style="text-transform:none;">{% trans 'Mapa do site' %}</a>
                     </div>
     
@@ -221,4 +221,4 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     </body>
     <script async src="https://cse.google.com/cse.js?cx=006106839518899152571:cr9p73wvgt8"></script>
     
-    </html>
+</html>
