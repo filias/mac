@@ -4,7 +4,10 @@ body {
     background: white; 
     min-height: 100vh;
 }
-
+.main {
+    margin-top: 3%;
+    margin-bottom: 10%;
+}
 a:focus, a:active { 
     outline: none;
 }
@@ -291,3 +294,15 @@ div.obra-holder img{
     width:100%;
     position:absolute;
 }
+@media only screen and (min-width: 800px) {
+    .artists__img {
+        width: 100%; height: 20vw; object-fit: contain;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .artists__img {
+        width: 100%; height: 20vw; object-fit: contain;
+    }
+  }
+
