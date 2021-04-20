@@ -5,16 +5,13 @@
     <div class="section">
         <h2>{% trans "história" %}</h2>
         {% if texto %}
-	{% get_current_language as LANGUAGE_CODE %}
+        <div class="text">
         {% ifequal LANGUAGE_CODE 'en' %}
-        <div class="text">
             <p>{{ texto.texto_en }}</p>
-        </div>
         {% else %}
-        <div class="text">
             <p>{{ texto.texto }}</p>
-        </div>
         {% endifequal %}
+        </div>
 	{% endif %}
 </div>
 {% endblock %}

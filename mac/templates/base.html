@@ -165,7 +165,8 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <main class="flex-shrink-0 main">
         <div class="container">
             <div id="content">
-                {% block sections %} {% endblock %}
+                {% get_current_language as LANGUAGE_CODE %}
+                {% block sections %}{% endblock %}
             </div>
         </div>
     </main>
