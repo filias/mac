@@ -8,7 +8,6 @@
         <h2>{% trans "missão" %}</h2>
         
         {% if texto %}
-	{% get_current_language as LANGUAGE_CODE %}
         {% ifequal LANGUAGE_CODE 'en' %}
         <div class="text">
 	        <p>{{ texto.texto_en }}</p>

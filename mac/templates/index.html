@@ -4,18 +4,13 @@
 {% block sections %}
 
     <div class="section">
-
         <h2>{% trans "Destaques" %}</h2>
-
-        {{ lang }}
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        {% get_current_language_bidi as LANGUAGE_BIDI %}
 
         {% if destaques %}
 
             <table class="table table-borderless text-center" id="index-table">
 
+                {# There is 1 visible News article #}
                 {% if destaques|length_is:"1" %}
                     <tr>
                         {% for destaque in destaques %}
@@ -24,22 +19,18 @@
                                     <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
                                 </td>
                             {% endif %}
-                            {% ifequal LANGUAGE_CODE 'en' %}
                                 <td>
+                                {% ifequal LANGUAGE_CODE 'en' %}
                                     <p>{{ destaque.texto_en }}</p>
-                                </td>
-
-                            {% else %}
-                                <td>
+                                {% else %}
                                     <p>{{ destaque.texto }}</p>
+                                {% endifequal %}
                                 </td>
-                            {% endifequal %}
-                            </td>
                         {% endfor %}
                     </tr>
                 {% endif %}
 
-
+                {# There are 2 visible News articles #}
                 {% if destaques|length_is:"2" %}
                     <tr>
                         {% for destaque in destaques %}
@@ -63,7 +54,7 @@
                     </tr>
                 {% endif %}
 
-
+                {# There are 3 visible News articles #}
                 {% if destaques|length_is:"3" %}
                     <tr>
                         {% for destaque in destaques %}
@@ -91,6 +82,7 @@
                     </tr>
                 {% endif %}
 
+                {# There are 4 visible News articles #}
                 {% if destaques|length_is:"4" %}
                     <tr>
                         {% for destaque in destaques %}
@@ -111,7 +103,6 @@
                         {% endifequal %}
                         {% if destaque.imagem %}
                             <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
-                            </a>
                         {% endif %}
 
                         {% ifequal LANGUAGE_CODE 'en' %}

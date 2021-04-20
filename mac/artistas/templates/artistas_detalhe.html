@@ -40,7 +40,6 @@
                     {% endif %}
                 </td>
 
-                {% get_current_language as LANGUAGE_CODE %}
                 {% ifequal LANGUAGE_CODE 'en' %}
                     <td valign="top"><p>{{ artista.bio_resumo_en }}</p></td>
                 {% else %}
