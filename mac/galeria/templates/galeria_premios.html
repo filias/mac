@@ -7,11 +7,11 @@
 
         <h2>{% trans "prémios MAC" %}</h2>
 
-	<table>
+	<table class="table">
 	  <tr>
         
 	        {% if aniversarios %}
-		  <td valign="top" width="60">
+		  <td>
 		    <p></p>
 	            {% for aniversario in aniversarios %}
         	        <h4><a href="/mac/premios/{{ aniversario.id }}"><b>{{ aniversario.data|date:"Y" }}</a></h4>
@@ -20,12 +20,16 @@
         	{% endif%}
 
 		 {% if texto %}
-		  <td valign="top">
+		  <td>
 		    {% get_current_language as LANGUAGE_CODE %}
         		{% ifequal LANGUAGE_CODE 'en' %}
+				<div class="text">
 		            <p>{{ texto.texto_en }}</p>
+				</div>
 		        {% else %}
-	            	    <p>{{ texto.texto }}</p>
+				<div class="text">
+					<p>{{ texto.texto }}</p>
+				</div>
 			{% endifequal %}
 		  </td>
 	        {% endif%}

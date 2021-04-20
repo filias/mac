@@ -16,7 +16,7 @@
                 <td valign="top">
                     <p><b>{{ obra.titulo }} ({{ obra.ano }})</b></p>
 
-                    <p><b>{% trans "Tipo" %}: </b>{% trans obra.tipo %}</p>
+                    <p><b>{% trans "Tipo" %}: </b>{% trans obra.tipo.nome %}</p>
 
                     {% if obra.descricao %}
                         <!--<i>Obra em {{ obra.estado }}</i>-->

@@ -105,7 +105,6 @@ a:focus, a:active {
 	margin-bottom: 10px;
     text-decoration: none;
     font-family: 'Orelega One', cursive;
-    font-size:5vw;
 
 }
 
@@ -251,7 +250,6 @@ div.obras div.obra{
     width:80px; 
     height:80px; 
     margin:30px 30px 0 0; 
-    border:2px solid #CCC; 
     float:left; 
 }
 
@@ -293,6 +291,62 @@ div.obra-holder img{
     height:100%;
     width:100%;
     position:absolute;
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 10%;
+    padding-bottom : 10%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    overflow:hidden;
+}
+
+/* Responsive layout - makes the four columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .square {
+      width: 100%;
+    }
+  }
+
+.content {
+    position:absolute;
+    height: 90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5% 5%;
+    border: #444444;
+    border-style: solid;
+    border-width:0.1em;
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        position:absolute;
+        height: 90%; /* = 100% - 2*5% padding */
+        width:90%; /* = 100% - 2*5% padding */
+        padding: 2% 2%;
+        border: #444444;
+        border-style: solid;
+        border-width:0.1em;
+    }  
+}
+.table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+    height:100%;
+    width:100%;
+    font-size: 2vw;
+}
+
+.btn-outline{
+    color: #f8f9fa;
+    border-color: #f8f9fa;
 }
 @media only screen and (min-width: 800px) {
     .artists__img {
