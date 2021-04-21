@@ -5,8 +5,6 @@ from mac.common import common
 from mac.exposicoes.models import Exposicao
 from mac.publicacoes.models import Publicacao
 
-RTR_DICT = common.DEFAULT_DICT
-
 
 def artist_canvas(artist):
     return artist.telas.all()
@@ -14,7 +12,8 @@ def artist_canvas(artist):
 
 def artistas(request):
     artistas = Artista.objects.filter(artista_mac=True).order_by("nome")
-    RTR_DICT["artists"] = artistas
+    context = {}
+    context["artists"] = artistas
 
     # Artists in current Exhibitions. TODO: this can be largely improved
     exposicoes = common.EXPOSICOES
@@ -24,79 +23,71 @@ def artistas(request):
         artistas_em_exposicao.extend(exposicao.artistas.all())
     artistas_em_exposicao = list(set(artistas_em_exposicao))
 
-    RTR_DICT["em_exposicao"] = artistas_em_exposicao
+    context["em_exposicao"] = artistas_em_exposicao
 
-    return render(request, "artistas.html", RTR_DICT)
+    return render(request, "artistas.html", context)
 
 
 def pintura(request):
     artistas = Artista.objects.filter(tipo__nome="Pintura", artista_mac=True).order_by(
         "nome"
     )
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_pintura.html", RTR_DICT)
+    return render(request, "artistas_pintura.html", {"artists": artistas})
 
 
 def medalhistica(request):
     artistas = Artista.objects.filter(
         tipo__nome="Medalhistica", artista_mac=True
     ).order_by("nome")
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_medalhistica.html", RTR_DICT)
+    return render(request, "artistas_medalhistica.html", {"artists": artistas})
 
 
 def joalharia(request):
     artistas = Artista.objects.filter(
         tipo__nome="Joalharia", artista_mac=True
     ).order_by("nome")
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_joalharia.html", RTR_DICT)
+    return render(request, "artistas_joalharia.html", {"artists": artistas})
 
 
 def escultura(request):
     artistas = Artista.objects.filter(
         tipo__nome="Escultura", artista_mac=True
     ).order_by("nome")
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_escultura.html", RTR_DICT)
+    return render(request, "artistas_escultura.html", {"artists": artistas})
 
 
 def fotografia(request):
     artistas = Artista.objects.filter(
         tipo__nome="Fotografia", artista_mac=True
     ).order_by("nome")
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_fotografia.html", RTR_DICT)
+    return render(request, "artistas_fotografia.html", {"artists": artistas})
 
 
 def desenho(request):
     artistas = Artista.objects.filter(tipo__nome=u"Desenho", artista_mac=True).order_by(
         "nome"
     )
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_desenho.html", RTR_DICT)
+    return render(request, "artistas_desenho.html", {"artists": artistas})
 
 
 def ceramica(request):
     artistas = Artista.objects.filter(tipo__nome="Ceramica", artista_mac=True).order_by(
         "nome"
     )
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_ceramica.html", RTR_DICT)
+    return render(request, "artistas_ceramica.html", {"artists": artistas})
 
 
 def trofeus(request):
     artistas = Artista.objects.filter(tipo__nome="Trofeus").order_by("nome")
-    RTR_DICT["artists"] = artistas
 
-    return render(request, "artistas_trofeus.html", RTR_DICT)
+    return render(request, "artistas_trofeus.html", {"artists": artistas})
 
 
 def detail(request, artist_id):

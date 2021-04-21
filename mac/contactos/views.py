@@ -1,17 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from mac.common import common
 from mac.contactos.models import ContactForm
-from mac.galeria.models import Galeria
-
-RTR_DICT = common.DEFAULT_DICT
 
 
 def contactos(request):
-    gallery_list = Galeria.objects.filter(nome__startswith="MAC").order_by("-nome")
-    RTR_DICT["gallery_list"] = gallery_list
-    return render(request, "contactos.html", RTR_DICT)
+    return render(request, "contactos.html")
 
 
 def contacte_nos(request):
@@ -31,9 +25,8 @@ def contacte_nos(request):
     else:
         form = ContactForm()  # An unbound form
 
-    RTR_DICT["form"] = form
-    return render(request, "contacte_nos.html", RTR_DICT)
+    return render(request, "contacte_nos.html", {"form": form})
 
 
 def sucesso(request):
-    return render(request, "contactos_sucesso.html", RTR_DICT)
+    return render(request, "contactos_sucesso.html")

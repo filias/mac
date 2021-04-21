@@ -5,14 +5,11 @@ from mac.common import common
 from mac.exposicoes.models import Exposicao
 from mac.utils import utils
 
-RTR_DICT = common.DEFAULT_DICT
-
 
 def index(request):
     exposicoes = common.EXPOSICOES
     actuais = [exposicao for exposicao in exposicoes if exposicao.exposicao_actual()]
-    RTR_DICT["exposicoes"] = actuais
-    return render(request, "exposicoes_actuais.html", RTR_DICT)
+    return render(request, "exposicoes_actuais.html", {"exposicoes": actuais})
 
 
 def passadas(request):
@@ -22,23 +19,22 @@ def passadas(request):
     anos = list(anos)
     anos.reverse()
     anos = utils.arrange_by_columns(anos, 2)
-    RTR_DICT["anos"] = anos
-    return render(request, "exposicoes_passadas.html", RTR_DICT)
+    return render(request, "exposicoes_passadas.html", {"anos": anos})
 
 
 def passadas_ano(request, exposicao_ano):
     exposicoes = Exposicao.objects.filter(data_inicio__year=exposicao_ano)
     passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
-    RTR_DICT["exposicoes"] = passadas
-    RTR_DICT["ano"] = exposicao_ano
-    return render(request, "exposicoes_passadas_ano.html", RTR_DICT)
+    context = {}
+    context["exposicoes"] = passadas
+    context["ano"] = exposicao_ano
+    return render(request, "exposicoes_passadas_ano.html", context)
 
 
 def futuras(request):
     exposicoes = Exposicao.objects.all().order_by("data_inicio")
     futuras = [exposicao for exposicao in exposicoes if exposicao.exposicao_futura()]
-    RTR_DICT["exposicoes"] = futuras
-    return render(request, "exposicoes_futuras.html", RTR_DICT)
+    return render(request, "exposicoes_futuras.html", {"exposicoes": futuras})
 
 
 def detail(request, exposicao_id):
