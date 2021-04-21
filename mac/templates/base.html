@@ -37,6 +37,9 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+
     <script>
         const static_url = "{% get_static_prefix %}";
     </script>
@@ -173,11 +176,11 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <div class="row">
-                <div class="col col-sm-6 col-md-8">
+                <div class="col col-sm-4 col-md-8">
                     <div class="row">
                         {% for entry in gallery_list %}
                         <div class="col mt-2" style="font-size: 13px;">
-                            <div>{{ entry.nome }}</div>
+                            <div><strong>{{ entry.nome }}</strong></div>
                             <a href="{{entry.mapa}}" target="blank" class="text-muted"><span>{{ entry.rua }} - {{ entry.cod_postal }}
                                 {{ entry.cidade }}</span></a>
                             <div><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</div>
@@ -192,7 +195,23 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col mt-2">
+                <div class="col col-sm-1 mt-2">
+                    <div class="row row-cols-auto">
+                            <strong><span class="small">
+                                {% ifequal LANGUAGE_CODE "en" %}
+                                    Visit us:</span>
+                                {% else %}
+                                    Visite-nos:
+                                {% endifequal %}
+                            </span></strong>
+                    </div>
+                    <div class="fs-1 text-center">
+                        <a class="text-dark" href="https://www.facebook.com/MAC-Movimento-Arte-Contempor%C3%A2nea-344653902104/" target="_blank">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-3 mt-2">
                     <div class="row">
                         <div class="row">
                             <form class="d-sm-flex d-none" action="/resultados/" id="cse-search-box">
@@ -214,7 +233,6 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                         <a class="text-muted small text-decoration-none" {% active request '/mapa' %} href="/mapa"
                             style="text-transform:none;">{% trans 'Mapa do site' %}</a>
                     </div>
-    
                 </div>
             </div>
         </div>

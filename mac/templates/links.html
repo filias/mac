@@ -1,26 +1,39 @@
 {% extends "templates/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
 
     <div class="section">
-    
-        <h2>Links</h2>
-        
-        {% if links_list %}
-            <table>
-            {% for link in links_list %}
-                <tr>
-                    <td valign="top"><br /><a href={{ link.url }} ><h4>{{ link.nome }}</h4></a>
-                        <a href={{ link.url }} ><p>{{ link.url }}</p></a></td>
-                </tr>
-            {% endfor %}
-            </table>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Links</h2> 
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6">
+                    {% if links_list %}
+                        <div class="list-group list-group-flush">
+                        {% for link in links_list %}
+                            {% ifequal LANGUAGE_CODE 'en' %}
+                                <button type="button" class="list-group-item list-group-item-action">
+                                    <a href={{ link.url }} ><h4>{{ link.nome }}</h4></a>
+                                </button>
+                            {% else %}
+                                <button type="button" class="list-group-item list-group-item-action">
+                                    <a href={{ link.url }} ><h4>{{ link.nome }}</h4></a>
+                                </button>
+                            {% endifequal %}       
+                        {% endfor %}
+                    {% else %}
+		                <p>Não há links.</p>
+                        </div>
+                </div>
+	        </div>
+	                {% endif %}
+        </div>
     </div>
-
-	{% else %}
-		    <p>Não há links.</p>
-	    </div>
-	{% endif %}
 {% endblock %}
 
