@@ -7,11 +7,11 @@
     <h2>{{ artista.nome }} - {% trans "exposições" %}</h2>
 
     {% for exposicao in exposicoes %}
-        <h4>
+        <div>
           <a href="/exposicoes/{{ exposicao.id }}">{{exposicao.titulo}} |
             {{ exposicao.data_inicio|date:"j F Y" }} - {{ exposicao.data_fim|date:"j F Y" }}
           </a>
-        </h4>
+        </div>
     {% empty %}
         <p>Não há exposições.</p>
     {% endfor %}

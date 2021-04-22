@@ -7,10 +7,10 @@
             <h2>{% trans "artistas" %} - {{ artista.nome }} - {% trans "Crítica" %}</h2>
 
             {% for critica in criticas %}
-                <h4><a href="{% get_media_prefix %}{{ critica.ficheiro }}">
+                <div><a href="{% get_media_prefix %}{{ critica.ficheiro }}">
                     {{ critica.artista.nome }} - {{ critica.titulo }}
                     {% if critica.data %} | {{ critica.data }}{% endif %}</a>
-                </h4>
+                </div>
             {% endfor %}
     </div>
 {% endif %}
