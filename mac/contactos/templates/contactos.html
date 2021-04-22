@@ -3,11 +3,7 @@
 
 {% block sections %}
 <div class="section">
-  {% ifequal LANGUAGE_CODE "en"%}
-    <h2>{% trans "Contacts" %}</h2>
-  {% else%}
-    <h2>{% trans "Contactos" %}</h2>
-  {% endifequal %}
+    <h2>{% trans "contactos" %}</h2>
 
     {% if gallery_list %}
       <div class="container">
