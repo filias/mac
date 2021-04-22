@@ -284,6 +284,7 @@ div.obra-holder img{
     padding-bottom:56.25%;
     position:relative;
     height:0;
+    margin-bottom: 5px;
 }
 .map-responsive iframe{
     left:0;
