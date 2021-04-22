@@ -356,13 +356,16 @@ div.obra-holder img{
   }
 
   @media only screen and (max-width: 800px) {
+    div, p {
+          font-size: 0.9rem;
+    }
     .artists__img {
         width: 100%!important; 
         height: 20vw; 
         object-fit: contain;
     }
     .artist__text {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
   }
 
