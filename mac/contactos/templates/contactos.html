@@ -3,13 +3,17 @@
 
 {% block sections %}
 <div class="section">
-    <h2>{% trans "contactos" %}</h2>
+  {% ifequal LANGUAGE_CODE "en"%}
+    <h2>{% trans "Contacts" %}</h2>
+  {% else%}
+    <h2>{% trans "Contactos" %}</h2>
+  {% endifequal %}
 
     {% if gallery_list %}
-    <table style="border:solid white 1px;border-collapse:collapse;">
-      <tr>
+      <div class="container">
+        <div class="row">
         {% for entry in gallery_list %}
-        <td style="border:#ccc dotted 0.5px;padding:0 10px 0 10px;">
+        <div class="col-sm-6">
             <h2>{{ entry.nome }}</h2>
                 <p><b>{% trans "Morada" %}:</b> {{ entry.rua }} - {{ entry.cod_postal }} {{ entry.cidade }}</p>
                 <p><a href="{{entry.mapa}}" target="blank"><b>{% trans "Mapa" %}</b></a></p>
@@ -21,10 +25,22 @@
                 {% else %}
                 <p>{{ entry.horario }}</p>
                   {% endifequal %}
-        </td>
+        </div>
         {% endfor %}
-      </tr>
-    </table>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="map-responsive">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9193504190453!2d-9.158715884654892!3d38.71966057959847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd19337b2af9098d%3A0xd6d400dde0a8b0e3!2sRua%20do%20Sol%20ao%20Rato%209C%2C%201250-018%20Lisboa%2C%20Portugalsko!5e0!3m2!1ssk!2ssk!4v1619075718631!5m2!1ssk!2ssk" width="600" height="450" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="map-responsive">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.9770635518503!2d-9.159200284654935!3d38.718335579598694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd193364b5d9fa9d%3A0xb36d9d41a997bd80!2sAv.%20%C3%81lvares%20Cabral%2058%2C%201250-018%20Lisboa%2C%20Portugalsko!5e0!3m2!1ssk!2ssk!4v1619075765570!5m2!1ssk!2ssk" width="600" height="450" style="border:1;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
 
     {% else %}
         <p>Não há contactos.</p>
