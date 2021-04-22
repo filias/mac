@@ -3,17 +3,15 @@
 
 {% block sections %}
 {% if artista %}
-    <div class="section">
-            <h2>{% trans "artistas" %} - {{ artista.nome }} - {% trans "Crítica" %}</h2>
+<div class="section">
+    <h2>{% trans "artistas" %} - {{ artista.nome }} - {% trans "Crítica" %}</h2>
 
-            {% for critica in criticas %}
-                <div><a href="{% get_media_prefix %}{{ critica.ficheiro }}">
-                    {{ critica.artista.nome }} - {{ critica.titulo }}
-                    {% if critica.data %} | {{ critica.data }}{% endif %}</a>
-                </div>
-            {% endfor %}
+    {% for critica in criticas %}
+    <div class="mb-2"><a href="{% get_media_prefix %}{{ critica.ficheiro }}">
+            {{ critica.artista.nome }} - {{ critica.titulo }}
+            {% if critica.data %} | {{ critica.data }}{% endif %} <i class="bi bi-arrow-up-right-square"></i></a>
     </div>
+    {% endfor %}
+</div>
 {% endif %}
 {% endblock %}
-
-

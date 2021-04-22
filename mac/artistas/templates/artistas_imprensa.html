@@ -6,11 +6,11 @@
 <div class="section">
     <h2>{{ artista.nome }} - {% trans "imprensa" %}</h2>
     {% for artigo in imprensa %}
-        <div><a href="{% get_media_prefix %}{{ artigo.ficheiro }}">
+    <div><a href="{% get_media_prefix %}{{ artigo.ficheiro }}">
             {{ artigo.artista.nome }} - "{{ artigo.titulo }}"
             in {{ artigo.editor }}
-            {% if artigo.data %} | {{  artigo.data }}{% endif %}</a>
-        </div>
+            {% if artigo.data %} | {{  artigo.data }}{% endif %} <i class="bi bi-arrow-up-right-square"></i></a>
+    </div>
     {% endfor %}
 </div>
 {% endif %}
