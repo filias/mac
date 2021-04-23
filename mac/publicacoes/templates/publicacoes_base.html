@@ -3,22 +3,31 @@
 
 {% block sections %}
 <div class="section">
-    <h2>{% block subsection %}{% trans "publicações" %} {% endblock %}</h2>
+    <div class="container">
+        <div class="row">
+            <h2>{% block subsection %}{% trans "publicações" %} {% endblock %}</h2>  
+        </div>
+    </div>
     
     {% block abc %}
     {% endblock %}  
         
     {% if publicacoes %}
 	{% for publicacao in publicacoes %}
-        <h4><a href="{% get_media_prefix %}{{ publicacao.ficheiro }}">
-            {{ publicacao.artista.nome }} -
-            {% ifequal publicacao.tipo 'Critica'%}{{ publicacao.titulo }}
-            {% else %}"{{ publicacao.titulo }}"
-            {% endifequal %}
-            {% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
-            {% if publicacao.data %} | {{ publicacao.data }}{% endif %}
-        </a></h4>
-        <p></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="pb-3"><a  href="{% get_media_prefix %}{{ publicacao.ficheiro }}" target="_blank">
+                    {{ publicacao.artista.nome }} -
+                    {% ifequal publicacao.tipo 'Critica'%}{{ publicacao.titulo }}
+                    {% else %}"{{ publicacao.titulo }}"
+                    {% endifequal %}
+                    {% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
+                    {% if publicacao.data %} | {{ publicacao.data }}{% endif %}
+                </a></h4>  
+            </div>
+        </div>
+    </div>
         {% endfor %}
     {% else %}
         {% trans 'Não há publicações' %}

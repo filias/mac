@@ -272,6 +272,21 @@ div.obra-holder img{
     vertical-align:top;
 }
 
+.square_pub {
+    float: left;
+    position: relative;
+    width: 100%;
+    padding-bottom: 10%;
+    margin: 1.66%;
+    overflow: hidden;
+}
+
+.content_pub {
+    padding: 5% 5%;
+    border: #444444;
+    border-width: 0.1em;
+}
+
 /* MAC - Galeria */
 .text p {
     margin: 0;
