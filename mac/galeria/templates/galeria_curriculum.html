@@ -8,18 +8,12 @@
 
    {% if years %}
     {% for year in years %}
-    <div class="square">
-        <div class="content  shadow bg-body rounded">
-            <div class="table">
-                <div class="table-cell"> 
-                    <button type="button" class="btn btn-outline table-cell"><a href="/mac/curriculum/{{ year }}">{{ year }}</a></button>               
-                </div>
-            </div>
+        <div class="btn-group btn-group-justified blocks" data-toggle="buttons">
+          <label class="btn btn-outline-light shadow m-2">
+            <a href="/mac/curriculum/{{ year }}">{{ year }}</a>
+          </label>
         </div>
-    </div>
     {% endfor %}
-
-
     {% else %}
         <p>Não há curriculum.</p>
     {% endif %}

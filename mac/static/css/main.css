@@ -385,3 +385,8 @@ div.obra-holder img{
     }
   }
 
+  .blocks .btn-outline-light {
+      padding: 48px 48px;
+      margin: 0 5px;  
+      border-radius: 0;
+  }
