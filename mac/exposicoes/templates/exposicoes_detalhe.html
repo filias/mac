@@ -58,7 +58,7 @@
                 <a href="{% url "artist_detail" artista.id %}">{{ artista }}</a>
                     {% else %}
                 <a href="{% url "artist_detail" artista.id %}">{{ artista }}, </a>
-                {   % endif %}
+                    {% endif %}
                 {% endfor %}
             </p>
             {% endif %}
