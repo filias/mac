@@ -3,50 +3,49 @@
 
 {% block sections %}
 {% if artista %}
-    <div class="section">
-        <h2>{{ artista.nome }}</h2>
+<div class="section">
+    <h2>{{ artista.nome }}</h2>
+    <div class="row mt-5">
+        <div class="col-12 col-sm-2 text-center text-sm-start mb-3">
+            {% if artista.foto %}
+            <a href="{% get_media_prefix %}{{ artista.foto.image }}" target="blank">
+                <img class="mb-2 img-fluid" src="{% get_media_prefix %}{{ artista.foto.thumbnail }}" border=0 /></a>
+            {% endif %}
 
-        <table>
-            <tr>
-                <td valign="top">
-                    {% if artista.foto %}
-                        <a href="{% get_media_prefix %}{{ artista.foto.image }}" target="blank"><img
-                                src="{% get_media_prefix %}{{ artista.foto.thumbnail }}" border=0/></a>
-                    {% endif %}
+            {% if artista.biografia %}
+            <div><a href="{% get_media_prefix %}{{ artista.biografia }}">{% trans "Curriculum" %} <i
+                        class="bi bi-arrow-up-right-square"></i></a>
+            </div>
+            {% endif %}
 
-                    {% if artista.biografia %}
-                        <h4><a href="{% get_media_prefix %}{{ artista.biografia }}">{% trans "Curriculum" %}</a>
-                        </h4>
-                    {% endif %}
+            {% if obras %}
+            <div><a href="{% url "artist_works" artista.id %}">{% trans "Obra" %} </a></div>
+            {% endif %}
 
-                    {% if obras %}
-                        <h4><a href="{% url "artist_works" artista.id %}">{% trans "Obra" %}</a></h4>
-                    {% endif %}
+            {% if criticas %}
+            <div><a href="{% url "artist_critics" artista.id %}">{% trans "Crítica" %}</a></div>
+            {% endif %}
 
-                    {% if criticas %}
-                        <h4><a href="{% url "artist_critics" artista.id %}">{% trans "Crítica" %}</a></h4>
-                    {% endif %}
+            {% if imprensa %}
+            <div><a href="{% url "artist_press" artista.id %}">{% trans "Imprensa" %}</a></div>
+            {% endif %}
 
-                    {% if imprensa %}
-                        <h4><a href="{% url "artist_press" artista.id %}">{% trans "Imprensa" %}</a></h4>
-                    {% endif %}
+            {% if exposicoes %}
+            <div><a href="{% url "artist_exhibitions" artista.id %}">{% trans "Expo MAC" %}</a></div>
+            {% endif %}
 
-                    {% if exposicoes %}
-                        <h4><a href="{% url "artist_exhibitions" artista.id %}">{% trans "Expo MAC" %}</a></h4>
-                    {% endif %}
-
-                    {% if acervo %}
-                        <h4><a href="{% url "artist_collection" artista.id %}">{% trans "Acervo MAC" %}</a></h4>
-                    {% endif %}
-                </td>
-
-                {% ifequal LANGUAGE_CODE 'en' %}
-                    <td valign="top"><p>{{ artista.bio_resumo_en }}</p></td>
-                {% else %}
-                    <td valign="top"><p>{{ artista.bio_resumo }}</p></td>
-                {% endifequal %}
-            </tr>
-        </table>
+            {% if acervo %}
+            <div><a href="{% url "artist_collection" artista.id %}">{% trans "Acervo MAC" %}</a></div>
+            {% endif %}
+        </div>
+        <div class="col-12 col-sm-10">
+            {% ifequal LANGUAGE_CODE 'en' %}
+            <p>{{ artista.bio_resumo_en }}</p>
+            {% else %}
+            <p>{{ artista.bio_resumo }}</p>
+            {% endifequal %}
+        </div>
     </div>
+</div>
 {% endif %}
 {% endblock %}

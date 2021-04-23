@@ -10,15 +10,14 @@
         
     {% if publicacoes %}
 	{% for publicacao in publicacoes %}
-        <h4><a href="{% get_media_prefix %}{{ publicacao.ficheiro }}">
+        <div class="mb-2"><a href="{% get_media_prefix %}{{ publicacao.ficheiro }}">
             {{ publicacao.artista.nome }} -
             {% ifequal publicacao.tipo 'Critica'%}{{ publicacao.titulo }}
-            {% else %}"{{ publicacao.titulo }}"
+                {% else %}"{{ publicacao.titulo }}"
             {% endifequal %}
             {% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
-            {% if publicacao.data %} | {{ publicacao.data }}{% endif %}
-        </a></h4>
-        <p></p>
+            {% if publicacao.data %} | {{ publicacao.data }}{% endif %}  <i class="bi bi-arrow-up-right-square"></i>
+        </a></div>
         {% endfor %}
     {% else %}
         {% trans 'Não há publicações' %}
