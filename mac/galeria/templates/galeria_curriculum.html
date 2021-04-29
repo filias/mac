@@ -8,10 +8,14 @@
 
    {% if years %}
     {% for year in years %}
-        <div class="btn-group btn-group-justified blocks" data-toggle="buttons">
-          <label class="btn btn-outline-light shadow m-2">
-            <a href="/mac/curriculum/{{ year }}">{{ year }}</a>
-          </label>
+    <div class="square">
+        <div class="content  shadow bg-body rounded">
+            <div class="table">
+                <div class="table-cell"> 
+                    <button type="button" class="btn btn-outline table-cell"><a href="/mac/curriculum/{{ year }}">
+                        {{ year }}</a></button>               
+                </div>
+            </div>
         </div>
     {% endfor %}
     {% else %}
