@@ -5,18 +5,26 @@
 <div class="section">
     <h2>{% trans "exposições" %} - {% trans "passadas" %}</h2>
     {% if anos %}
-    <table>
-    {% for linha in anos %}
-        <tr>
-        {% for ano in linha %}
-            <td style="padding:0 40px 0 0;" valign="bottom">
-            <h4><a href="/exposicoes/passadas/{{ ano }}">{{ ano }}</a></h4>
+    <div class="container">
+        {% for linha in anos %}
+            {% for ano in linha %}
+                <div class="square">
+                    <div class="content  shadow bg-body rounded">
+                        <div class="table">
+                            <div class="table-cell">                   
+                                <button type="button" class="btn btn-outline table-cell">
+                                    <a href="/exposicoes/passadas/{{ ano }}">{{ ano }}</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
         {% endfor %}
-        </tr>
-    {% endfor %}
-    </table>
+
     {% else %}
         <p>Não há exposições passadas.</p>
     {% endif %}
+    </div>
 </div>
 {% endblock %}

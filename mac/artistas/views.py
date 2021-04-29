@@ -188,5 +188,5 @@ def obra_detalhe(request, obra_id, artist_id):
     return render(
         request,
         "obra_detalhe.html",
-        {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais},
+        {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais, "id_artist":artist_id},
     )

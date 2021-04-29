@@ -385,3 +385,33 @@ div.obra-holder img{
     }
   }
 
+  .blocks .btn-outline-light {
+    padding: 48px 48px;
+    margin: 0 5px;  
+    border-radius: 0;
+}
+
+.blocks .btn-outline-light {
+    padding: 48px 48px;
+    margin: 0 5px;  
+    border-radius: 0;
+}
+
+/* Exhibitions page */
+.square-expo {
+    float:left;
+    position: relative;
+    width: 16%;
+    padding-bottom : 20%; 
+    margin:1.66%;
+    overflow:hidden;
+}
+
+.content-expo {
+    position:absolute;
+    height: 90%; /* = 100% - 2*5% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 5% 5%;
+}
+
+
