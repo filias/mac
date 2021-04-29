@@ -3,6 +3,7 @@ import os
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path
 from django.views.static import serve
 from filebrowser.sites import site
 
@@ -11,7 +12,7 @@ from .views import links, mapa, resultados
 admin.autodiscover()
 
 urlpatterns = [
-    url(r"^admin/filebrowser/", site.urls),
+    path("admin/filebrowser/", site.urls),
     url(r"^grappelli/", include("grappelli.urls")),
     url(r"^admin/", admin.site.urls),
     # Static content for django server (only used for development)
