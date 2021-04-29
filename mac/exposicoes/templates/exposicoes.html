@@ -1,15 +1,34 @@
 {% extends "templates/base.html" %}
-{% load i18n %}
+{% load i18n static %}
 
 {% block sections %}
 <div class="section">
    <h2>{% trans "exposições" %}{% block subsection %}{% endblock %}</h2>
 
-    {% for exposicao in exposicoes %}
-        <h4><a href="{% url 'exhibition_detail' exposicao.id %}">{{ exposicao.titulo }} | {{ exposicao.data_inicio|date:"j F" }} - {{ exposicao.data_fim|date:"j F Y" }}</a></h4>
-        <p></p>
-    {% empty %}
-        <p>Não há exposições.</p>
-    {% endfor %}
+    {% if exposicoes %}
+    <div class="row row-cols-3 row-cols-md-6 mt-5 artists__card">
+    {% for exhibition in exposicoes %}
+        <div>
+            <div class="card mb-5 border-0 text-center">
+                <a href="{% url 'exhibition_detail' exhibition.id %}" class="card-link">
+                    {% with exhibition.obras.all|first as first_work %}
+                        {% if first_work.foto.thumbnail %}
+                            <img src="{% get_media_prefix %}{{ first_work.foto.thumbnail  }}" />
+                        {% else %}
+                            <img src="{% static 'images/photo-placeholder.jpg' %}" class="card-img-top artists__img" alt="image">
+                        {% endif %}
+                    {% endwith %}
+                    <div class="mt-3">
+                        <p class="text-center artist__text">{{ exhibition.titulo }}</p>
+                        <p class="text-center artist__text">{{ exhibition.data_inicio|date:"j M" }} - {{ exhibition.data_fim|date:"j M" }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>{% trans "Não há exposições" %}.</p>
+    {% endif %}
 </div>
 {% endblock %}

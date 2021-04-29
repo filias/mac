@@ -21,22 +21,8 @@
                     </div>
                 </a>
             </div>
-            <div width="20%" valign="bottom">
-                {% for destaque in em_exposicao %}
-                {% ifequal destaque.nome artist.nome %}
-                <span style="color:red;">*</span>
-                {% endifequal %}
-                {% endfor %}
-                </h4>
-            </div>
         </div>
         {% endfor %}
-        <!-- <div> //TODO: do we need this part
-            <div colspan="3">
-                <p><span style="color:red;">*</span><a href="/exposicoes/actuais">
-                        {% trans "Artista em exposição" %}.</a></p>
-            </div>
-        </div> -->
     </div>
     {% else %}
     <p>{% trans "Não há artistas" %}.</p>

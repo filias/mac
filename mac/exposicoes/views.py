@@ -3,7 +3,6 @@ from django.shortcuts import get_object_or_404, render
 from mac.artistas.models import Obra
 from mac.common import common
 from mac.exposicoes.models import Exposicao
-from mac.utils import utils
 
 
 def index(request):
@@ -15,11 +14,9 @@ def index(request):
 def passadas(request):
     exposicoes = common.EXPOSICOES
     passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
-    anos = set([exposicao.data_inicio.year for exposicao in passadas])
-    anos = list(anos)
+    anos = list(set([exposicao.data_inicio.year for exposicao in passadas]))
     anos.reverse()
-    anos = utils.arrange_by_columns(anos, 2)
-    return render(request, "exposicoes_passadas.html", {"anos": anos})
+    return render(request, "exposicoes_passadas.html", {"years": anos})
 
 
 def passadas_ano(request, exposicao_ano):
