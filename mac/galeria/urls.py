@@ -18,7 +18,7 @@ urlpatterns = [
         name="collection_detail",
     ),
     url(r"^agenda/$", agenda, name="calendar"),
-    url(r"^premios/$", premios, name="prizes"),
+    url(r"^premios/$", premios, name="awards"),
     url(r"^premios/(?P<aniversario_id>\d+)/$", detail, name="anniversary_detail"),
     url(
         r"^premios/(?P<aniversario_id>\d+)/premiados/$",

@@ -3,20 +3,6 @@ from django.shortcuts import render
 from mac.publicacoes.models import Publicacao
 
 
-def index(request):
-    context = {}
-    context["catalogos"] = Publicacao.objects.filter(tipo="Catalogo").order_by("-data")[
-        :3
-    ]
-    context["imprensa"] = Publicacao.objects.filter(tipo="Imprensa").order_by("-data")[
-        :3
-    ]
-    context["criticas"] = Publicacao.objects.filter(tipo="Critica").order_by("-data")[
-        :3
-    ]
-    return render(request, "publicacoes.html", context)
-
-
 def catalogos(request, select):
     context = {}
     context["publicacoes"] = Publicacao.objects.filter(
