@@ -1,0 +1,84 @@
+{% load i18n static tags %}
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img src="{% static 'logos/logo_mac_100px.jpg' %}" width="60" class="d-inline-block align-top" alt="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- About item  -->
+                <li class="nav-item dropdown text-uppercase">
+                    <a class="nav-link dropdown-toggle {% active request '/mac' %}" href="{% url "gallery" %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'MAC' %}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url "mission" %}">{% trans "missão" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "history" %}">{% trans "história" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "galleries" %}">{% trans "galerias" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "calendar" %}">{% trans "agenda" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "curriculum" %}">{% trans "curriculum" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "team" %}">{% trans "estrutura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "awards" %}">{% trans "prémios MAC" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "collection" %}">{% trans "acervo" %}</a></li>
+                    </ul>
+                </li>
+                <!-- exibitions item  -->
+                <li class="nav-item dropdown text-uppercase">
+                    <a class="nav-link dropdown-toggle {% active request '/exposicoes' %}" href="/exposicoes/actuais" id="exibitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'exposições' %}</a>
+                    <ul class="dropdown-menu {% active request '/exposicoes' %}" aria-labelledby="exibitionsDropdown">
+                        <li><a class="dropdown-item" href="{% url "past_exhibitions" %}">{% trans "passadas" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "current_exhibitions" %}">{% trans "actuais" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "future_exhibitions" %}">{% trans "futuras" %}</a></li>
+                    </ul>
+                </li>
+                <!-- artists item  -->
+                <li class="nav-item dropdown text-uppercase">
+                    <a class="nav-link dropdown-toggle {% active request '/artistas' %}" href="/artistas" id="artistsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {% trans 'artistas' %}</a>
+                    <ul class="dropdown-menu {% active request '/artistas' %}" aria-labelledby="artistsDropdown">
+                        <li><a class="dropdown-item" href="{% url "ceramics" %}">{% trans "cerâmica" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "drawing" %}">{% trans "desenho" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "sculpture" %}">{% trans "escultura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "photography" %}">{% trans "fotografia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "jewelry" %}">{% trans "joalharia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "medals" %}">{% trans "medalhística" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "painting" %}">{% trans "pintura" %}</a></li>
+                    </ul>
+                </li>
+                <!-- publications item  -->
+                <li class="nav-item dropdown text-uppercase">
+                    <a class="nav-link dropdown-toggle {% active request '/publicacoes' %}" href="/publicacoes" id="publicationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'publicações'%}</a>
+                    <ul class="dropdown-menu" aria-labelledby="publicationsDropdown">
+                        {% with letters="AF" %}
+                            <li><a class="dropdown-item" href="{% url "catalogs" letters %}">{% trans "catálogos" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url "critics" letters %}">{% trans "crítica" %}</a></li>
+                            <li><a class="dropdown-item" href={% url "press" letters %}>{% trans "imprensa" %}</a></li>
+                        {% endwith %}
+                    </ul>
+                </li>
+                <!-- contact item  -->
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase {% active request '/geral' %}" href="{% url "contacts" %}">{% trans 'contactos' %}</a>
+                </li>
+                <!-- links item  -->
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
+                </li>
+            </ul>
+            {% get_available_languages as LANGUAGES %} {% get_current_language as LANGUAGE_CODE %}
+            <form id="language-select" class="c2-hidden" method="post" action="{% url "set_language" %}">
+                <input id="language-select-language" type="hidden" value="pt" name="language" />
+            </form>
+            {% for i in LANGUAGES %}
+            <li class="list-inline-item">
+                <a class="text-uppercase text-decoration-none link-secondary" href="#" onClick="return set_lang('{{ i.0 }}');">{{ i.0 }}</a>
+            </li>
+            {% endfor %}
+        </div>
+    </div>
+</nav>
+</div>

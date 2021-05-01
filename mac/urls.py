@@ -27,7 +27,7 @@ urlpatterns = [
     url(r"^exposicoes/", include("mac.exposicoes.urls")),
     url(r"^artistas/", include("mac.artistas.urls")),
     url(r"^publicacoes/", include("mac.publicacoes.urls")),
-    url(r"^contactos/", include("mac.contactos.urls")),
+    url(r"^geral/", include("mac.geral.urls")),
     url(r"^mapa/", mapa),
     url(r"^resultados/", resultados),
     url(r"^links/", links),

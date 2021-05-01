@@ -5,12 +5,12 @@ from .views import *
 urlpatterns = [
     url(r"^$", artistas, name="artists"),
     url(r"^pintura/$", pintura, name="painting"),
-    url(r"^joalharia/$", joalharia, name="jewelery"),
+    url(r"^joalharia/$", joalharia, name="jewelry"),
     url(r"^escultura/$", escultura, name="sculpture"),
     url(r"^fotografia/$", fotografia, name="photography"),
     url(r"^desenho/$", desenho, name="drawing"),
     url(r"^ceramica/$", ceramica, name="ceramics"),
-    url(r"^medalhistica/$", medalhistica, name="medalist"),
+    url(r"^medalhistica/$", medalhistica, name="medals"),
     url(r"^(?P<artist_id>\d+)/$", detail, name="artist_detail"),
     url(r"^(?P<artist_id>\d+)/obras/$", obras, name="artist_works"),
     url(
