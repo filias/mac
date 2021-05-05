@@ -22,10 +22,8 @@ DATABASES = {
 # system time zone.
 TIME_ZONE = "Europe/Lisbon"
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = "pt-pt"
+# Language settings
+LANGUAGE_CODE = "pt"
 LANGUAGES = (
     ("en", "English"),
     ("pt", "Portuguese"),
@@ -104,3 +102,7 @@ INSTALLED_APPS = (
     "mac.geral",
     "storages",
 )
+
+
+# Primary keys
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"

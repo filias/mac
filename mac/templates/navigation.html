@@ -69,7 +69,7 @@
                     <a class="nav-link text-uppercase {% active request '/links' %}" href="/links">{% trans 'links' %}</a>
                 </li>
             </ul>
-            {% get_available_languages as LANGUAGES %} {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
             <form id="language-select" class="c2-hidden" method="post" action="{% url "set_language" %}">
                 <input id="language-select-language" type="hidden" value="pt" name="language" />
             </form>
