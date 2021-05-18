@@ -171,9 +171,9 @@ msgid "Exposicoes"
 msgstr "Exhibitions"
 
 #: mac/exposicoes/templates/exposicoes.html:36
-#| msgid "Não há publicações"
-msgid "Não há exposições"
-msgstr "There are no exhibitions"
+#| msgid "Novas exposiçôes a agendar"
+msgid "Novas exposiçôes a agendar"
+msgstr "New exhibitions to be scheduled"
 
 #: mac/exposicoes/templates/exposicoes_actuais.html:4
 #: mac/templates/mapa.html:50 mac/templates/navigation.html:34
