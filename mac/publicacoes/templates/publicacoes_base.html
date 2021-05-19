@@ -24,9 +24,7 @@
                     {% endifequal %}
                     {% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
                     {% if publicacao.data %} | {{ publicacao.data }}{% endif %}
-                    </a></h4>  
-                    <a href="{% get_media_prefix %}{{ publicacao.ficheiro }}" download>Download</a>
-                    
+                  
             </div>
         </div>
     </div>
