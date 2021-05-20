@@ -24,7 +24,9 @@ To make the site work basically you need to do this:
     ```
 1. Load these variables into your venv, in linux shell this can be done like this: `set -a && source .env && set +a`
 1. Run the migrations: `./manage.py migrate`
+1. Create a user for you to use the django admin: `./manage.py createsuperuser` 
 1. Run the django development server: `./manage.py runserver`. For Windows you should try `python manage.py runserver` instead.
+1. You can see the django admin site in `localhost:8000/admin` and the website at `localhost:8000` 
 
 It is possible that, depending on your OS, you need to install some dependencies. On ubuntu 20.04 I had to install or do the following:
 - `sudo apt install default-libmysqlclient-dev libmysqlclient-dev libssl-dev`
