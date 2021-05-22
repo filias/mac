@@ -33,8 +33,8 @@ class Tecnica(models.Model):
 
     class Meta:
         ordering = ["nome"]
-        verbose_name = _("Tecnica")
-        verbose_name_plural = _("Tecnicas")
+        verbose_name = _("Técnica")
+        verbose_name_plural = _("Técnicas")
 
 
 class Material(models.Model):

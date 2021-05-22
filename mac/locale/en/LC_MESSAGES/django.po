@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-04 01:23+0100\n"
+"POT-Creation-Date: 2021-05-22 12:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,22 +158,21 @@ msgstr "Materials"
 #: mac/artistas/templates/obra_detalhe.html:48
 #: mac/exposicoes/templates/obra_detalhe.html:47
 #: mac/galeria/templates/acervo_detalhe.html:47
-#: mac/galeria/templates/trofeu.html:46
+#: mac/galeria/templates/trofeu.html:46 mac/geral/models.py:37
 msgid "Técnicas"
 msgstr "Techniques"
 
 #: mac/exposicoes/models.py:57
-msgid "Exposicao"
+msgid "Exposição"
 msgstr "Exhibition"
 
 #: mac/exposicoes/models.py:58
-msgid "Exposicoes"
+msgid "Exposições"
 msgstr "Exhibitions"
 
 #: mac/exposicoes/templates/exposicoes.html:36
-#| msgid "Novas exposiçôes a agendar"
-msgid "Novas exposiçôes a agendar"
-msgstr "New exhibitions to be scheduled"
+msgid "Novas exposições a agendar."
+msgstr "New exhibitions to be scheduled."
 
 #: mac/exposicoes/templates/exposicoes_actuais.html:4
 #: mac/templates/mapa.html:50 mac/templates/navigation.html:34
@@ -220,7 +219,7 @@ msgstr "past"
 
 #: mac/galeria/templates/acervo_detalhe.html:19
 msgid "Tipo"
-msgstr ""
+msgstr "Type"
 
 #: mac/galeria/templates/galeria.html:6 mac/templates/mapa.html:32
 #: mac/templates/navigation.html:21
@@ -228,19 +227,18 @@ msgid "galerias"
 msgstr "galleries"
 
 #: mac/galeria/templates/galeria.html:32 mac/geral/templates/contactos.html:16
-#: mac/templates/base.html:93
+#: mac/templates/base.html:90
 msgid "Telefone"
 msgstr "Phone"
 
 #: mac/galeria/templates/galeria_acervo.html:35
-#| msgid "Não há artistas"
 msgid "Não há artistas."
-msgstr "No artists"
+msgstr "No artists."
 
 #: mac/galeria/templates/galeria_acervo_artista.html:6
 #: mac/templates/mapa.html:38 mac/templates/navigation.html:26
 msgid "acervo"
-msgstr "collection"
+msgstr "Collection"
 
 #: mac/galeria/templates/galeria_agenda.html:8 mac/templates/mapa.html:34
 #: mac/templates/navigation.html:22
@@ -289,12 +287,8 @@ msgid "Premiados"
 msgstr "Awardees"
 
 #: mac/geral/models.py:36
-msgid "Tecnica"
+msgid "Técnica"
 msgstr "Technique"
-
-#: mac/geral/models.py:37
-msgid "Tecnicas"
-msgstr "Techniques"
 
 #: mac/geral/models.py:49
 msgid "Material"
@@ -330,7 +324,7 @@ msgstr "Map"
 msgid "Email"
 msgstr ""
 
-#: mac/geral/templates/contactos.html:18 mac/templates/base.html:95
+#: mac/geral/templates/contactos.html:18 mac/templates/base.html:92
 msgid "Horário"
 msgstr "Opening Time"
 
@@ -343,12 +337,12 @@ msgid "Muito obrigado pelo seu contacto"
 msgstr "Thank you very much for your message"
 
 #: mac/publicacoes/models.py:33
-msgid "Publicacao"
-msgstr ""
+msgid "Publicação"
+msgstr "Publication"
 
 #: mac/publicacoes/models.py:34
-msgid "Publicacoes"
-msgstr "publications"
+msgid "Publicações"
+msgstr "Publications"
 
 #: mac/publicacoes/templates/publicacoes.html:8
 #: mac/publicacoes/templates/publicacoes_base.html:8
@@ -367,9 +361,10 @@ msgstr "Catalogs"
 msgid "Críticas"
 msgstr "Critics"
 
-#: mac/publicacoes/templates/publicacoes_base.html:33
-msgid "Não há publicações"
-msgstr "There are no publications"
+#: mac/publicacoes/templates/publicacoes_base.html:31
+#| msgid "Não há publicações"
+msgid "Não há publicações."
+msgstr "There are no publications."
 
 #: mac/publicacoes/templates/publicacoes_catalogos.html:4
 #: mac/templates/mapa.html:79 mac/templates/navigation.html:57
@@ -413,11 +408,11 @@ msgstr ""
 msgid "Internal server error"
 msgstr ""
 
-#: mac/templates/base.html:129
+#: mac/templates/base.html:126
 msgid "Pesquisar"
 msgstr "Search"
 
-#: mac/templates/base.html:141
+#: mac/templates/base.html:138
 msgid "Mapa do site"
 msgstr "Sitemap"
 
@@ -440,45 +435,3 @@ msgstr ""
 #: mac/templates/resultados.html:8
 msgid "resultados"
 msgstr "results"
-
-#~ msgid "Artista em exposição"
-#~ msgstr "In exhibition"
-
-#~ msgid "obras"
-#~ msgstr "works"
-
-#~ msgid "visita virtual"
-#~ msgstr "virtual visit"
-
-#~ msgid "arte e decoração"
-#~ msgstr "art and deco"
-
-#~ msgid "serviços"
-#~ msgstr "services"
-
-#~ msgid "troféus"
-#~ msgstr "trophies"
-
-#~ msgid "Cc para si"
-#~ msgstr "Cc to you"
-
-#~ msgid "programa"
-#~ msgstr "program"
-
-#~ msgid "fotos"
-#~ msgstr "photos"
-
-#~ msgid "todas"
-#~ msgstr "all"
-
-#~ msgid "projecto"
-#~ msgstr "project"
-
-#~ msgid "objectivos"
-#~ msgstr "goals"
-
-#~ msgid "curadoria/comissariado"
-#~ msgstr "curatorship"
-
-#~ msgid "mesas redondas"
-#~ msgstr "round table"

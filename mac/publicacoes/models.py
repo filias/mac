@@ -30,8 +30,8 @@ class Publicacao(models.Model):
 
     class Meta:
         ordering = ["-data"]
-        verbose_name = _("Publicacao")
-        verbose_name_plural = _("Publicacoes")
+        verbose_name = _("Publicação")
+        verbose_name_plural = _("Publicações")
 
 
 class Texto(models.Model):
