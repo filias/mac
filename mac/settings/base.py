@@ -85,6 +85,7 @@ TEMPLATES = [
 ]
 
 INSTALLED_APPS = (
+    "django_extensions",
     "grappelli",
     "filebrowser",
     "django.contrib.auth",
