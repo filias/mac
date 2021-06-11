@@ -1,4 +1,5 @@
 {% load i18n static tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <div class="container">
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
@@ -75,7 +76,7 @@
             </form>
             {% for i in LANGUAGES %}
             <li class="list-inline-item">
-                <a class="text-uppercase text-decoration-none link-secondary" href="#" onClick="return set_lang('{{ i.0 }}');">{{ i.0 }}</a>
+                <a class="text-uppercase text-decoration-none link-secondary {% if i.0 == LANGUAGE_CODE %} text-success fw-bold {% endif %}" href="#" onClick="return set_lang('{{ i.0 }}');">{{ i.0 }}</a>
             </li>
             {% endfor %}
         </div>
