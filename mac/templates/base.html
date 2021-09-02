@@ -87,11 +87,11 @@ arte contemporanea, escultura, joalharia, ceramica, painting, sculpture, lisboa,
                             <div><strong>{{ entry.nome }}</strong></div>
                             <a href="{{entry.mapa}}" target="blank" class="text-muted"><span>{{ entry.rua }} - {{ entry.cod_postal }}
                                 {{ entry.cidade }}</span></a>
-                            <div><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</div>
+                            <div><b>{% trans "Telefone" %}:</b> {{ entry.telefone }} | +351 962670532</div>
                             <div><a class="text-decoration-none link-dark" href="/contactos/contacte_nos">{{ entry.email|stringformat:"s" }}</a></div>
                             <span><b>{% trans "Horário" %}:</b>
                                 {% ifequal LANGUAGE_CODE "en" %}
-                                Weekdays from 13h to 20h, saturdays from 15h to 19h</span>
+                                Weekdays from 15h to 20h, saturdays from 15h to 19h</span>
                             {% else %}
                             <span>{{ entry.horario }}</span>
                             {% endifequal %}
