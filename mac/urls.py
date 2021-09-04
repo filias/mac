@@ -15,11 +15,11 @@ urlpatterns = [
     url(r"^grappelli/", include("grappelli.urls")),
     url(r"^admin/", admin.site.urls),
     # Static content for django server (only used for development)
-    url(
-        r"^static/(?P<path>.*)$",
-        serve,
-        {"document_root": settings.PROJECT_ROOT / "static"},
-    ),
+    #url(
+    #    r"^static/(?P<path>.*)$",
+    #    serve,
+    #    {"document_root": settings.PROJECT_ROOT / "static"},
+    #),
     # i18n
     url(r"^i18n/", include("django.conf.urls.i18n")),
     # Site urls
