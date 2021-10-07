@@ -1,6 +1,8 @@
 from __future__ import absolute_import
 
 from django.contrib import admin
+from django.utils.html import format_html
+from filebrowser.settings import ADMIN_THUMBNAIL
 
 from mac.geral.models import Destaque, Foto, Material, Tecnica, Tela, Tipo
 
@@ -34,12 +36,20 @@ admin.site.register(Material, MaterialAdmin)
 
 
 class FotoAdmin(admin.ModelAdmin):
-    list_display = ("nome", "image", "thumbnail")
+    list_display = ("nome", "image_thumbnail")
     ordering = ["nome"]
     search_fields = ["nome", "image"]
 
     class Media:
         js = ["/media/filebrowser/js/AddFileBrowser.js"]
+
+    def image_thumbnail(self, obj):
+        if obj.image and obj.image.filetype == "Image":
+            return format_html('<img src="%s" />' % obj.thumbnail.url)
+        else:
+            return ""
+
+    image_thumbnail.short_description = "Thumbnail"
 
 
 admin.site.register(Foto, FotoAdmin)
