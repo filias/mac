@@ -1,19 +1,17 @@
 from django.shortcuts import get_object_or_404, render
 
-from mac.artistas.models import Artista, Obra
+from mac.art.models import Artist, ArtWork
 from mac.common import common
-from mac.exposicoes.models import Exposicao
-from mac.publicacoes.models import Publicacao
+from mac.gallery.models import Exhibition, Publication
 
 
 def artist_canvas(artist):
-    return artist.telas.all()
+    return artist.canvases.all()
 
 
 def artistas(request):
-    artistas = Artista.objects.filter(artista_mac=True).order_by("nome")
-    context = {}
-    context["artists"] = artistas
+    artists = Artist.objects.filter(mac_artist=True).order_by("name")
+    context = {"artists": artists}
 
     # Artists in current Exhibitions. TODO: this can be largely improved
     exposicoes = common.EXPOSICOES
@@ -28,71 +26,55 @@ def artistas(request):
     return render(request, "artistas.html", context)
 
 
-def pintura(request):
-    artistas = Artista.objects.filter(tipo__nome="Pintura", artista_mac=True).order_by(
-        "nome"
+def artists_filter(art_type_filter):
+    return Artist.objects.filter(art_type__name=art_type_filter, mac_artist=True).order_by(
+        "name"
     )
 
-    return render(request, "artistas_pintura.html", {"artists": artistas})
+
+def pintura(request):
+    artists = artists_filter("Pintura")
+    return render(request, "artistas_pintura.html", {"artists": artists})
 
 
 def medalhistica(request):
-    artistas = Artista.objects.filter(
-        tipo__nome="Medalhistica", artista_mac=True
-    ).order_by("nome")
-
-    return render(request, "artistas_medalhistica.html", {"artists": artistas})
+    artists = artists_filter("Medalhistica")
+    return render(request, "artistas_medalhistica.html", {"artists": artists})
 
 
 def joalharia(request):
-    artistas = Artista.objects.filter(
-        tipo__nome="Joalharia", artista_mac=True
-    ).order_by("nome")
-
-    return render(request, "artistas_joalharia.html", {"artists": artistas})
+    artists = artists_filter("Joalharia")
+    return render(request, "artistas_joalharia.html", {"artists": artists})
 
 
 def escultura(request):
-    artistas = Artista.objects.filter(
-        tipo__nome="Escultura", artista_mac=True
-    ).order_by("nome")
-
-    return render(request, "artistas_escultura.html", {"artists": artistas})
+    artists = artists_filter("Escultura")
+    return render(request, "artistas_escultura.html", {"artists": artists})
 
 
 def fotografia(request):
-    artistas = Artista.objects.filter(
-        tipo__nome="Fotografia", artista_mac=True
-    ).order_by("nome")
-
-    return render(request, "artistas_fotografia.html", {"artists": artistas})
+    artists = artists_filter("Fotografia")
+    return render(request, "artistas_fotografia.html", {"artists": artists})
 
 
 def desenho(request):
-    artistas = Artista.objects.filter(tipo__nome=u"Desenho", artista_mac=True).order_by(
-        "nome"
-    )
-
-    return render(request, "artistas_desenho.html", {"artists": artistas})
+    artists = artists_filter("Desenho")
+    return render(request, "artistas_desenho.html", {"artists": artists})
 
 
 def ceramica(request):
-    artistas = Artista.objects.filter(tipo__nome="Ceramica", artista_mac=True).order_by(
-        "nome"
-    )
-
-    return render(request, "artistas_ceramica.html", {"artists": artistas})
+    artists = artists_filter("Ceramica")
+    return render(request, "artistas_ceramica.html", {"artists": artists})
 
 
 def trofeus(request):
-    artistas = Artista.objects.filter(tipo__nome="Trofeus").order_by("nome")
-
-    return render(request, "artistas_trofeus.html", {"artists": artistas})
+    artists = artists_filter("Trofeus")
+    return render(request, "artistas_trofeus.html", {"artists": artists})
 
 
 def detail(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    obras = Obra.objects.filter(autor=artist_id, estado__in=["E", "C"]).order_by("-ano")
+    artist = get_object_or_404(Artist, pk=artist_id)
+    obras = ArtWork.objects.filter(autor=artist_id, estado__in=["E", "C"]).order_by("-ano")
     acervo = Obra.objects.filter(autor=artist_id, estado="A").order_by("-ano")
     exposicoes = Exposicao.objects.filter(artistas__id__exact=artista.id).order_by(
         "-data_inicio"

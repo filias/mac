@@ -1,3 +1,3 @@
-from mac.exposicoes.models import Exposicao
+from mac.gallery.models import Exhibition
 
-EXPOSICOES = Exposicao.objects.all()
+EXPOSICOES = Exhibition.objects.all()
