@@ -27,31 +27,4 @@ urlpatterns = [
     ),
     url(r"^premios/(?P<aniversario_id>\d+)/trofeu$", trofeu, name="anniversary_trophy"),
     url(r"^tela", tela, name="banner"),
-
-    # Exhibitions
-    url(r"^exposicoes/actuais/$", index, name="current_exhibitions"),
-    url(r"^exposicoes/passadas/$", passadas, name="past_exhibitions"),
-    url(r"^exposicoes/futuras/$", futuras, name="future_exhibitions"),
-    url(
-        r"^exposicoes/passadas/(?P<exposicao_ano>\d+)/$",
-        passadas_ano,
-        name="past_exhibitions_per_year",
-    ),
-    url(r"^exposicoes/(?P<exposicao_id>\d+)/$", detail, name="exhibition_detail"),
-    url(r"^exposicoes/(?P<exposicao_id>\d+)/obras/$", obras, name="exhibition_works"),
-    url(
-        r"^exposicoes/(?P<exposicao_id>\d+)/obras/(?P<obra_id>\d+)/$",
-        obra_detalhe,
-        name="work_detail",
-    ),
-
-    # Contacts
-    url(r"^$", contactos, name="contacts"),
-    url(r"^contacte_nos/$", contacte_nos, name="contact_us"),
-    url(r"^contacte_nos/sucesso/$", sucesso, name="contact_success"),
-
-    # Publications
-    url(r"^publicacoes/catalogos/(?P<select>\w+)/$", catalogos, name="catalogs"),
-    url(r"^publicacoes/imprensa/(?P<select>\w+)/$", imprensa, name="press"),
-    url(r"^publicacoes/critica/(?P<select>\w+)/$", critica, name="critics"),
 ]

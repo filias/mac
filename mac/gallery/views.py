@@ -145,7 +145,7 @@ def trofeu(request, aniversario_id):
     )
 
 
-def index(request):
+def exhibitions(request):
     exposicoes = common.EXPOSICOES
     actuais = [exposicao for exposicao in exposicoes if exposicao.exposicao_actual()]
     return render(request, "exposicoes_actuais.html", {"exposicoes": actuais})
@@ -231,7 +231,7 @@ def catalogos(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
         publication_type="Catalogo", artist__name__range=(select[0], select[1])
-    ).order_by("artista")
+    ).order_by("artist")
     return render(request, "publicacoes_catalogos.html", context)
 
 
@@ -239,7 +239,7 @@ def imprensa(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
         publication_type="Imprensa", artist__name__range=(select[0], select[1])
-    ).order_by("artista")
+    ).order_by("artist")
     return render(request, "publicacoes_imprensa.html", context)
 
 
@@ -247,7 +247,7 @@ def critica(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
         publication_type="Critica", artist__name__range=(select[0], select[1])
-    ).order_by("artista")
+    ).order_by("artist")
     return render(request, "publicacoes_criticas.html", context)
 
 

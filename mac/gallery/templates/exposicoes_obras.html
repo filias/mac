@@ -6,7 +6,7 @@
     <div class="section">
         <div class="container">
             <div class="row">
-                <h2>{% trans "exposições" %} {{ exposicao.titulo }}" - {% trans "Obras" %}</h2>
+                <h2>{% trans "exposições" %} - "{{ exposicao.title }}" - {% trans "Obras" %}</h2>
             </div>           
         </div>
 
@@ -16,8 +16,8 @@
                         <div class="content-expo shadow">
                         {% if obra.foto %}
                                 <a href="{% url "work_detail" exposicao.id obra.id %}">
-                                    <img class="img-thumbnail" src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" alt="{{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"
-                                        title="{{ obra.autor }} | {{ obra.titulo }} | {{ obra.tipo }} | {{ obra.ano }}"/>
+                                    <img class="img-thumbnail" src="{% get_media_prefix %}{{ obra.foto.thumbnail}}" alt="{{ obra.title }} | {{ obra.art_work_type }} | {{ obra.year }}"
+                                        title="{{ obra.author }} | {{ obra.title }} | {{ obra.art_work_type }} | {{ obra.year }}"/>
                                 </a>                        
                         {% endif %}
                         </div>

@@ -8,7 +8,7 @@
 
     {% for exposicao in exposicoes %}
     <div>
-      <a href="/exposicoes/{{ exposicao.id }}">{{exposicao.title}} |
+      <a href="/exposicoes/{{ exposicao.id }}">{{ exposicao.title }} |
         {{ exposicao.start_date|date:"j F Y" }} - {{ exposicao.end_date|date:"j F Y" }}
       </a>
     </div>
