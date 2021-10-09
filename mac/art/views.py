@@ -27,9 +27,9 @@ def artistas(request):
 
 
 def artists_filter(art_type_filter):
-    return Artist.objects.filter(art_type__name=art_type_filter, mac_artist=True).order_by(
-        "name"
-    )
+    return Artist.objects.filter(
+        art_type__name=art_type_filter, mac_artist=True
+    ).order_by("name")
 
 
 def pintura(request):
@@ -74,7 +74,9 @@ def trofeus(request):
 
 def detail(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
-    works = ArtWork.objects.filter(author=artist_id, state__in=["E", "C"]).order_by("-year")
+    works = ArtWork.objects.filter(author=artist_id, state__in=["E", "C"]).order_by(
+        "-year"
+    )
     collection = ArtWork.objects.filter(author=artist_id, state="A").order_by("-year")
     exhibitions = Exhibition.objects.filter(artists__id__exact=artist.id).order_by(
         "-start_date"
@@ -103,7 +105,9 @@ def detail(request, artist_id):
 
 def obras(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
-    works = ArtWork.objects.filter(author=artist_id, state__in=["C", "E"]).order_by("-year")
+    works = ArtWork.objects.filter(author=artist_id, state__in=["C", "E"]).order_by(
+        "-year"
+    )
     canvases = artist_canvas(artist)
     return render(
         request,
@@ -170,5 +174,11 @@ def obra_detalhe(request, obra_id, artist_id):
     return render(
         request,
         "obra_detalhe.html",
-        {"obra": work, "telas": canvases, "tecnicas": techniques, "materiais": materials, "id_artist": artist_id},
+        {
+            "obra": work,
+            "telas": canvases,
+            "tecnicas": techniques,
+            "materiais": materials,
+            "id_artist": artist_id,
+        },
     )

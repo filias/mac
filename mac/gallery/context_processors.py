@@ -1,5 +1,5 @@
-from mac.gallery.models import Gallery
 from mac.art.models import Canvas
+from mac.gallery.models import Gallery
 
 
 def contacts_renderer(request):

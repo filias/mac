@@ -1,6 +1,17 @@
 from django.contrib import admin
 
-from mac.gallery.models import Award, Awardee, Anniversary, Exhibition, Gallery, Link, Publication, Text, Foto, Snippet
+from mac.gallery.models import (
+    Anniversary,
+    Award,
+    Awardee,
+    Exhibition,
+    Foto,
+    Gallery,
+    Link,
+    Publication,
+    Snippet,
+    Text,
+)
 
 
 class ExhibitionAdmin(admin.ModelAdmin):
@@ -20,7 +31,10 @@ class ExhibitionAdmin(admin.ModelAdmin):
                 ]
             },
         ),
-        ("Detalhes", {"fields": ["description", "description_en", "artists", "art_works"]}),
+        (
+            "Detalhes",
+            {"fields": ["description", "description_en", "artists", "art_works"]},
+        ),
         (
             "Ficheiros",
             {"fields": ["catalog", "invitation", "press_release", "canvases", "fotos"]},
@@ -37,7 +51,19 @@ class PublicationAdmin(admin.ModelAdmin):
     list_display = ("title", "publication_type", "date", "artist", "author", "editor")
     ordering = ["title"]
     fieldsets = [
-        ("Geral", {"fields": ["title", "author", "editor", "publication_type", "date", "artist"]}),
+        (
+            "Geral",
+            {
+                "fields": [
+                    "title",
+                    "author",
+                    "editor",
+                    "publication_type",
+                    "date",
+                    "artist",
+                ]
+            },
+        ),
         ("Detalhes", {"fields": ["description", "description_en"]}),
         ("Ficheiros", {"fields": ["file"]}),
     ]

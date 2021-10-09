@@ -1,6 +1,10 @@
 from .base import *
 
-ALLOWED_HOSTS = ["macsiteadmin.pythonanywhere.com", "movimentoartecontemporanea.com", "www.movimentoartecontemporanea.com"]
+ALLOWED_HOSTS = [
+    "macsiteadmin.pythonanywhere.com",
+    "movimentoartecontemporanea.com",
+    "www.movimentoartecontemporanea.com",
+]
 
 # Email sending - gmail
 EMAIL_HOST = "smtp.gmail.com"

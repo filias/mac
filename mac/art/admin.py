@@ -1,6 +1,13 @@
 from django.contrib import admin
 
-from mac.art.models import Artist, ArtWork, ArtMaterial, ArtType, ArtTechnique, Canvas
+from mac.art.models import (
+    Artist,
+    ArtMaterial,
+    ArtTechnique,
+    ArtType,
+    ArtWork,
+    Canvas,
+)
 
 
 class ArtistAdmin(admin.ModelAdmin):

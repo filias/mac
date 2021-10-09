@@ -1,15 +1,21 @@
 from random import random
 
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.cache import never_cache
 
-from mac.art.models import ArtWork, Canvas, Artist
+from mac.art.models import Artist, ArtWork, Canvas
 from mac.common import common
 from mac.gallery.forms import ContactForm
-from mac.gallery.models import Exhibition, Snippet, Gallery, Text, Anniversary, Award
-
-from mac.gallery.models import Publication
+from mac.gallery.models import (
+    Anniversary,
+    Award,
+    Exhibition,
+    Gallery,
+    Publication,
+    Snippet,
+    Text,
+)
 
 
 def index(request):
