@@ -19,7 +19,7 @@ urlpatterns = [
     ),
     url(r"^agenda/$", agenda, name="calendar"),
     url(r"^premios/$", premios, name="awards"),
-    url(r"^premios/(?P<aniversario_id>\d+)/$", detail, name="anniversary_detail"),
+    url(r"^premios/(?P<aniversario_id>\d+)/$", anniversary_detail, name="anniversary_detail"),
     url(
         r"^premios/(?P<aniversario_id>\d+)/premiados/$",
         premiados,

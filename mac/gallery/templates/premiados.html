@@ -4,37 +4,37 @@
 {% block sections %}
 <div class="section">
 
-    <h2>{% trans "prémios MAC" %} - {{ aniversario.data|date:"Y" }} - {% trans "premiados" %}
+    <h2>{% trans "prémios MAC" %} - {{ aniversario.date|date:"Y" }} - {% trans "premiados" %}
     </h2>
 
     <table cellpading="0" cellspacing="0" border="0">
 
         <tr>
             <td valign="top">
-                <a href="{% get_media_prefix %}{{ aniversario.trofeu.foto.image }}"><img
-                        src="{% get_media_prefix %}{{ aniversario.trofeu.foto.thumbnail }}" border=0></a>
+                <a href="{% get_media_prefix %}{{ aniversario.trophy.foto.image }}"><img
+                        src="{% get_media_prefix %}{{ aniversario.trophy.foto.thumbnail }}" border=0></a>
             </td>
 
             <td valign="top">
-                {% if aniversario.data %}
-                    <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
+                {% if aniversario.date %}
+                    <p><i>{{ aniversario.date|date:"j F Y" }}</i></p>
                 {% endif %}
 
                 {% ifequal LANGUAGE_CODE "en" %}
-                    <p>{{ aniversario.descricao_en }}</p>
+                    <p>{{ aniversario.description_en }}</p>
                 {% else %}
-                    <p>{{ aniversario.descricao }}</p>
+                    <p>{{ aniversario.description }}</p>
                 {% endifequal %}
 
                 {% if premios %}
                     {% for premio in premios %}
-                        <h4>{{ premio.nome }}</h4>
-                        <p><b>{% trans "Premiado" %}: </b>{{ premio.premiado.nome }}
-                            {% if premio.premiado.profissao %}| {% endif %}{{ premio.premiado.profissao }}</p>
+                        <h4>{{ premio.name }}</h4>
+                        <p><b>{% trans "Premiado" %}: </b>{{ premio.awardee.name }}
+                            {% if premio.awardee.profession %}| {% endif %}{{ premio.awardee.profession }}</p>
                         {% ifequal LANGUAGE_CODE "en" %}
-                            <p>{{ premio.descricao_en }}</p>
+                            <p>{{ premio.description_en }}</p>
                         {% else %}
-                            <p>{{ premio.descricao }}</p>
+                            <p>{{ premio.description }}</p>
                         {% endifequal %}
 
                     {% endfor %}

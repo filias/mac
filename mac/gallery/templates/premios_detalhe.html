@@ -3,7 +3,7 @@
 
 {% block sections %}
 <div class="section">
-    <h2>{% trans "prémios MAC" %} - {{ aniversario.data|date:"Y" }}</h2>
+    <h2>{% trans "prémios MAC" %} - {{ aniversario.date|date:"Y" }}</h2>
 
     <table cellpading="0" cellspacing="0" border="0">
 
@@ -11,15 +11,15 @@
             <td valign="top">
 
                 <a href="/mac/premios/{{ aniversario.id }}/trofeu">
-                    <img src="{% get_media_prefix %}{{ aniversario.trofeu.foto.thumbnail }}" border=0>
+                    <img src="{% get_media_prefix %}{{ aniversario.trophy.foto.thumbnail }}" border=0>
                 </a>
 
                 {% if aniversario.convite %}
-                    <h4><a href="{% get_media_prefix %}{{ aniversario.convite }}">{% trans "Convite" %}</a></h4>
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.invitation }}">{% trans "Convite" %}</a></h4>
                 {% endif %}
 
                 {% if aniversario.catalogo %}
-                    <h4><a href="{% get_media_prefix %}{{ aniversario.catalogo }}">{% trans "Catálogo" %}</a></h4>
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.catalog }}">{% trans "Catálogo" %}</a></h4>
                 {% endif %}
 
                 {% if premios %}
@@ -29,14 +29,14 @@
             </td>
 
             <td valign="top">
-                {% if aniversario.data %}
-                    <p><i>{{ aniversario.data|date:"j F Y" }}</i></p>
+                {% if aniversario.date %}
+                    <p><i>{{ aniversario.date|date:"j F Y" }}</i></p>
                 {% endif %}
 
                 {% ifequal LANGUAGE_CODE "en" %}
-                    <p>{{ aniversario.descricao_en }}</p>
+                    <p>{{ aniversario.description_en }}</p>
                 {% else %}
-                    <p>{{ aniversario.descricao }}</p>
+                    <p>{{ aniversario.description }}</p>
                 {% endifequal %}
 
                 {% if fotos %}

@@ -112,13 +112,13 @@ def premios(request):
     return render(request, "galeria_premios.html", context)
 
 
-def detail(request, aniversario_id):
+def anniversary_detail(request, aniversario_id):
     aniversario = get_object_or_404(Anniversary, pk=aniversario_id)
     context = {}
     context["aniversario"] = aniversario
     fotos = aniversario.fotos.all()
     context["fotos"] = fotos
-    premios = Award.objects.filter(aniversario=aniversario_id).order_by("name")
+    premios = Award.objects.filter(anniversary=aniversario_id).order_by("name")
     context["premios"] = premios
     return render(request, "premios_detalhe.html", context)
 
@@ -127,7 +127,7 @@ def premiados(request, aniversario_id):
     aniversario = get_object_or_404(Anniversary, pk=aniversario_id)
     context = {}
     context["aniversario"] = aniversario
-    premios = Award.objects.filter(aniversario=aniversario_id).order_by("name")
+    premios = Award.objects.filter(anniversary=aniversario_id).order_by("name")
     context["premios"] = premios
     return render(request, "premiados.html", context)
 
