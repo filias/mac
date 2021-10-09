@@ -3,61 +3,59 @@
 
 {% block sections %}
 {% if obra %}
-    <div class="section">
+<div class="section">
+    <h2>{{ obra.title }}BLA</h2>
+    <table>
+        <tr>
+            <td valign="top">
+                <a href="{% get_media_prefix %}{{ obra.foto.image }}" target="blank"><img
+                        src="{% get_media_prefix %}{{ obra.foto.thumbnail }}" border=0/></a>
+            </td>
 
-        <h2>{{ obra.titulo }}</h2>
+            <td valign="top">
+                <p><b>{{ obra.title }} ({{ obra.year }})</b></p>
 
-        <table>
-            <tr>
-                <td valign="top">
-                    <a href="{% get_media_prefix %}{{ obra.foto.image }}" target="blank"><img
-                            src="{% get_media_prefix %}{{ obra.foto.thumbnail }}" border=0/></a>
-                </td>
+                <p><b>Tipo: </b>{{ obra.art_type }}</p>
 
-                <td valign="top">
-                    <p><b>{{ obra.titulo }} ({{ obra.ano }})</b></p>
+                {% if obra.description %}
+                    <!--<i>Obra em {{ obra.state }}</i>-->
+                    <p><b>{% trans "Descrição" %}: </b>{{ obra.description }}</p>
+                {% endif %}
 
-                    <p><b>Tipo: </b>{{ obra.tipo }}</p>
+                {% if obra.height %}
+                    <p><b>{% trans "Dimensões" %}: </b>
+                        {{ obra.height }} cm x {{ obra.width }} cm
+                        {% if obra.depth %}
+                            x {{ obra.depth }} cm
+                        {% endif %}
+                    </p>
+                {% endif %}
 
-                    {% if obra.descricao %}
-                        <!--<i>Obra em {{ obra.estado }}</i>-->
-                        <p><b>{% trans "Descrição" %}: </b>{{ obra.descricao }}</p>
-                    {% endif %}
+                {% if materiais %}
+                    <p><b>{% trans "Materiais" %}: </b>
+                    {% for material in materiais %}
+                        {% if forloop.last %}
+                            {{ material }}
+                        {% else %}
+                            {{ material }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
 
-                    {% if obra.altura %}
-                        <p><b>{% trans "Dimensões" %}: </b>
-                            {{ obra.altura }} cm x {{ obra.largura }} cm
-                            {% if obra.profundidade %}
-                                x {{ obra.profundidade }} cm
-                            {% endif %}
-                        </p>
-                    {% endif %}
+                {% if tecnicas %}
+                    <p><b>{% trans "Técnicas" %}: </b>
+                    {% for tecnica in tecnicas %}
+                        {% if forloop.last %}
+                            {{ tecnica }}
+                        {% else %}
+                            {{ tecnica }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </td>
+        </tr>
+    </table>
 
-                    {% if materiais %}
-                        <p><b>{% trans "Materiais" %}: </b>
-                        {% for material in materiais %}
-                            {% if forloop.last %}
-                                {{ material }}
-                            {% else %}
-                                {{ material }},
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-
-                    {% if tecnicas %}
-                        <p><b>{% trans "Técnicas" %}: </b>
-                        {% for tecnica in tecnicas %}
-                            {% if forloop.last %}
-                                {{ tecnica }}
-                            {% else %}
-                                {{ tecnica }},
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                </td>
-            </tr>
-        </table>
-
-    </div>
+</div>
 {% endif %}
 {% endblock %}

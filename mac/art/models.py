@@ -28,7 +28,7 @@ class Artist(models.Model):
         return self.name
 
     def tem_acervo(self):
-        return ArtWork.objects.filter(author=self, estado="A")
+        return ArtWork.objects.filter(author=self, state="A")
 
     class Meta:
         db_table = "artistas_artista"

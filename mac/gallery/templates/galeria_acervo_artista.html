@@ -3,25 +3,25 @@
 
 {% block sections %}
 <div class="section">
-    <h2>{% trans "acervo" %} - {{ artista.nome }}</h2>
+    <h2>{% trans "acervo" %} - {{ artista.name }}</h2>
     {% if acervo_list %}
-        <div class="obras">
-            {% for obra in acervo_list %}
-                {% if obra.foto %}
-                    <div class="obra">
-                        <div class="obra-holder">
-                            <a href="/mac/acervo/{{ artista.id }}/{{ obra.id }}">
-                                <img src="{% get_media_prefix %}{{ obra.foto.thumbnail }}" border="0"
-                                     alt="{{ obra.titulo }} | {% trans obra.tipo.nome %} | {{ obra.ano }}"
-                                     title="{{ obra.titulo }} | {% trans obra.tipo.nome %} | {{ obra.ano }}"/>
-                            </a>
-                        </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+    <div class="obras">
+    {% for obra in acervo_list %}
+    {% if obra.foto %}
+        <div class="obra">
+            <div class="obra-holder">
+                <a href="/mac/acervo/{{ artista.id }}/{{ obra.id }}">
+                    <img src="{% get_media_prefix %}{{ obra.foto.thumbnail }}" border="0"
+                         alt="{{ obra.title }} | {% trans obra.art_type.name %} | {{ obra.year }}"
+                         title="{{ obra.title }} | {% trans obra.art_type.name %} | {{ obra.year }}"/>
+                </a>
+            </div>
         </div>
+    {% endif %}
+    {% endfor %}
+    </div>
     {% else %}
-        <p>Não há obras em acervo.</p>
+    <p>Não há obras em acervo.</p>
     {% endif %}
 </div>
 {% endblock %}

@@ -70,13 +70,13 @@ def acervo(request):
 
 
 def acervo_artist(request, artist_id):
-    artista = Artist.objects.get(pk=artist_id)
-    telas = artista.telas.all()
-    acervo_list = ArtWork.objects.filter(estado="A", autor=artista).order_by("-year")
+    artist = Artist.objects.get(pk=artist_id)
+    canvases = artist.canvases.all()
+    acervo_list = ArtWork.objects.filter(state="A", author=artist).order_by("-year")
     return render(
         request,
         "galeria_acervo_artista.html",
-        {"artista": artista, "telas": telas, "acervo_list": acervo_list},
+        {"artista": artist, "telas": canvases, "acervo_list": acervo_list},
     )
 
 
