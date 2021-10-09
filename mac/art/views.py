@@ -74,101 +74,101 @@ def trofeus(request):
 
 def detail(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
-    obras = ArtWork.objects.filter(autor=artist_id, estado__in=["E", "C"]).order_by("-ano")
-    acervo = Obra.objects.filter(autor=artist_id, estado="A").order_by("-ano")
-    exposicoes = Exposicao.objects.filter(artistas__id__exact=artista.id).order_by(
-        "-data_inicio"
+    works = ArtWork.objects.filter(author=artist_id, state__in=["E", "C"]).order_by("-year")
+    collection = ArtWork.objects.filter(author=artist_id, state="A").order_by("-year")
+    exhibitions = Exhibition.objects.filter(artists__id__exact=artist.id).order_by(
+        "-start_date"
     )
-    criticas = Publicacao.objects.filter(
-        artista__id__exact=artista.id, tipo="Critica"
-    ).order_by("-data")
-    imprensa = Publicacao.objects.filter(
-        artista__id__exact=artista.id, tipo="Imprensa"
-    ).order_by("-data")
-    telas = artist_canvas(artista)
+    critics = Publication.objects.filter(
+        artist__id__exact=artist.id, publication_type="Critica"
+    ).order_by("-date")
+    press = Publication.objects.filter(
+        artist__id__exact=artist.id, publication_type="Imprensa"
+    ).order_by("-date")
+    telas = artist_canvas(artist)
     return render(
         request,
         "artistas_detalhe.html",
         {
-            "artista": artista,
-            "obras": obras,
+            "artista": artist,
+            "obras": works,
             "telas": telas,
-            "exposicoes": exposicoes,
-            "imprensa": imprensa,
-            "criticas": criticas,
-            "acervo": acervo,
+            "exposicoes": exhibitions,
+            "imprensa": press,
+            "criticas": critics,
+            "acervo": collection,
         },
     )
 
 
 def obras(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    obras = Obra.objects.filter(autor=artist_id, estado__in=["C", "E"]).order_by("-ano")
-    telas = artist_canvas(artista)
+    artist = get_object_or_404(Artist, pk=artist_id)
+    works = ArtWork.objects.filter(author=artist_id, state__in=["C", "E"]).order_by("-year")
+    canvases = artist_canvas(artist)
     return render(
         request,
         "artistas_obras.html",
-        {"artista": artista, "obras": obras, "telas": telas},
+        {"artista": artist, "obras": works, "telas": canvases},
     )
 
 
 def acervo(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    obras = Obra.objects.filter(autor=artist_id, estado="A").order_by("-ano")
-    telas = artist_canvas(artista)
+    artist = get_object_or_404(Artist, pk=artist_id)
+    works = ArtWork.objects.filter(author=artist_id, state="A").order_by("-year")
+    canvases = artist_canvas(artist)
     return render(
         request,
         "artistas_acervo.html",
-        {"artista": artista, "obras": obras, "telas": telas},
+        {"artista": artist, "obras": works, "telas": canvases},
     )
 
 
 def exposicoes(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    exposicoes = Exposicao.objects.filter(artistas__id__exact=artista.id).order_by(
-        "-data_inicio"
+    artist = get_object_or_404(Artist, pk=artist_id)
+    exhibitions = Exhibition.objects.filter(artists__id__exact=artist_id).order_by(
+        "-start_date"
     )
-    telas = artist_canvas(artista)
+    canvases = artist_canvas(artist)
     return render(
         request,
         "artistas_exposicoes.html",
-        {"artista": artista, "exposicoes": exposicoes, "telas": telas},
+        {"artista": artist, "exposicoes": exhibitions, "telas": canvases},
     )
 
 
 def critica(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    criticas = Publicacao.objects.filter(
-        artista__id__exact=artista.id, tipo="Critica"
-    ).order_by("-data")
-    telas = artist_canvas(artista)
+    artist = get_object_or_404(Artist, pk=artist_id)
+    critics = Publication.objects.filter(
+        artist__id__exact=artist_id, publication_type="Critica"
+    ).order_by("-date")
+    canvases = artist_canvas(artist)
     return render(
         request,
         "artistas_critica.html",
-        {"artista": artista, "criticas": criticas, "telas": telas},
+        {"artista": artist, "criticas": critics, "telas": canvases},
     )
 
 
 def imprensa(request, artist_id):
-    artista = get_object_or_404(Artista, pk=artist_id)
-    imprensa = Publicacao.objects.filter(
-        artista__id__exact=artista.id, tipo="Imprensa"
-    ).order_by("-data")
-    telas = artist_canvas(artista)
+    artist = get_object_or_404(Artist, pk=artist_id)
+    press = Publication.objects.filter(
+        artist__id__exact=artist_id, publication_type="Imprensa"
+    ).order_by("-date")
+    canvases = artist_canvas(artist)
     return render(
         request,
         "artistas_imprensa.html",
-        {"artista": artista, "imprensa": imprensa, "telas": telas},
+        {"artista": artist, "imprensa": press, "telas": canvases},
     )
 
 
 def obra_detalhe(request, obra_id, artist_id):
-    obra = get_object_or_404(Obra, pk=obra_id)
-    telas = obra.autor.telas.all()
-    tecnicas = obra.tecnicas.all()
-    materiais = obra.materiais.all()
+    work = get_object_or_404(ArtWork, pk=obra_id)
+    canvases = work.author.canvases.all()
+    techniques = work.techniques.all()
+    materials = work.materials.all()
     return render(
         request,
         "obra_detalhe.html",
-        {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais, "id_artist":artist_id},
+        {"obra": work, "telas": canvases, "tecnicas": techniques, "materiais": materials, "id_artist": artist_id},
     )

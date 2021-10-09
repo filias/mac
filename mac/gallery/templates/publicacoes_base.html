@@ -13,20 +13,20 @@
     {% endblock %}  
         
 	{% for publicacao in publicacoes %}
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4 class="pb-3"><a href="{% get_media_prefix %}{{ publicacao.ficheiro }}" target="_blank">
-                        {{ publicacao.artista.nome }} -
-                        {% ifequal publicacao.tipo 'Critica'%}{{ publicacao.titulo }}
-                        {% else %}"{{ publicacao.titulo }}"
-                        {% endifequal %}
-                        {% ifequal publicacao.tipo 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
-                        {% if publicacao.data %} | {{ publicacao.data }}{% endif %}
-                    </a></h4>
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="pb-3"><a href="{% get_media_prefix %}{{ publicacao.file }}" target="_blank">
+                    {{ publicacao.artist.name }} -
+                    {% ifequal publicacao.publication_type 'Critica'%}{{ publicacao.title }}
+                    {% else %}"{{ publicacao.title }}"
+                    {% endifequal %}
+                    {% ifequal publicacao.publication_type 'Imprensa' %} in {{ publicacao.editor }}{% endifequal %}
+                    {% if publicacao.date %} | {{ publicacao.date }}{% endif %}
+                </a></h4>
             </div>
         </div>
+    </div>
     {% empty %}
         {% trans 'Não há publicações.' %}
     {% endfor %}

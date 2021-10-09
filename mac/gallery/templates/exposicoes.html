@@ -13,7 +13,7 @@
             <div class="card mb-5 text-center shadow">
                 <div class="card-body">
                 <a href="{% url 'exhibition_detail' exhibition.id %}" class="card-link">
-                    {% with exhibition.obras.all|first as first_work %}
+                    {% with exhibition.art_works.all|first as first_work %}
                         {% if first_work.foto.thumbnail %}
                             <img src="{% get_media_prefix %}{{ first_work.foto.thumbnail  }}" />
                         {% else %}
@@ -23,8 +23,8 @@
                 </div>
                 <div class="card-text">
                     <div class="mt-3">
-                        <p class="text-center artist__text">{{ exhibition.titulo }}</p>
-                        <p class="text-center artist__text">{{ exhibition.data_inicio|date:"j M" }} - {{ exhibition.data_fim|date:"j M" }}</p>
+                        <p class="text-center artist__text">{{ exhibition.title }}</p>
+                        <p class="text-center artist__text">{{ exhibition.start_date|date:"j M" }} - {{ exhibition.end_date|date:"j M" }}</p>
                     </div>
                 </div>    
                 </a>

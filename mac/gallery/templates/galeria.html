@@ -7,30 +7,26 @@
 
     {% if galerias %}
     <table class="table table-borderless">
-            <tr>
+        <tr>
             {% for galeria in galerias %}
-        <td>
-
-        <h3>MAC - {{ galeria.rua }}</h3>
-
+            <td>
+                <h3>MAC - {{ galeria.street }}</h3>
                 <div class="obras">
                     {% for foto in galeria.fotos.all %}
-                        <div class="obra" style="border:none; margin:6px 6px 0 0;">
-                            <div class="obra-holder">
-                                <a href="{% get_media_prefix %}{{ foto.image }}">
-                                    <img src="{% get_media_prefix %}{{ foto.thumbnail }}" border="0" alt="{{ galeria.nome }}" title="{{ galeria.nome }}"/>
-                                </a>
-                            </div>
+                    <div class="obra" style="border:none; margin:6px 6px 0 0;">
+                        <div class="obra-holder">
+                            <a href="{% get_media_prefix %}{{ foto.image }}">
+                                <img src="{% get_media_prefix %}{{ foto.thumbnail }}" border="0" alt="{{ galeria.name }}" title="{{ galeria.name }}"/>
+                            </a>
                         </div>
-    
-                {% endfor %}
-
+                    </div>
+                    {% endfor %}
                 </div>
 
                 <div style="clear:both;">
                 </div>
-                  <p><b>{% trans "Telefone" %}:</b> {{ galeria.telefone }}</p></a>
-                </td>
+                  <p><b>{% trans "Telefone" %}:</b> {{ galeria.phone }}</p></a>
+            </td>
             {% endfor %}
       </tr>
       <tr>

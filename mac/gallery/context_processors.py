@@ -3,7 +3,7 @@ from mac.art.models import Canvas
 
 
 def contacts_renderer(request):
-    gallery_list = Gallery.objects.filter(nome__startswith="MAC").order_by("-nome")
+    gallery_list = Gallery.objects.filter(name__startswith="MAC").order_by("-name")
     return {"gallery_list": gallery_list}
 
 

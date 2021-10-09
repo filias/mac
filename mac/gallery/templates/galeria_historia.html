@@ -1,4 +1,4 @@
-{% extends "galeria/templates/galeria.html" %}
+{% extends "gallery/templates/galeria.html" %}
 {% load i18n %}
 
 {% block sections %}
@@ -7,9 +7,9 @@
         {% if texto %}
         <div class="text">
         {% ifequal LANGUAGE_CODE 'en' %}
-            <p>{{ texto.texto_en }}</p>
+            <p>{{ texto.text_en }}</p>
         {% else %}
-            <p>{{ texto.texto }}</p>
+            <p>{{ texto.text }}</p>
         {% endifequal %}
         </div>
 	{% endif %}

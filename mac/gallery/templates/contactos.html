@@ -10,16 +10,16 @@
         <div class="row">
         {% for entry in gallery_list %}
         <div class="col-sm-6">
-            <h2>{{ entry.nome }}</h2>
-                <p><b>{% trans "Morada" %}:</b> {{ entry.rua }} - {{ entry.cod_postal }} {{ entry.cidade }}</p>
-                <p><a href="{{entry.mapa}}" target="blank"><b>{% trans "Mapa" %}</b></a></p>
-                <p><b>{% trans "Telefone" %}:</b> {{ entry.telefone }}</p>
+            <h2>{{ entry.name }}</h2>
+                <p><b>{% trans "Morada" %}:</b> {{ entry.street }} - {{ entry.zip_code }} {{ entry.city }}</p>
+                <p><a href="{{ entry.map }}" target="blank"><b>{% trans "Mapa" %}</b></a></p>
+                <p><b>{% trans "Telefone" %}:</b> {{ entry.phone }}</p>
                 <p><b>{% trans "Email" %}:</b> <a href="{% url "contact_us" %}">{{ entry.email|stringformat:"s" }}</a></p>
                     <p><b>{% trans "Horário" %}:</b>
                   {% ifequal LANGUAGE_CODE "en" %}
                 Weekdays from 13h to 20h, saturdays from 15h to 19h</p>
                 {% else %}
-                <p>{{ entry.horario }}</p>
+                <p>{{ entry.opening_times }}</p>
                   {% endifequal %}
         </div>
         {% endfor %}

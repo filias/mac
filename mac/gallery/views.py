@@ -28,43 +28,43 @@ def tela(request):
 
 
 def galerias(request):
-    galerias = Gallery.objects.filter(nome__startswith="MAC").order_by("-nome")
+    galerias = Gallery.objects.filter(name__startswith="MAC").order_by("-name")
     return render(request, "galeria.html", {"galerias": galerias})
 
 
 def missao(request):
-    texto = Text.objects.filter(titulo="missao")
+    texto = Text.objects.filter(title="missao")
     return render(request, "galeria_missao.html", {"texto": texto[0]})
 
 
 def historia(request):
-    texto = Text.objects.filter(titulo="historia")
+    texto = Text.objects.filter(title="historia")
     return render(request, "galeria_historia.html", {"texto": texto[0]})
 
 
 def curriculum(request):
     exposicoes = Exhibition.objects.all()
-    years = list(set([exposicao.data_inicio.year for exposicao in exposicoes]))
+    years = list(set([exposicao.start_date.year for exposicao in exposicoes]))
     years.reverse()
 
     return render(request, "galeria_curriculum.html", {"years": years})
 
 
 def curriculum_ano(request, evento_ano):
-    eventos = Exhibition.objects.filter(data_inicio__year=evento_ano)
+    eventos = Exhibition.objects.filter(start_date__year=evento_ano)
     context = {}
     context["eventos"] = eventos
     context["ano"] = evento_ano
-    return render(request, "galeria/templates/galeria_curriculum_anos.html", context)
+    return render(request, "galeria_curriculum_anos.html", context)
 
 
 def equipa(request):
-    texto = Text.objects.filter(titulo="estrutura")
+    texto = Text.objects.filter(title="estrutura")
     return render(request, "galeria_equipa.html", {"texto": texto[0]})
 
 
 def acervo(request):
-    artistas = Artist.objects.all().order_by("nome")
+    artistas = Artist.objects.all().order_by("name")
     artists = [artista for artista in artistas if artista.tem_acervo()]
     return render(request, "galeria_acervo.html", {"artists": artists})
 
@@ -72,7 +72,7 @@ def acervo(request):
 def acervo_artist(request, artist_id):
     artista = Artist.objects.get(pk=artist_id)
     telas = artista.telas.all()
-    acervo_list = ArtWork.objects.filter(estado="A", autor=artista).order_by("-ano")
+    acervo_list = ArtWork.objects.filter(estado="A", autor=artista).order_by("-year")
     return render(
         request,
         "galeria_acervo_artista.html",
@@ -82,9 +82,9 @@ def acervo_artist(request, artist_id):
 
 def acervo_detalhe(request, obra_id, artist_id):
     obra = get_object_or_404(ArtWork, pk=obra_id)
-    telas = obra.autor.telas.all()
-    tecnicas = obra.tecnicas.all()
-    materiais = obra.materiais.all()
+    telas = obra.author.canvases.all()
+    tecnicas = obra.techniques.all()
+    materiais = obra.materials.all()
 
     return render(
         request,
@@ -98,10 +98,10 @@ def agenda(request):
 
 
 def premios(request):
-    texto = Text.objects.filter(titulo="premios")
+    texto = Text.objects.filter(title="premios")
     context = {}
     context["texto"] = texto[0]
-    aniversarios = Anniversary.objects.all().order_by("-data")
+    aniversarios = Anniversary.objects.all().order_by("-date")
     context["aniversarios"] = aniversarios
     return render(request, "galeria_premios.html", context)
 
@@ -112,7 +112,7 @@ def detail(request, aniversario_id):
     context["aniversario"] = aniversario
     fotos = aniversario.fotos.all()
     context["fotos"] = fotos
-    premios = Award.objects.filter(aniversario=aniversario_id).order_by("nome")
+    premios = Award.objects.filter(aniversario=aniversario_id).order_by("name")
     context["premios"] = premios
     return render(request, "premios_detalhe.html", context)
 
@@ -121,17 +121,17 @@ def premiados(request, aniversario_id):
     aniversario = get_object_or_404(Anniversary, pk=aniversario_id)
     context = {}
     context["aniversario"] = aniversario
-    premios = Award.objects.filter(aniversario=aniversario_id).order_by("nome")
+    premios = Award.objects.filter(aniversario=aniversario_id).order_by("name")
     context["premios"] = premios
     return render(request, "premiados.html", context)
 
 
 def trofeu(request, aniversario_id):
     aniversario = get_object_or_404(Anniversary, pk=aniversario_id)
-    trofeu = aniversario.trofeu
-    telas = trofeu.autor.telas.all()
-    tecnicas = trofeu.tecnicas.all()
-    materiais = trofeu.materiais.all()
+    trofeu = aniversario.trophy
+    telas = trofeu.author.canvases.all()
+    tecnicas = trofeu.techniques.all()
+    materiais = trofeu.materials.all()
     return render(
         request,
         "trofeu.html",
@@ -154,13 +154,13 @@ def index(request):
 def passadas(request):
     exposicoes = common.EXPOSICOES
     passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
-    anos = list(set([exposicao.data_inicio.year for exposicao in passadas]))
+    anos = list(set([exposicao.start_date.year for exposicao in passadas]))
     anos.reverse()
     return render(request, "exposicoes_passadas.html", {"years": anos})
 
 
 def passadas_ano(request, exposicao_ano):
-    exposicoes = Exhibition.objects.filter(data_inicio__year=exposicao_ano)
+    exposicoes = Exhibition.objects.filter(start_date__year=exposicao_ano)
     passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
     context = {}
     context["exposicoes"] = passadas
@@ -169,7 +169,7 @@ def passadas_ano(request, exposicao_ano):
 
 
 def futuras(request):
-    exposicoes = Exhibition.objects.all().order_by("data_inicio")
+    exposicoes = Exhibition.objects.all().order_by("start_date")
     futuras = [exposicao for exposicao in exposicoes if exposicao.exposicao_futura()]
     return render(request, "exposicoes_futuras.html", {"exposicoes": futuras})
 
@@ -177,11 +177,11 @@ def futuras(request):
 def detail(request, exposicao_id):
     exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
     actual = exposicao.exposicao_actual()
-    telas = exposicao.telas.all()
+    telas = exposicao.canvases.all()
     fotos = exposicao.fotos.all()
-    galerias = exposicao.galerias.all()
-    artistas = exposicao.artistas.all()
-    obras = exposicao.obras.all().order_by("-ano")
+    galerias = exposicao.galleries.all()
+    artistas = exposicao.artists.all()
+    obras = exposicao.art_works.all().order_by("-year")
     return render(
         request,
         "exposicoes_detalhe.html",
@@ -199,8 +199,8 @@ def detail(request, exposicao_id):
 
 def obras(request, exposicao_id):
     exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    obras = exposicao.obras.all().order_by("-ano")
-    telas = exposicao.telas.all()
+    obras = exposicao.art_works.all().order_by("-year")
+    telas = exposicao.canvases.all()
     return render(
         request,
         "exposicoes_obras.html",
@@ -211,9 +211,9 @@ def obras(request, exposicao_id):
 def obra_detalhe(request, exposicao_id, obra_id):
     obra = get_object_or_404(ArtWork, pk=obra_id)
     exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    telas = obra.autor.telas.all()
-    tecnicas = obra.tecnicas.all()
-    materiais = obra.materiais.all()
+    telas = obra.author.canvases.all()
+    tecnicas = obra.techniques.all()
+    materiais = obra.materials.all()
     return render(
         request,
         "obra_detalhe.html",
@@ -230,7 +230,7 @@ def obra_detalhe(request, exposicao_id, obra_id):
 def catalogos(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
-        tipo="Catalogo", artista__nome__range=(select[0], select[1])
+        publication_type="Catalogo", artist__name__range=(select[0], select[1])
     ).order_by("artista")
     return render(request, "publicacoes_catalogos.html", context)
 
@@ -238,7 +238,7 @@ def catalogos(request, select):
 def imprensa(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
-        tipo="Imprensa", artista__nome__range=(select[0], select[1])
+        publication_type="Imprensa", artist__name__range=(select[0], select[1])
     ).order_by("artista")
     return render(request, "publicacoes_imprensa.html", context)
 
@@ -246,7 +246,7 @@ def imprensa(request, select):
 def critica(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
-        tipo="Critica", artista__nome__range=(select[0], select[1])
+        publication_type="Critica", artist__name__range=(select[0], select[1])
     ).order_by("artista")
     return render(request, "publicacoes_criticas.html", context)
 
