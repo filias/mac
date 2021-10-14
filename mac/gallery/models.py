@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from filebrowser.fields import FileBrowseField
+from mac.gallery import managers
 
 
 class Gallery(models.Model):
@@ -75,20 +76,13 @@ class Exhibition(models.Model):
         "art.Canvas", db_table="exposicoes_exposicao_telas"
     )
 
+    objects = models.Manager()
+    current = managers.CurrentExhibitionsManager()
+    past = managers.PastExhibitionsManager()
+    future = managers.FutureExhibitionsManager()
+
     def __str__(self):
         return self.title
-
-    @property
-    def is_current(self):
-        return self.start_date <= datetime.date.today() <= self.end_date
-
-    @property
-    def is_past(self):
-        return self.end_date < datetime.date.today()
-
-    @property
-    def is_future(self):
-        return self.start_date > datetime.date.today()
 
     class Meta:
         db_table = "exposicoes_exposicao"

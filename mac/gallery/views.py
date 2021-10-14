@@ -150,38 +150,35 @@ def trofeu(request, aniversario_id):
     )
 
 
+# Exhibitions
 def exhibitions(request):
-    exposicoes = Exhibition.objects.all()
-    actuais = [exposicao for exposicao in exposicoes if exposicao.is_current]
-    return render(request, "exposicoes_actuais.html", {"exposicoes": actuais})
+    exhibitions = Exhibition.current.all()
+    return render(request, "exposicoes_actuais.html", {"exposicoes": exhibitions})
 
 
 def passadas(request):
-    exposicoes = Exhibition.objects.all()
-    passadas = [exposicao for exposicao in exposicoes if exposicao.is_past]
-    anos = list(set([exposicao.start_date.year for exposicao in passadas]))
-    anos.reverse()
-    return render(request, "exposicoes_passadas.html", {"years": anos})
+    exhibitions = Exhibition.past.all()
+    years = list(set([exhibition.start_date.year for exhibition in exhibitions]))
+    years.reverse()
+    return render(request, "exposicoes_passadas.html", {"years": years})
 
 
 def passadas_ano(request, exposicao_ano):
-    exposicoes = Exhibition.objects.filter(start_date__year=exposicao_ano)
-    passadas = [exposicao for exposicao in exposicoes if exposicao.is_past]
+    exhibitions = Exhibition.past.filter(start_date__year=exposicao_ano)
     context = {}
-    context["exposicoes"] = passadas
+    context["exposicoes"] = exhibitions
     context["ano"] = exposicao_ano
     return render(request, "exposicoes_passadas_ano.html", context)
 
 
 def futuras(request):
-    exposicoes = Exhibition.objects.all().order_by("start_date")
-    futuras = [exposicao for exposicao in exposicoes if exposicao.is_future]
-    return render(request, "exposicoes_futuras.html", {"exposicoes": futuras})
+    exhibitions = Exhibition.future.all().order_by("start_date")
+    return render(request, "exposicoes_futuras.html", {"exposicoes": exhibitions})
 
 
 def detail(request, exposicao_id):
     exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    actual = exposicao.exposicao_actual()
+    #actual = exposicao.exposicao_actual()
     telas = exposicao.canvases.all()
     fotos = exposicao.fotos.all()
     galerias = exposicao.galleries.all()
@@ -191,7 +188,7 @@ def detail(request, exposicao_id):
         request,
         "exposicoes_detalhe.html",
         {
-            "actual": actual,
+            #"actual": actual,
             "exposicao": exposicao,
             "telas": telas,
             "fotos": fotos,
