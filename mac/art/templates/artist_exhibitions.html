@@ -1,0 +1,20 @@
+{% extends "art/templates/artists.html" %}
+{% load i18n %}
+
+{% block sections %}
+{% if artist %}
+<div class="section">
+    <h2><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a> - {% trans "exposições" %}</h2>
+
+    {% for exhibition in exhibitions %}
+    <div>
+      <a href="/exposicoes/{{ exhibition.id }}">{{ exhibition.title }} |
+        {{ exhibition.start_date|date:"j F Y" }} - {{ exhibition.end_date|date:"j F Y" }}
+      </a>
+    </div>
+    {% empty %}
+        <p>Não há exposições.</p>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
