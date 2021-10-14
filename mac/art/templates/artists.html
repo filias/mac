@@ -4,7 +4,7 @@
 {% block sections %}
 <div class="section">
     
-    <h2>{% block subsection %}{% trans "artistas" %} - {% trans art_type %} {% endblock %}</h2>
+    <h2>{% block subsection %}<a href="{% url "artists" %}">{% trans "artistas" %}</a>{% if art_type %} - {% trans art_type %}{% endif %} {% endblock %}</h2>
     {% if artists %}
     <div class="row row-cols-3 row-cols-md-6 mt-5 artists__card">
         {% for artist in artists %}

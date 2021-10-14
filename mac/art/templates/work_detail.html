@@ -1,10 +1,10 @@
-{% extends "art/templates/artistas.html" %}
+{% extends "art/templates/artists.html" %}
 {% load i18n static %}
 
 {% block sections %}
 {% if obra %}
 <div class="section">
-    <h2>{{ obra.title }}BLA</h2>
+    <h2><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a> - {{ obra.title }}</h2>
     <table>
         <tr>
             <td valign="top">

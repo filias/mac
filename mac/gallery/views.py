@@ -24,12 +24,9 @@ def index(request):
 
 @never_cache
 def tela(request):
-    telas_list = Canvas.objects.all()
-    telas = []
-    for tela_completa in telas_list:
-        telas.append(tela_completa.image)
-    tela = random.choice(telas)
-    return HttpResponse("%s%s" % ("/site-media/", str(tela)), mimetype="text/plain")
+    canvases = Canvas.objects.all()
+    canvas = random.choice(canvases)
+    return HttpResponse("%s%s" % ("/site-media/", str(canvas.image)), mimetype="text/plain")
 
 
 def galerias(request):

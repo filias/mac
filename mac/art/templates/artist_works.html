@@ -1,0 +1,29 @@
+{% extends "art/templates/artists.html" %}
+{% load i18n static %}
+
+{% block sections %}
+{% if artist %}
+<div class="section">
+    <h2><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a> - {% trans "obra" %}</h2>
+
+{% if works %}
+<div class="obras">
+    {% for work in works %}
+    {% if work.foto %}
+    <div class="obra">
+        <div class="obra-holder">
+            <a class="lightbox" href="{% get_media_prefix %}{{ work.foto.thumbnail }}"
+               title="{{ work.title }} | {{ work.art_type }} | {{ work.year }}">
+                <img src="{% get_media_prefix %}{{ work.foto.thumbnail }}" border="0"
+                     alt="{{ work.title }} | {{ work.art_type }} | {{ work.year }}"
+                     title="{{ work.title }} | {{ work.art_type }} | {{ work.year }}"/>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+</div>
+{% endif %}
+{% endblock %}

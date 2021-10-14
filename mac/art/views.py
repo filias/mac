@@ -17,12 +17,12 @@ def artists_in_exhibition():
     current_exhibitions = [exhibition for exhibition in exhibitions if exhibition.is_current]
     artists_in_exhibition = []
     for exhibition in current_exhibitions:
-        artists_in_exhibition.add(exhibition.artistas.all())
+        artists_in_exhibition.add(exhibition.artists.all())
 
     return list(set(artists_in_exhibition))
 
 
-def artistas(request):
+def artists(request):
     # Get all artists
     artists = Artist.objects.filter(mac_artist=True).order_by("name")
     context = {}
@@ -35,7 +35,7 @@ def artistas(request):
 
     context["artists"] = artists
 
-    return render(request, "artistas.html", context)
+    return render(request, "artists.html", context)
 
 
 def artists_filter(art_type_filter):
@@ -46,60 +46,53 @@ def artists_filter(art_type_filter):
 
 def detail(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
-    works = ArtWork.objects.filter(author=artist_id, state__in=["E", "C"]).order_by(
-        "-year"
-    )
-    collection = ArtWork.objects.filter(author=artist_id, state="A").order_by("-year")
+    works = artist.artwork_set.filter(state__in=["E", "C"]).order_by("-year")
+    collection = artist.artwork_set.filter(state="A").order_by("-year")
     exhibitions = Exhibition.objects.filter(artists__id__exact=artist.id).order_by(
         "-start_date"
     )
-    critics = Publication.objects.filter(
-        artist__id__exact=artist.id, publication_type="Critica"
-    ).order_by("-date")
-    press = Publication.objects.filter(
-        artist__id__exact=artist.id, publication_type="Imprensa"
-    ).order_by("-date")
-    telas = artist_canvas(artist)
+    critics = artist.publication_set.filter(publication_type="Critica").order_by("-date")
+    press = artist.publication_set.filter(publication_type="Imprensa").order_by("-date")
+    canvases = artist_canvas(artist)
+
     return render(
         request,
-        "artistas_detalhe.html",
+        "artist_detail.html",
         {
-            "artista": artist,
-            "obras": works,
-            "telas": telas,
-            "exposicoes": exhibitions,
-            "imprensa": press,
-            "criticas": critics,
-            "acervo": collection,
+            "artist": artist,
+            "works": works,
+            "canvases": canvases,
+            "exhibitions": exhibitions,
+            "press": press,
+            "critics": critics,
+            "collection": collection,
         },
     )
 
 
-def obras(request, artist_id):
+def works(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
-    works = ArtWork.objects.filter(author=artist_id, state__in=["C", "E"]).order_by(
-        "-year"
-    )
+    works = artist.artwork_set.filter(state__in=["C", "E"]).order_by("-year")
     canvases = artist_canvas(artist)
     return render(
         request,
-        "artistas_obras.html",
-        {"artista": artist, "obras": works, "telas": canvases},
+        "artist_works.html",
+        {"artist": artist, "works": works, "canvases": canvases},
     )
 
 
-def acervo(request, artist_id):
+def collection(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
     works = ArtWork.objects.filter(author=artist_id, state="A").order_by("-year")
     canvases = artist_canvas(artist)
     return render(
         request,
-        "artistas_acervo.html",
-        {"artista": artist, "obras": works, "telas": canvases},
+        "artist_collection.html",
+        {"artist": artist, "works": works, "canvases": canvases},
     )
 
 
-def exposicoes(request, artist_id):
+def exhibitions(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
     exhibitions = Exhibition.objects.filter(artists__id__exact=artist_id).order_by(
         "-start_date"
@@ -107,12 +100,12 @@ def exposicoes(request, artist_id):
     canvases = artist_canvas(artist)
     return render(
         request,
-        "artistas_exposicoes.html",
-        {"artista": artist, "exposicoes": exhibitions, "telas": canvases},
+        "artist_exhibitions.html",
+        {"artist": artist, "exhibitions": exhibitions, "canvases": canvases},
     )
 
 
-def critica(request, artist_id):
+def critics(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
     critics = Publication.objects.filter(
         artist__id__exact=artist_id, publication_type="Critica"
@@ -120,12 +113,12 @@ def critica(request, artist_id):
     canvases = artist_canvas(artist)
     return render(
         request,
-        "artistas_critica.html",
-        {"artista": artist, "criticas": critics, "telas": canvases},
+        "artist_critics.html",
+        {"artist": artist, "critics": critics, "canvases": canvases},
     )
 
 
-def imprensa(request, artist_id):
+def press(request, artist_id):
     artist = get_object_or_404(Artist, pk=artist_id)
     press = Publication.objects.filter(
         artist__id__exact=artist_id, publication_type="Imprensa"
@@ -133,24 +126,24 @@ def imprensa(request, artist_id):
     canvases = artist_canvas(artist)
     return render(
         request,
-        "artistas_imprensa.html",
-        {"artista": artist, "imprensa": press, "telas": canvases},
+        "artist_press.html",
+        {"artist": artist, "press": press, "canvases": canvases},
     )
 
 
-def obra_detalhe(request, obra_id, artist_id):
+def work_detail(request, obra_id, artist_id):
     work = get_object_or_404(ArtWork, pk=obra_id)
     canvases = work.author.canvases.all()
     techniques = work.techniques.all()
     materials = work.materials.all()
     return render(
         request,
-        "obra_detalhe.html",
+        "work_detail.html",
         {
-            "obra": work,
-            "telas": canvases,
-            "tecnicas": techniques,
-            "materiais": materials,
+            "work": work,
+            "canvases": canvases,
+            "techniques": techniques,
+            "materials": materials,
             "id_artist": artist_id,
         },
     )
