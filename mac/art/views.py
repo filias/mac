@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
 from mac.art.models import Artist, ArtWork
-from mac.common import common
 from mac.gallery.models import Exhibition, Publication
 
 
@@ -9,19 +8,32 @@ def artist_canvas(artist):
     return artist.canvases.all()
 
 
+def artists_in_exhibition():
+    """Artists in current Exhibitions"""
+    # TODO: check if this should be used
+    exhibitions = Exhibition.objects.all()
+
+    # TODO: make a manager for this
+    current_exhibitions = [exhibition for exhibition in exhibitions if exhibition.is_current]
+    artists_in_exhibition = []
+    for exhibition in current_exhibitions:
+        artists_in_exhibition.add(exhibition.artistas.all())
+
+    return list(set(artists_in_exhibition))
+
+
 def artistas(request):
+    # Get all artists
     artists = Artist.objects.filter(mac_artist=True).order_by("name")
-    context = {"artists": artists}
+    context = {}
 
-    # Artists in current Exhibitions. TODO: this can be largely improved
-    exposicoes = common.EXPOSICOES
-    actuais = [exposicao for exposicao in exposicoes if exposicao.exposicao_actual()]
-    artistas_em_exposicao = []
-    for exposicao in actuais:
-        artistas_em_exposicao.extend(exposicao.artistas.all())
-    artistas_em_exposicao = list(set(artistas_em_exposicao))
+    # Filter by art type
+    art_type = request.GET.get("type")
+    if art_type:
+        artists = artists.filter(art_type__name=art_type)
+        context["art_type"] = art_type
 
-    context["em_exposicao"] = artistas_em_exposicao
+    context["artists"] = artists
 
     return render(request, "artistas.html", context)
 
@@ -30,46 +42,6 @@ def artists_filter(art_type_filter):
     return Artist.objects.filter(
         art_type__name=art_type_filter, mac_artist=True
     ).order_by("name")
-
-
-def pintura(request):
-    artists = artists_filter("Pintura")
-    return render(request, "artistas_pintura.html", {"artists": artists})
-
-
-def medalhistica(request):
-    artists = artists_filter("Medalhistica")
-    return render(request, "artistas_medalhistica.html", {"artists": artists})
-
-
-def joalharia(request):
-    artists = artists_filter("Joalharia")
-    return render(request, "artistas_joalharia.html", {"artists": artists})
-
-
-def escultura(request):
-    artists = artists_filter("Escultura")
-    return render(request, "artistas_escultura.html", {"artists": artists})
-
-
-def fotografia(request):
-    artists = artists_filter("Fotografia")
-    return render(request, "artistas_fotografia.html", {"artists": artists})
-
-
-def desenho(request):
-    artists = artists_filter("Desenho")
-    return render(request, "artistas_desenho.html", {"artists": artists})
-
-
-def ceramica(request):
-    artists = artists_filter("Ceramica")
-    return render(request, "artistas_ceramica.html", {"artists": artists})
-
-
-def trofeus(request):
-    artists = artists_filter("Trofeus")
-    return render(request, "artistas_trofeus.html", {"artists": artists})
 
 
 def detail(request, artist_id):

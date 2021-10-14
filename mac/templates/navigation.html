@@ -40,13 +40,13 @@
                     <a class="nav-link dropdown-toggle {% active request '/artistas' %}" href="/artistas" id="artistsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {% trans 'artistas' %}</a>
                     <ul class="dropdown-menu {% active request '/artistas' %}" aria-labelledby="artistsDropdown">
-                        <li><a class="dropdown-item" href="{% url "ceramics" %}">{% trans "cerâmica" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "drawing" %}">{% trans "desenho" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "sculpture" %}">{% trans "escultura" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "photography" %}">{% trans "fotografia" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "jewelry" %}">{% trans "joalharia" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "medals" %}">{% trans "medalhística" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "painting" %}">{% trans "pintura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=ceramica">{% trans "cerâmica" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=desenho">{% trans "desenho" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=escultura">{% trans "escultura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=fotografia">{% trans "fotografia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=joalharia">{% trans "joalharia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=medalhistica">{% trans "medalhística" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=pintura">{% trans "pintura" %}</a></li>
                     </ul>
                 </li>
                 <!-- publications item  -->

@@ -78,13 +78,16 @@ class Exhibition(models.Model):
     def __str__(self):
         return self.title
 
-    def exposicao_actual(self):
+    @property
+    def is_current(self):
         return self.start_date <= datetime.date.today() <= self.end_date
 
-    def exposicao_passada(self):
+    @property
+    def is_past(self):
         return self.end_date < datetime.date.today()
 
-    def exposicao_futura(self):
+    @property
+    def is_future(self):
         return self.start_date > datetime.date.today()
 
     class Meta:

@@ -98,6 +98,7 @@ INSTALLED_APPS = (
     "mac.art",
     "mac.gallery",
     "storages",
+    "django_extensions",
 )
 
 

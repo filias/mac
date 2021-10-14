@@ -5,7 +5,6 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.cache import never_cache
 
 from mac.art.models import Artist, ArtWork, Canvas
-from mac.common import common
 from mac.gallery.forms import ContactForm
 from mac.gallery.models import (
     Anniversary,
@@ -19,7 +18,7 @@ from mac.gallery.models import (
 
 
 def index(request):
-    destaques = Snippet.objects.filter(visivel=True).order_by("ordem")
+    destaques = Snippet.objects.filter(is_visible=True).order_by("ordering")
     return render(request, "templates/index.html", {"destaques": destaques})
 
 
@@ -152,14 +151,14 @@ def trofeu(request, aniversario_id):
 
 
 def exhibitions(request):
-    exposicoes = common.EXPOSICOES
-    actuais = [exposicao for exposicao in exposicoes if exposicao.exposicao_actual()]
+    exposicoes = Exhibition.objects.all()
+    actuais = [exposicao for exposicao in exposicoes if exposicao.is_current]
     return render(request, "exposicoes_actuais.html", {"exposicoes": actuais})
 
 
 def passadas(request):
-    exposicoes = common.EXPOSICOES
-    passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
+    exposicoes = Exhibition.objects.all()
+    passadas = [exposicao for exposicao in exposicoes if exposicao.is_past]
     anos = list(set([exposicao.start_date.year for exposicao in passadas]))
     anos.reverse()
     return render(request, "exposicoes_passadas.html", {"years": anos})
@@ -167,7 +166,7 @@ def passadas(request):
 
 def passadas_ano(request, exposicao_ano):
     exposicoes = Exhibition.objects.filter(start_date__year=exposicao_ano)
-    passadas = [exposicao for exposicao in exposicoes if exposicao.exposicao_passada()]
+    passadas = [exposicao for exposicao in exposicoes if exposicao.is_past]
     context = {}
     context["exposicoes"] = passadas
     context["ano"] = exposicao_ano
@@ -176,7 +175,7 @@ def passadas_ano(request, exposicao_ano):
 
 def futuras(request):
     exposicoes = Exhibition.objects.all().order_by("start_date")
-    futuras = [exposicao for exposicao in exposicoes if exposicao.exposicao_futura()]
+    futuras = [exposicao for exposicao in exposicoes if exposicao.is_future]
     return render(request, "exposicoes_futuras.html", {"exposicoes": futuras})
 
 
