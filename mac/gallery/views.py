@@ -149,65 +149,75 @@ def trofeu(request, aniversario_id):
 
 # Exhibitions
 def exhibitions(request):
-    exhibitions = Exhibition.current.all()
-    return render(request, "exposicoes_actuais.html", {"exposicoes": exhibitions})
+    exhibitions = []
+    context = {}
+
+    # Filter by time
+    time_type = request.GET.get("type")
+    if time_type:
+        context["time_type"] = time_type
+
+        if time_type == "passadas":
+            exhibitions = Exhibition.past.all()
+            years = list(set([exhibition.start_date.year for exhibition in exhibitions]))
+            years.reverse()
+            context["years"] = years
+            context["exposicoes"] = exhibitions
+            return render(request, "exhibitions_past.html", context)
+        elif time_type == "futuras":
+            exhibitions = Exhibition.future.all().order_by("start_date")
+        elif time_type == "actuais":
+            exhibitions = Exhibition.current.all()
+    else:
+        exhibitions = Exhibition.current.all()
+
+    context["exposicoes"] = exhibitions
+
+    return render(request, "exhibitions.html", context)
 
 
-def passadas(request):
-    exhibitions = Exhibition.past.all()
-    years = list(set([exhibition.start_date.year for exhibition in exhibitions]))
-    years.reverse()
-    return render(request, "exposicoes_passadas.html", {"years": years})
-
-
-def passadas_ano(request, exposicao_ano):
+def past_by_year(request, exposicao_ano):
     exhibitions = Exhibition.past.filter(start_date__year=exposicao_ano)
     context = {}
-    context["exposicoes"] = exhibitions
-    context["ano"] = exposicao_ano
-    return render(request, "exposicoes_passadas_ano.html", context)
-
-
-def futuras(request):
-    exhibitions = Exhibition.future.all().order_by("start_date")
-    return render(request, "exposicoes_futuras.html", {"exposicoes": exhibitions})
+    context["exhibitions"] = exhibitions
+    context["year"] = exposicao_ano
+    context["time_type"] = "passadas"
+    return render(request, "exhibitions.html", context)
 
 
 def detail(request, exposicao_id):
-    exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    #actual = exposicao.exposicao_actual()
-    telas = exposicao.canvases.all()
-    fotos = exposicao.fotos.all()
-    galerias = exposicao.galleries.all()
-    artistas = exposicao.artists.all()
-    obras = exposicao.art_works.all().order_by("-year")
+    exhibition = get_object_or_404(Exhibition, pk=exposicao_id)
+    canvases = exhibition.canvases.all()
+    fotos = exhibition.fotos.all()
+    galleries = exhibition.galleries.all()
+    artists = exhibition.artists.all()
+    works = exhibition.art_works.all().order_by("-year")
     return render(
         request,
-        "exposicoes_detalhe.html",
+        "exhibition_detail.html",
         {
-            #"actual": actual,
-            "exposicao": exposicao,
-            "telas": telas,
+            "exhibition": exhibition,
+            "canvases": canvases,
             "fotos": fotos,
-            "galerias": galerias,
-            "artistas": artistas,
-            "obras": obras,
+            "galleries": galleries,
+            "artists": artists,
+            "works": works,
         },
     )
 
 
-def obras(request, exposicao_id):
-    exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    obras = exposicao.art_works.all().order_by("-year")
-    telas = exposicao.canvases.all()
+def exhibition_works(request, exposicao_id):
+    exhibition = get_object_or_404(Exhibition, pk=exposicao_id)
+    works = exhibition.art_works.all().order_by("-year")
+    canvases = exhibition.canvases.all()
     return render(
         request,
-        "exposicoes_obras.html",
-        {"exposicao": exposicao, "obras": obras, "telas": telas},
+        "exhibition_works.html",
+        {"exhibition": exhibition, "works": works, "canvases": canvases},
     )
 
 
-def obra_detalhe(request, exposicao_id, obra_id):
+def work_detail(request, exposicao_id, obra_id):
     obra = get_object_or_404(ArtWork, pk=obra_id)
     exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
     telas = obra.author.canvases.all()
@@ -226,7 +236,8 @@ def obra_detalhe(request, exposicao_id, obra_id):
     )
 
 
-def catalogos(request, select):
+# Publications
+def publications(request, select):
     context = {}
     context["publicacoes"] = Publication.objects.filter(
         publication_type="Catalogo", artist__name__range=(select[0], select[1])

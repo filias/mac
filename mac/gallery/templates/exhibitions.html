@@ -3,12 +3,12 @@
 
 {% block sections %}
 <div class="section">
-   <h2>{% trans "exposições" %}{% block subsection %}{% endblock %}</h2>
+    <h2><a href="{% url "exhibitions" %}">{% trans "exposições" %} - </a>{% if time_type %}<a href="{% url "exhibitions" %}?type={{ time_type }}">{% trans time_type %}</a>{% else %}{% trans "actuais" %}{% endif %}{% if year %} - {{ year }}{% endif %}</h2>
 
-    {% if exposicoes %}
+    {% if exhibitions %}
     <div class="container">
         <div class="row mt-5"> 
-        {% for exhibition in exposicoes %}
+        {% for exhibition in exhibitions %}
         <div class="col col-sm-2">
             <div class="card mb-5 text-center shadow">
                 <div class="card-body">

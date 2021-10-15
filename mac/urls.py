@@ -4,18 +4,14 @@ from django.urls import path
 from filebrowser.sites import site
 
 from .gallery.views import (
-    catalogos,
     contacte_nos,
     contactos,
-    critica,
     detail,
     exhibitions,
-    futuras,
-    imprensa,
-    obra_detalhe,
-    obras,
-    passadas,
-    passadas_ano,
+    work_detail,
+    exhibition_works,
+    past_by_year,
+    publications,
     sucesso,
 )
 from .views import links, mapa, resultados
@@ -40,28 +36,27 @@ urlpatterns = [
     path("mapa/", mapa),
     path("resultados/", resultados),
     path("links/", links),
+
     # Exhibitions
-    url(r"^exposicoes/actuais/$", exhibitions, name="current_exhibitions"),
-    url(r"^exposicoes/passadas/$", passadas, name="past_exhibitions"),
-    url(r"^exposicoes/futuras/$", futuras, name="future_exhibitions"),
-    url(
-        r"^exposicoes/passadas/(?P<exposicao_ano>\d+)/$",
-        passadas_ano,
+    path("exposicoes/", exhibitions, name="exhibitions"),
+    path(
+        "exposicoes/passadas/<int:exposicao_ano>/",
+        past_by_year,
         name="past_exhibitions_per_year",
     ),
-    url(r"^exposicoes/(?P<exposicao_id>\d+)/$", detail, name="exhibition_detail"),
-    url(r"^exposicoes/(?P<exposicao_id>\d+)/obras/$", obras, name="exhibition_works"),
-    url(
-        r"^exposicoes/(?P<exposicao_id>\d+)/obras/(?P<obra_id>\d+)/$",
-        obra_detalhe,
+    path("exposicoes/<int:exposicao_id>/", detail, name="exhibition_detail"),
+    path("exposicoes/<int:exposicao_id>/obras/", exhibition_works, name="exhibition_works"),
+    path(
+        "exposicoes/<int:exposicao_id>/obras/<int:obra_id>/",
+        work_detail,
         name="work_detail",
     ),
+
     # Contacts
-    url(r"^contactos/", contactos, name="contacts"),
-    url(r"^contacte_nos/$", contacte_nos, name="contact_us"),
-    url(r"^contacte_nos/sucesso/$", sucesso, name="contact_success"),
+    path("contactos/", contactos, name="contacts"),
+    path("contacte_nos/", contacte_nos, name="contact_us"),
+    path("contacte_nos/sucesso/", sucesso, name="contact_success"),
+
     # Publications
-    url(r"^publicacoes/catalogos/(?P<select>\w+)/$", catalogos, name="catalogs"),
-    url(r"^publicacoes/imprensa/(?P<select>\w+)/$", imprensa, name="press"),
-    url(r"^publicacoes/critica/(?P<select>\w+)/$", critica, name="critics"),
+    path("publicacoes/", publications, name="publications"),
 ]
