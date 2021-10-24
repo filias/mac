@@ -32,7 +32,7 @@ urlpatterns = [
     url(r"^i18n/", include("django.conf.urls.i18n")),
     # Site urls
     path("mac/", include("mac.gallery.urls")),
-    path("art/", include("mac.art.urls")),
+    path("artists/", include("mac.art.urls")),
     path("mapa/", mapa),
     path("resultados/", resultados),
     path("links/", links),

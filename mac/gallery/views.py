@@ -83,15 +83,15 @@ def acervo_artist(request, artist_id):
 
 
 def acervo_detalhe(request, obra_id, artist_id):
-    obra = get_object_or_404(ArtWork, pk=obra_id)
-    telas = obra.author.canvases.all()
-    tecnicas = obra.techniques.all()
-    materiais = obra.materials.all()
+    work = get_object_or_404(ArtWork, pk=obra_id)
+    canvases = work.author.canvases.all()
+    techniques = work.techniques.all()
+    materials = work.materials.all()
 
     return render(
         request,
         "acervo_detalhe.html",
-        {"obra": obra, "telas": telas, "tecnicas": tecnicas, "materiais": materiais},
+        {"work": work, "canvases": canvases, "techniques": techniques, "materials": materials},
     )
 
 
@@ -218,20 +218,20 @@ def exhibition_works(request, exposicao_id):
 
 
 def work_detail(request, exposicao_id, obra_id):
-    obra = get_object_or_404(ArtWork, pk=obra_id)
-    exposicao = get_object_or_404(Exhibition, pk=exposicao_id)
-    telas = obra.author.canvases.all()
-    tecnicas = obra.techniques.all()
-    materiais = obra.materials.all()
+    work = get_object_or_404(ArtWork, pk=obra_id)
+    exhibition = get_object_or_404(Exhibition, pk=exposicao_id)
+    canvases = work.author.canvases.all()
+    techniques = work.techniques.all()
+    materials = work.materials.all()
     return render(
         request,
-        "obra_detalhe.html",
+        "work_detail2.html",
         {
-            "obra": obra,
-            "telas": telas,
-            "tecnicas": tecnicas,
-            "materiais": materiais,
-            "exposicao": exposicao,
+            "work": work,
+            "canvases": canvases,
+            "techniques": techniques,
+            "materials": materials,
+            "exhibition": exhibition,
         },
     )
 

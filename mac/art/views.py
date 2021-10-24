@@ -144,6 +144,6 @@ def work_detail(request, obra_id, artist_id):
             "canvases": canvases,
             "techniques": techniques,
             "materials": materials,
-            "id_artist": artist_id,
+            "artist_id": artist_id,
         },
     )
