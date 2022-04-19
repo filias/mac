@@ -1,0 +1,62 @@
+{% extends "gallery/templates/galeria.html" %}
+{% load i18n static %}
+
+{% block sections %}
+<div class="section">
+    <h2>{% trans "prémios MAC" %} - {{ aniversario.date|date:"Y" }}</h2>
+
+    <table cellpading="0" cellspacing="0" border="0">
+
+        <tr>
+            <td valign="top">
+
+                <a href="/mac/premios/{{ aniversario.id }}/trofeu">
+                    <img src="{% get_media_prefix %}{{ aniversario.trophy.foto.thumbnail }}" border=0>
+                </a>
+
+                {% if aniversario.convite %}
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.invitation }}">{% trans "Convite" %}</a></h4>
+                {% endif %}
+
+                {% if aniversario.catalogo %}
+                    <h4><a href="{% get_media_prefix %}{{ aniversario.catalog }}">{% trans "Catálogo" %}</a></h4>
+                {% endif %}
+
+                {% if premios %}
+                    <h4><a href="/mac/premios/{{ aniversario.id }}/premiados">{% trans "Premiados" %}</a></h4>
+                {% endif %}
+
+            </td>
+
+            <td valign="top">
+                {% if aniversario.date %}
+                    <p><i>{{ aniversario.date|date:"j F Y" }}</i></p>
+                {% endif %}
+
+                {% ifequal LANGUAGE_CODE "en" %}
+                    <p>{{ aniversario.description_en }}</p>
+                {% else %}
+                    <p>{{ aniversario.description }}</p>
+                {% endifequal %}
+
+                {% if fotos %}
+                    <div class="obras">
+                        {% for foto in fotos %}
+                            <div class="obra" style="border:none; margin:10px 10px 0 0;">
+                                <div class="obra-holder">
+                                    <a href="{% get_media_prefix %}{{ foto.image }}">
+                                        <img src="{% get_media_prefix %}{{ foto.thumbnail }}" target="blank"/>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+{% endblock %}

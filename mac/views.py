@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from mac.publicacoes.models import Link
+from mac.gallery.models import Link
 
 
 def resultados(request):

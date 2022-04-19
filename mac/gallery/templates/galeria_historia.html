@@ -1,0 +1,17 @@
+{% extends "gallery/templates/galeria.html" %}
+{% load i18n %}
+
+{% block sections %}
+    <div class="section">
+        <h2>{% trans "história" %}</h2>
+        {% if texto %}
+        <div class="text">
+        {% ifequal LANGUAGE_CODE 'en' %}
+            <p>{{ texto.text_en }}</p>
+        {% else %}
+            <p>{{ texto.text }}</p>
+        {% endifequal %}
+        </div>
+	{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "art/templates/artists.html" %}
+{% load i18n static %}
+
+{% block sections %}
+{% if exhibition %}
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <h2><a href="{% url "exhibitions" %}">{% trans "exposições" %}</a> - <a href="{% url "exhibition_detail" exhibition.id %}">"{{ exhibition.title }}"</a> - {% trans "Obras" %}</h2>
+        </div>
+    </div>
+
+    {% if works %}
+    {% for work in works %}
+    <div class="square-expo text-center">
+        <div class="content-expo shadow">
+        {% if work.foto %}
+            <a href="{% url "work_detail" exhibition.id work.id %}">
+                <img class="img-thumbnail" src="{% get_media_prefix %}{{ work.foto.thumbnail}}" alt="{{ work.title }} | {{ work.art_work_type }} | {{ work.year }}"
+                    title="{{ work.author }} | {{ work.title }} | {{ work.art_work_type }} | {{ work.year }}"/>
+            </a>
+        {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+        <p>Não há obras na exposição.</p>
+    {% endif %}
+{% endif %}
+</div>
+{% endblock %}

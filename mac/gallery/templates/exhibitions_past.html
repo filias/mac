@@ -1,0 +1,28 @@
+{% extends "templates/base.html" %}
+{% load i18n %}
+
+{% block sections %}
+<div class="section">
+    <h2><a href="{% url "exhibitions" %}">{% trans "exposições" %}</a> - {% trans "passadas" %}</h2>
+    {% if years %}
+    <div class="container">
+        {% for year in years %}
+            <div class="square">
+                <div class="content  shadow bg-body rounded">
+                    <div class="table">
+                        <div class="table-cell">
+                            <button type="button" class="btn btn-outline table-cell">
+                                <a href="{% url "past_exhibitions_per_year" year %}">{{ year }}</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    {% else %}
+        <p>Não há exposições passadas.</p>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

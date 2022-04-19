@@ -1,0 +1,90 @@
+{% extends "gallery/templates/exhibitions.html" %}
+{% load i18n static %}
+
+{% block sections %}
+{% if exhibition %}
+<div class="section">
+    <h2><a href="{% url "exhibitions" %}">{% trans "exposições" %}</a> - "{{ exhibition.title }}"</h2>
+
+    <div class="row mt-5">
+        <div class="col-12 col-sm-2 text-center text-sm-start mb-3">
+            {% if works %}
+                {% for work in works %}
+                    {% if forloop.first %}
+                        {% if work.foto %}
+                        <a href="{% url "exhibition_works" exhibition.id %}" target="blank">
+                            <img class="mb-2 img-fluid" src="{% get_media_prefix %}{{ work.foto.thumbnail}}"/>
+                        </a>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <img src="{% get_media_prefix %}fotos/mac1_01.jpg" width="140"/>
+            {% endif %}
+
+            {% if works %}
+                <div><a href="{% url "exhibition_works" exhibition.id %}">{% trans "Obras" %}</a></div>
+            {% endif %}
+
+            {% if exhibition.press_release %}
+                <div><a href="{% get_media_prefix %}{{ exhibition.press_release }}">{% trans "Press Release" %} <i
+                            class="bi bi-arrow-up-right-square"></i></a></div>
+            {% endif %}
+
+            {% if exhibition.invitation %}
+                <div><a href="{% get_media_prefix %}{{ exhibition.invitation }}">{% trans "Convite" %} <i
+                            class="bi bi-arrow-up-right-square"></i></a></div>
+            {% endif %}
+
+            {% if exhibition.catalog_id %}
+                <div><a href="{% get_media_prefix %}{{ exhibition.catalog.file }}">{% trans "Catálogo" %}</a></div>
+            {% endif %}
+
+        </div>
+        <div class="col-12 col-sm-10">
+
+            <p><i>{{ exhibition.start_date|date:"j F" }} - {{ exhibition.end_date|date:"j F Y" }}</i></p>
+
+            {% if galleries %}
+                {% for gallery in galleries %}
+                    <p><b>{% trans "Galerias" %}: </b><a href="/mac/galerias">{{ gallery }}</a></p>
+                {% endfor %}
+            {% endif %}
+
+            {% if artists %}
+            <p><b>{% trans "Artistas" %}: </b>
+                {% for artist in artists %}
+                    {% if forloop.last %}
+                    <a href="{% url "artist_detail" artist.id %}">{{ artist }}</a>
+                    {% else %}
+                    <a href="{% url "artist_detail" artist.id %}">{{ artist }}, </a>
+                    {% endif %}
+                {% endfor %}
+            </p>
+            {% endif %}
+
+            {% ifequal LANGUAGE_CODE 'en' %}
+                <p>{{ exhibition.description_en }}</p>
+            {% else %}
+                <p>{{ exhibition.description }}</p>
+            {% endifequal %}
+
+            {% if fotos %}
+            <div class="obras">
+                {% for foto in fotos %}
+                <div class="obra" style="border:none; margin:10px 10px 0 0;">
+                    <div class="obra-holder">
+                        <a href="{% get_media_prefix %}{{ foto.image }}">
+                            <img src="{% get_media_prefix %}{{ foto.thumbnail }}" target="blank" />
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

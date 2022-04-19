@@ -1,0 +1,61 @@
+{% extends "art/templates/artists.html" %}
+{% load i18n static %}
+
+{% block sections %}
+{% if work %}
+<div class="section">
+    <h2><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a> - {{ work.title }} BLA</h2>
+    <table>
+        <tr>
+            <td valign="top">
+                <a href="{% get_media_prefix %}{{ work.foto.image }}" target="blank"><img
+                        src="{% get_media_prefix %}{{ work.foto.thumbnail }}" border=0/></a>
+            </td>
+
+            <td valign="top">
+                <p><b>{{ work.title }} ({{ work.year }})</b></p>
+
+                <p><b>Tipo: </b>{{ work.art_type }}</p>
+
+                {% if work.description %}
+                    <!--<i>Obra em {{ work.state }}</i>-->
+                    <p><b>{% trans "Descrição" %}: </b>{{ work.description }}</p>
+                {% endif %}
+
+                {% if work.height %}
+                    <p><b>{% trans "Dimensões" %}: </b>
+                        {{ work.height }} cm x {{ work.width }} cm
+                        {% if work.depth %}
+                            x {{ work.depth }} cm
+                        {% endif %}
+                    </p>
+                {% endif %}
+
+                {% if materiais %}
+                    <p><b>{% trans "Materiais" %}: </b>
+                    {% for material in materiais %}
+                        {% if forloop.last %}
+                            {{ material }}
+                        {% else %}
+                            {{ material }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+
+                {% if tecnicas %}
+                    <p><b>{% trans "Técnicas" %}: </b>
+                    {% for tecnica in tecnicas %}
+                        {% if forloop.last %}
+                            {{ tecnica }}
+                        {% else %}
+                            {{ tecnica }},
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+
+</div>
+{% endif %}
+{% endblock %}

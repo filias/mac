@@ -1,0 +1,18 @@
+{% extends "gallery/templates/galeria.html" %}
+{% load i18n %}
+
+{% block sections %}
+
+	<div class="section">
+    
+        <h2>{% trans "curriculum" %} - {{ ano }}</h2>
+       
+       {% for evento in eventos %}
+            <h4><a href="/exposicoes/{{ evento.id }}">{{ evento.title }} | {{ evento.start_date|date:"j F" }} - {{ evento.end_date|date:"j F Y" }}</a></h4>
+	    <p></p>
+        {% endfor %}
+        
+    </div>
+    
+{% endblock %}
+

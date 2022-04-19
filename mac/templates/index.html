@@ -2,126 +2,30 @@
 {% load i18n static %}
 
 {% block sections %}
+<div class="section">
+    <h2>{% trans "Destaques" %}</h2>
 
-    <div class="section">
-        <h2>{% trans "Destaques" %}</h2>
+    {% if destaques %}
+    <table class="table table-borderless text-center" id="index-table">
+        <tr>
+        {% for destaque in destaques %}
+            {% if destaque.image %}
+            <td>
+                <img src="{% get_media_prefix %}{{ destaque.image }}"/>
+            </td>
+            {% endif %}
+            <td>
+            {% ifequal LANGUAGE_CODE 'en' %}
+                <p>{{ destaque.text_en }}</p>
+            {% else %}
+                <p>{{ destaque.text }}</p>
+            {% endifequal %}
+            </td>
+        {% endfor %}
+        </tr>
+    </table>
+    {% endif %}
 
-        {% if destaques %}
-
-            <table class="table table-borderless text-center" id="index-table">
-
-                {# There is 1 visible News article #}
-                {% if destaques|length_is:"1" %}
-                    <tr>
-                        {% for destaque in destaques %}
-                            {% if destaque.imagem %}
-                                <td>
-                                    <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
-                                </td>
-                            {% endif %}
-                                <td>
-                                {% ifequal LANGUAGE_CODE 'en' %}
-                                    <p>{{ destaque.texto_en }}</p>
-                                {% else %}
-                                    <p>{{ destaque.texto }}</p>
-                                {% endifequal %}
-                                </td>
-                        {% endfor %}
-                    </tr>
-                {% endif %}
-
-                {# There are 2 visible News articles #}
-                {% if destaques|length_is:"2" %}
-                    <tr>
-                        {% for destaque in destaques %}
-                            {% ifequal forloop.counter 1 %}
-                                <td>
-                                    {% else %}
-                                <td>
-                            {% endifequal %}
-                        {% if destaque.imagem %}
-                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"/></a>
-                        {% endif %}
-
-                        {% ifequal LANGUAGE_CODE 'en' %}
-                            <p>{{ destaque.texto_en }}</p>
-                        {% else %}
-                            <p>{{ destaque.texto }}</p>
-                        {% endifequal %}
-
-                        </td>
-                        {% endfor %}
-                    </tr>
-                {% endif %}
-
-                {# There are 3 visible News articles #}
-                {% if destaques|length_is:"3" %}
-                    <tr>
-                        {% for destaque in destaques %}
-                            {% ifequal forloop.counter 1 %}
-                                <td>
-                            {% endifequal %}
-                        {% ifequal forloop.counter 2 %}
-                            <td>
-                        {% endifequal %}
-                        {% ifequal forloop.counter 3 %}
-                            <td>
-                        {% endifequal %}
-                        {% if destaque.imagem %}
-                            <a href="{{ destaque.url }}"><img src="{% get_media_prefix %}{{ destaque.imagem }}"/></a>
-                        {% endif %}
-
-                        {% ifequal LANGUAGE_CODE 'en' %}
-                            <p>{{ destaque.texto_en }}</p>
-                        {% else %}
-                            <p>{{ destaque.texto }}</p>
-                        {% endifequal %}
-
-                        </td>
-                        {% endfor %}
-                    </tr>
-                {% endif %}
-
-                {# There are 4 visible News articles #}
-                {% if destaques|length_is:"4" %}
-                    <tr>
-                        {% for destaque in destaques %}
-                            {% ifequal forloop.counter 3 %}
-                                <tr>
-                            {% endifequal %}
-                        {% ifequal forloop.counter 1 %}
-                            <td>
-                        {% endifequal %}
-                        {% ifequal forloop.counter 3 %}
-                            <td>
-                        {% endifequal %}
-                        {% ifequal forloop.counter 2 %}
-                            <td>
-                        {% endifequal %}
-                        {% ifequal forloop.counter 4 %}
-                            <td>
-                        {% endifequal %}
-                        {% if destaque.imagem %}
-                            <img src="{% get_media_prefix %}{{ destaque.imagem }}"/>
-                        {% endif %}
-
-                        {% ifequal LANGUAGE_CODE 'en' %}
-                            <p>{{ destaque.texto_en }}</p>
-                        {% else %}
-                            <p>{{ destaque.texto }}</p>
-                        {% endifequal %}
-
-                        </td>
-                        {% ifequal forloop.counter 2 %}
-                            </tr>
-                        {% endifequal %}
-                        {% endfor %}
-                    </tr>
-                {% endif %}
-
-            </table>
-        {% endif %}
-
-    </div>
+</div>
 {% endblock %}
 

@@ -76,8 +76,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "mac.geral.context_processors.contacts_renderer",
-                "mac.geral.context_processors.telas_renderer",
+                "mac.gallery.context_processors.contacts_renderer",
+                "mac.gallery.context_processors.telas_renderer",
             ),
             "debug": False,
         },
@@ -95,12 +95,10 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.redirects",
     "django.contrib.staticfiles",
-    "mac.galeria",
-    "mac.exposicoes",
-    "mac.artistas",
-    "mac.publicacoes",
-    "mac.geral",
+    "mac.art",
+    "mac.gallery",
     "storages",
+    "django_extensions",
 )
 
 

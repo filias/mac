@@ -1,0 +1,45 @@
+{% extends "gallery/templates/galeria.html" %}
+{% load i18n static %}
+
+{% block sections %}
+<div class="section">
+
+    <h2>{% block subsection %}{% trans "Acervo" %} {% endblock %}</h2>
+
+    {% if artists %}
+    <div class="row row-cols-3 row-cols-md-6 mt-5 artists__card">
+        {% for artist in artists %}
+        <div>
+            <div class="card mb-5 border-0">
+                <a href="/mac/acervo/{{ artist.id }}" class="card-link">
+                    {% if artist.foto.thumbnail %}
+                    <img src="{% get_media_prefix %}{{ artist.foto.thumbnail }}" class="card-img-top artists__img" alt="image">
+                    {% else %}
+                    <img src="{% static 'images/photo-placeholder.jpg' %}" class="card-img-top artists__img" alt="image">
+                    {% endif %}
+                    <div class="mt-3">
+                        <p class="text-center artist__text">{{ artist.name }} </p>
+                    </div>
+                </a>
+            </div>
+            <div width="20%" valign="bottom">
+                {% for destaque in em_exposicao %}
+                    {% ifequal destaque.name artist.name %}
+                        <span style="color:red;">*</span>
+                    {% endifequal %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>{% trans "Não há artistas." %}</p>
+    {% endif %}
+</div>
+<div class="container">
+    <div class="row">
+        <div colspn="12">
+            <p>Informações de PVP (preço de venda ao público) <a href="/contactos">contacte-nos</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

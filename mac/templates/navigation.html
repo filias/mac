@@ -28,35 +28,35 @@
                 </li>
                 <!-- exibitions item  -->
                 <li class="nav-item dropdown text-uppercase">
-                    <a class="nav-link dropdown-toggle {% active request '/exposicoes' %}" href="/exposicoes/actuais" id="exibitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'exposições' %}</a>
+                    <a class="nav-link dropdown-toggle {% active request '/exposicoes' %}" href="{% url "exhibitions" %}" id="exibitionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'exposições' %}</a>
                     <ul class="dropdown-menu {% active request '/exposicoes' %}" aria-labelledby="exibitionsDropdown">
-                        <li><a class="dropdown-item" href="{% url "past_exhibitions" %}">{% trans "passadas" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "current_exhibitions" %}">{% trans "actuais" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "future_exhibitions" %}">{% trans "futuras" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "exhibitions" %}?type=passadas">{% trans "passadas" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "exhibitions" %}?type=actuais">{% trans "actuais" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "exhibitions" %}?type=futuras">{% trans "futuras" %}</a></li>
                     </ul>
                 </li>
                 <!-- artists item  -->
                 <li class="nav-item dropdown text-uppercase">
-                    <a class="nav-link dropdown-toggle {% active request '/artistas' %}" href="/artistas" id="artistsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {% active request '/artistas' %}" href="{% url "artists" %}" id="artistsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {% trans 'artistas' %}</a>
                     <ul class="dropdown-menu {% active request '/artistas' %}" aria-labelledby="artistsDropdown">
-                        <li><a class="dropdown-item" href="{% url "ceramics" %}">{% trans "cerâmica" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "drawing" %}">{% trans "desenho" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "sculpture" %}">{% trans "escultura" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "photography" %}">{% trans "fotografia" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "jewelry" %}">{% trans "joalharia" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "medals" %}">{% trans "medalhística" %}</a></li>
-                        <li><a class="dropdown-item" href="{% url "painting" %}">{% trans "pintura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=ceramica">{% trans "cerâmica" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=desenho">{% trans "desenho" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=escultura">{% trans "escultura" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=fotografia">{% trans "fotografia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=joalharia">{% trans "joalharia" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=medalhistica">{% trans "medalhística" %}</a></li>
+                        <li><a class="dropdown-item" href="{% url "artists" %}?type=pintura">{% trans "pintura" %}</a></li>
                     </ul>
                 </li>
                 <!-- publications item  -->
                 <li class="nav-item dropdown text-uppercase">
-                    <a class="nav-link dropdown-toggle {% active request '/publicacoes' %}" href="/publicacoes" id="publicationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'publicações'%}</a>
+                    <a class="nav-link dropdown-toggle {% active request '/publicacoes' %}" href="{% url "publications" %}s" id="publicationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans 'publicações'%}</a>
                     <ul class="dropdown-menu" aria-labelledby="publicationsDropdown">
                         {% with letters="AF" %}
-                            <li><a class="dropdown-item" href="{% url "catalogs" letters %}">{% trans "catálogos" %}</a></li>
-                            <li><a class="dropdown-item" href="{% url "critics" letters %}">{% trans "crítica" %}</a></li>
-                            <li><a class="dropdown-item" href={% url "press" letters %}>{% trans "imprensa" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url "publications" %}?type=catalogo">{% trans "catálogos" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url "publications" %}?type=critica">{% trans "crítica" %}</a></li>
+                            <li><a class="dropdown-item" href="{% url "publications" %}?type=imprensa">{% trans "imprensa" %}</a></li>
                         {% endwith %}
                     </ul>
                 </li>

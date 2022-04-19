@@ -20,9 +20,9 @@ autohooks = "^21.3.0"
 autohooks-plugin-black = "^1.2.0"
 autohooks-plugin-isort = "^1.0.0"
 
-[tool.autohooks]
-mode = "poetry"
-pre-commit = ["autohooks.plugins.black", "autohooks.plugins.isort"]
+#[tool.autohooks]
+#mode = "poetry"
+#pre-commit = ["autohooks.plugins.black", "autohooks.plugins.isort"]
 
 [tool.isort]
 multi_line_output = 3

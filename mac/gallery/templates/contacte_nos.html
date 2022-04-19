@@ -1,0 +1,30 @@
+{% extends "gallery/templates/contactos.html" %}
+{% load i18n %}
+
+{% block sections %}
+<div class="section">
+    <h2>{% trans "contacte-nos" %}</h2>
+
+    <form action="{% url "contact_us" %}" method="POST">
+        <p>
+            <label for="id_subject">{% trans "Assunto" %}:</label>
+            <input id="id_subject" type="text" name="subject" maxlength="100" size="36"/>
+        </p>
+
+        <p>
+            <label for="id_message">{% trans "Mensagem" %}:</label>
+        </p>
+
+        <textarea cols="50" rows="10" name="message" id="id_message"></textarea>
+
+        <p>
+            <label for="id_sender">{% trans "O seu email" %}:</label>
+            <input type="text" name="sender" id="id_sender" size="34"/>
+        </p>
+
+        <input type="submit" value="Enviar" />
+
+    </form>
+
+</div>
+{% endblock %}	

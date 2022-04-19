@@ -1,0 +1,17 @@
+{% extends "art/templates/artists.html" %}
+{% load i18n static %}
+
+{% block sections %}
+{% if artist %}
+<div class="section">
+    <h2><a href="{% url "artists" %}">{% trans "artistas" %}</a> - <a href="{% url "artist_detail" artist.id %}">{{ artist.name }}</a> - {% trans "imprensa" %}</h2>
+    {% for article in press %}
+    <div class="mb2"><a href="{% get_media_prefix %}{{ article.file }}">
+            {{ article.artist.name }} - "{{ article.title }}"
+            in {{ article.editor }}
+            {% if article.date %} | {{ article.date }}{% endif %} <i class="bi bi-arrow-up-right-square"></i></a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
